@@ -1,0 +1,1193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FOODBUNNY</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/my.css">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/animate.css_4.1.1_animate.min.css">
+    <style>
+        body {
+            background-color: var(--mycolor15);
+        }
+
+        .bg01 {
+            background-image: url(images/bg006.png);
+            height: 1100px;
+        }
+
+        .nav_area {
+            position: fixed;
+            top: 20%;
+            right: 0;
+        }
+
+        .nav_area ul {
+            margin: 10px;
+            padding: 10px;
+        }
+
+        .nav_area ul li {
+            list-style-type: none;
+            display: block;
+            margin: 0;
+            font-size: 20px;
+        }
+
+        .box07 {
+            width: 40px;
+            height: 140px;
+            background-color: white;
+            border-radius: 50px;
+        }
+
+        .link_top {
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+        }
+
+        .link_top ul {
+            margin: 1px;
+            padding: 1px;
+        }
+
+        .link_top ul li {
+            list-style-type: none;
+            display: block;
+
+            font-size: 20px;
+            text-align: center;
+        }
+
+        .box08 {
+            width: 40px;
+            height: 40px;
+            background-color: white;
+            border-radius: 50%;
+        }
+
+        .s05_image {
+            position: absolute;
+            background-image: url(images/bg010.jpg);
+            top: 0;
+            bottom: 0;
+            z-index: -1;
+        }
+
+        .c_text,
+        .s09_text,
+        .s32_text {
+            color: #ffffff;
+            background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5));
+            padding: 15px;
+            margin: 15px;
+            border-radius: 15px;
+        }
+
+        .s10_text {
+            color: #ffffff;
+            background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5));
+            border-radius: 15px;
+        }
+
+        .s07_text {
+            color: black;
+        }
+
+        .modal_line {
+            position: relative;
+        }
+
+        .modal_line:before {
+            position: absolute;
+            content: "";
+            top: 0;
+            bottom: 0;
+            width: 1px;
+            background-color: rgba(0, 0, 0, 0.2);
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .timeline-section {
+            position: relative;
+        }
+
+        .timeline-section:before {
+            position: absolute;
+            content: "";
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background-color: #fee19f;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .timeline-section-pointer {
+            position: relative;
+        }
+
+        .timeline-section-pointer:before {
+            position: absolute;
+            content: "";
+            top: 50%;
+
+            width: 15px;
+            height: 15px;
+            border-radius: 15px;
+            border: 3px solid var(--mycolor15);
+            background-color: #ffa289;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .timeline-section-pointer:hover:before {
+            width: 25px;
+            height: 25px;
+        }
+
+        footer h5 {
+            display: inline-block;
+            color: black;
+        }
+
+        @media screen and (max-width:768px) {
+
+            .s05_text,
+            .s08_text {
+                color: #ffffff;
+                background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5));
+                padding: 15px;
+                margin: 15px;
+                border-radius: 15px;
+            }
+
+            .s05_image {
+                right: 0;
+            }
+
+            .s08_image {
+                left: 0;
+            }
+        }
+    </style>
+</head>
+
+<body oncontextmenu="window.event.returnValue=false">
+    <div class="wrapper">
+        <div class="content in">
+            <!-- 連結 -->
+            <div class="nav_area wow animate__fadeInRight" data-wow-delay="0s" data-wow-duration="2s">
+                <ul class="box07">
+                    <li>
+                        <a class="nav-link active" aria-current="page" href="https://www.tiktok.com/zh-Hant-TW/"
+                            target="_blank">
+                            <i class="fa-brands fa-tiktok fa-1x text-dark"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="nav-link active" aria-current="page" href="https://www.instagram.com/"
+                            target="_blank">
+                            <i class="fa-brands fa-instagram fa-1x text-danger"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="https://zh-tw.facebook.com/" target="_blank">
+                            <i class="fa-brands fa-square-facebook fa-1x text-primary"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="https://twitter.com/" target="_blank">
+                            <i class="fa-brands fa-square-twitter fa-1x text-info"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <!-- 回到最上層 -->
+            <div class="link_top wow animate__bounce" data-wow-delay="5s" data-wow-duration="4s"
+                data-wow-iteration="infinite">
+                <ul class="box08">
+                    <li>
+                        <a class="nav-link" href="#">
+                            <i class="fa-solid fa-angle-up fa-1x"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <!-- 主選單 -->
+            <div class="bg01 bg-cover img-fluid">
+                <div class="container">
+                    <header class="header-rwd" id="NEWS">
+                        <div class="container-fluid">
+                            <nav class="navbar navbar-expand-lg navbar-collapse">
+                                <div class="container-fluid">
+                                    <a class="navbar-brand" href="#">
+                                        <img src="images/FOODBUNNY-b.png" style="height: 80px; top: 0; left: 0;"
+                                            class="logo img-fluid bg-cover" alt="logo">
+                                    </a>
+                                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                                        aria-expanded="false" aria-label="Toggle navigation">
+                                        <span class="navbar-toggler-icon"></span>
+                                    </button>
+                                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                                            <!-- NEWS -->
+                                            <li class="nav-item">
+                                                <a class="nav-link active" aria-current="page" href="#NEWS">
+                                                    最新消息</a>
+                                            </li>
+                                            <!-- SERVICE -->
+
+                                            <li class="nav-item dropdown">
+                                                <a class="nav-link dropdown-toggle" href="#SERVICE" role="button"
+                                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                                    服務項目
+                                                </a>
+                                                <ul class="dropdown-menu">
+                                                    <li><a class="dropdown-item" href="#SERVICE">服務環境</a></li>
+                                                    <li><a class="dropdown-item" href="#MENU">菜單品項</a></li>
+                                                    <li>
+                                                        <hr class="dropdown-divider">
+                                                    </li>
+                                                    <li><a class="dropdown-item" href="#order">線上點餐步驟</a></li>
+                                                </ul>
+                                            </li>
+                                            <!-- VISION -->
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="#VISION">企業精神</a>
+                                            </li>
+                                            <!-- OVERVIEW -->
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="#ABOUT">關於我們</a>
+                                            </li>
+
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="#RECRUIT">團隊招募</a>
+                                            </li>
+                                            <!-- CONTANT -->
+                                            <li class="nav-item">
+                                                <a href="#" class="nav-link" data-bs-toggle="modal"
+                                                    data-bs-target="#contantModal">聯絡我們</a>
+                                            </li>
+                                        </ul>
+                                        <form class="d-flex" role="search">
+                                            <a href="#" class="btn btn-outline-primary me-2" data-bs-toggle="modal"
+                                                data-bs-target="#loginModal" id="nav_login_btn">登入</a>
+                                            <a href="#" class="btn btn-primary" data-bs-toggle="modal"
+                                                data-bs-target="#registerModal" id="nav_register_btn">註冊</a>
+                                            <a href="20230810-control_panel.html" target="_blank"
+                                                class="btn btn-danger ms-2 d-none" id="nav_control_btn">後臺管理</a>
+                                            <span>
+                                                <h3 class="text-success ms-1 d-none" id="login_meaasge">歡迎xxx回來</h3>
+                                            </span>
+                                            <a href="#" class="btn btn-success ms-2 d-none" id="nav_logout_btn">登出</a>
+                                        </form>
+                                    </div>
+                                </div>
+                            </nav>
+                        </div>
+                    </header>
+                    <div class="row d-flex flex-column" style="height: 70vh;">
+                        <div class="col mb-auto"></div>
+                        <h3 class="fw-700 text-danger wow animate__heartBeat" data-wow-delay="0s"
+                            data-wow-duration="2s">NEWS</h3>
+                        <div class="col s07_text">
+                            <dl class="row">
+                                <dt class="col-sm-3">2023.07.25</dt>
+                                <dd class="col-sm-9">
+                                    <p>新品上市... <a href="#" class="btn btn">more..</a></p>
+
+                                </dd>
+
+                                <dt class="col-sm-3">2023.07.12</dt>
+                                <dd class="col-sm-9">
+                                    <p>提供外送服務..<a href="#" class="btn btn">more..</a></p>
+                                </dd>
+
+                                <dt class="col-sm-3">2023.06.27</dt>
+                                <dd class="col-sm-9">
+                                    <p>提供外帶自取服務..<a href="#" class="btn btn">more..</a></p>
+                                </dd>
+
+                                <dt class="col-sm-3 text-truncate">2023.06.20</dt>
+                                <dd class="col-sm-9">
+                                    <p>FOODBUNNY開幕..<a href="#" class="btn btn">more..</a></p>
+                                </dd>
+                            </dl>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 2.服務項目 -->
+            <section id="SERVICE" class="py-5">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4 text-center">
+                            <i class="fa-solid fa-utensils fa-6x text-secondary"></i>
+                            <h3 class="fw-700 my-3 text-primary">店內用餐</h3>
+                            <p class="text-black fw-700">在舒適環境的餐廳內，享受熱騰的美食。</p>
+                        </div>
+                        <div class="col-md-4 text-center">
+                            <i class="fa-solid fa-bag-shopping fa-6x text-secondary"></i>
+                            <h3 class="fw-700 my-3 text-primary">外帶自取</h3>
+                            <p class="text-black fw-700">線上點餐，來店不用排隊等待。</p>
+                        </div>
+                        <div class="col-md-4 text-center">
+                            <i class="fa-solid fa-motorcycle fa-6x text-secondary"></i>
+                            <h3 class="fw-700 my-3 text-primary">外送服務</h3>
+                            <p class="text-black fw-700">線上外送點餐系統，將熱乎的美食送到你家。</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- 3.細部介紹 -->
+            <section id="SERVICE01" style="position: relative;">
+                <div class="row">
+                    <div class="col-md-5 bg-cover img-fluid s05_image wow animate__fadeInLeft" data-wow-delay="0s"
+                        data-wow-duration="2s">
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row justify-content-end">
+                        <div class="col-md-7 py-3 s05_text wow animate__fadeInRight" data-wow-delay="0s"
+                            data-wow-duration="2s">
+                            <h2>FOODBUNNY餐廳</h2>
+                            <p>FOODBUNNY主打暖色調，以米色及淺黃色的搭配，營造出溫馨、舒適的感覺。從裝潢到擺設，都以法國餐廳的特色呈現，利用壁燈搭配使用柔和的燈光，營造出浪漫的氛圍，強調浪漫、優雅和精緻。
+                            </p>
+                            <p>店內用餐以預約制方式為主，並以QRcode方式進行點餐。</p>
+                            <p>讓顧客體驗到賓至如歸感覺，可以很放鬆的在這裡享受餐點。</p>
+                            <a href="#" class="btn btn-outline-info">查看更多</a>
+                            <div class="row mt-3">
+                                <div class="col-6">
+                                    <h3>裝飾品、花卉</h3>
+                                    <p>在餐廳中擺放一些精美的裝飾品，例如小雕塑、油畫、古董家具或紡織品等等，可以增加餐廳的藝術氛圍。</p>
+                                    <p>在餐廳中擺放鮮花或綠色植物，例如玫瑰、百合、薰衣草或香草等等，可以增加浪漫和自然的氣息。</p>
+                                </div>
+                                <div class="col-6">
+                                    <h3>桌布、玻璃器皿</h3>
+                                    <p>使用白色或淺色的桌布，可以讓餐廳看起來更加乾淨、整潔和高雅。</p>
+                                    <p>使用精美的玻璃器皿，例如香檳杯或酒杯，可以增加餐廳的奢華感和精緻感。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- MENU -->
+            <section id="MENU" style="position: relative;">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-7 s08_text mt-4 wow animate__fadeInLeft" data-wow-delay="0s"
+                            data-wow-duration="2s">
+                            <!-- typography -->
+                            <dl class="row">
+                                <dt class="col-sm-3">前菜</dt>
+                                <dd class="col-sm-9">
+                                    <p>法式洋蔥湯 French Onion Soup</p>
+                                    <p>生蠔 Oysters on the Half Shell</p>
+                                    <p>鵝肝醬配香料脆餅 Foie Gras with Spiced Crisps</p>
+                                </dd>
+
+                                <dt class="col-sm-3">主菜</dt>
+                                <dd class="col-sm-9">
+                                    <p>牛排配薯條 Steak Frites</p>
+                                    <p>紅酒燉牛肉 Beef Bourguignon</p>
+                                    <p>烤鴨胸配櫻桃醬 Grilled Duck Breast with Cherry Sauce</p>
+                                </dd>
+
+                                <dt class="col-sm-3">甜點</dt>
+                                <dd class="col-sm-9">
+                                    <p>法式焦糖布丁 Crème Brûlée</p>
+                                    <p>巧克力慕斯 Chocolate Mousse</p>
+                                    <p>水果塔 Fruit Tart</p>
+                                </dd>
+                            </dl>
+                            </dd>
+                            </dl>
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-end">
+                    <div class="col-md-5 bg-cover img-fluid s08_image wow animate__fadeInRight" data-wow-delay="0s"
+                        data-wow-duration="2s"
+                        style="position: absolute; background-image: url(images/bg012.jpg); top: 0; bottom: 0;z-index: -1;">
+                    </div>
+                </div>
+            </section>
+
+            <!-- 時間軸 -->
+            <section id="order" class="bg-cover"
+                style="background-image: url(images/bg013.jpg); background-attachment: fixed;">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-md-4 s10_text">
+                            <h2 class="fw-700 text-primary">線上點餐注意事項</h2>
+                            <p>1.確認餐廳的營業時間，以免在非營業時間下單。</p>
+                            <p>2.確認您的訂單內容，包括餐點、數量、價格等，以免下單錯誤。</p>
+                            <p>3.確認您的收件人姓名、地址、聯絡電話等資訊是否正確，以免送餐出現問題。</p>
+                            <p>4.確認餐廳是否提供外送服務，如果有，請確認外送費用及送餐時間。</p>
+                            <p>5.如果您有任何特殊需求，例如食物過敏、不加某種調味料等，請在下單時備註清楚，以便餐廳安排。</p>
+                            <p>6.注意餐廳的評價和口碑，選擇信譽良好的餐廳下單。</p>
+                            <p>7.確認餐廳是否提供線上付款服務，如果有，請注意付款方式和安全性。</p>
+                            <p>8.如果您需要更改訂單內容或取消訂單，請盡早聯繫餐廳客服處理。</p>
+                            <p>9.如果您需要準時用餐，請提前預訂，以確保餐點能夠準時送達。</p>
+                            <p>10.如果您對餐廳的服務不滿意，請及時反饋，以便餐廳改進服務品質。</p>
+                        </div>
+                        <div class="col-md-8 timeline-section">
+                            <div class="row timeline-section-pointer align-items-center">
+                                <div class="col-6">
+                                    <div class="s32_text">
+                                        <h2>1.掃描QRcode</h2>
+                                        <p>以線上方式訂餐
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <img src="images/qrcode.jpg" alt="" class="img-fluid ms-2">
+                                </div>
+                            </div>
+                            <div class="row flex-row-reverse timeline-section-pointer align-items-center">
+                                <div class="col-6">
+                                    <div class="s32_text">
+                                        <h2>2.點選美食</h2>
+                                        <p>單點與套餐
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <img src="images/bg-006.jpg" alt="" class="img-fluid me-3">
+                                </div>
+                            </div>
+                            <div class="row timeline-section-pointer align-items-center">
+                                <div class="col-6">
+                                    <div class="s32_text">
+                                        <h2>3.訂單確認</h2>
+                                        <p>確認選項是否正確
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <img src="images/menu01.jpg" alt="" class="img-fluid">
+                                </div>
+                            </div>
+                            <div class="row flex-row-reverse timeline-section-pointer align-items-center">
+                                <div class="col-6">
+                                    <div class="s32_text">
+                                        <h2>4.送出等待</h2>
+                                        <p>完成訂單後，需稍等製作時間15-20分鐘
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <img src="images/menu02.jpg" alt="" class="img-fluid">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 4.企業精神 -->
+            <section id="VISION">
+                <div class="container">
+                    <h2 class="display-4 fw-900 text-center text-primary my-4">獻上最好的美食給顧客</h2>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="d-flex align-items-center">
+                                <i class="fa-solid fa-truck-moving fa-6x me-2 text-danger"></i>
+                                <div>
+                                    <h1 class="fw-900 text-center">新鮮食材</h1>
+                                    <p>強調使用新鮮、高品質的食材，例如在菜單上標註採用當季的水果或蔬菜，或者在餐廳內設置展示食材的區域，讓客人可以看到食材的來源和品質。</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="d-flex align-items-center">
+                                <i class="fa-solid fa-mug-hot fa-6x me-2 text-warning"></i>
+                                <div>
+                                    <h1 class="fw-900 text-center">舒適環境</h1>
+                                    <p>描述餐廳的氛圍和裝潢，例如使用柔和的燈光、舒適的座椅、音樂和芬香的香氛等等。此外，您也可以提到餐廳的佈置和設計，例如使用綠色植物、藝術品和裝飾品等等</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="d-flex align-items-center">
+                                <i class="fa-regular fa-thumbs-up fa-6x me-2 text-primary"></i>
+                                <div>
+                                    <h1 class="fw-900 text-center">服務品質</h1>
+                                    <p>強調餐廳提供優質的服務，例如友善的員工、迅速的點餐和上菜速度、專業的建議和推薦等等。您也可以提到餐廳提供的額外服務，例如免費WiFi、兒童座椅、外送服務等等
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="d-flex align-items-center">
+                                <i class="fa-regular fa-handshake fa-6x me-2 text-success"></i>
+                                <div>
+                                    <h1 class="fw-900 text-center">員工待遇</h1>
+                                    <p>如果您想要強調餐廳對員工的重視，可以提到員工福利、培訓計畫、晉升機會等等。此外，您也可以提到員工對顧客的禮儀和禮貌，以及他們對於餐廳的熱情和熟悉度。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 5.餐廳介紹 -->
+            <section id="ABOUT">
+                <div class="container-fluid">
+                    <div class="row align-items-center">
+                        <div class="col-md-5 bg-cover wow animate__fadeInLeft" data-wow-delay="0s"
+                            data-wow-duration="2s" style="background-image: url(images/bg011.jpg);height: 600px;">
+                        </div>
+                        <div class="col-md-7 p-5 wow animate__fadeInRight" data-wow-delay="0s" data-wow-duration="1s">
+                            <h1>民國113年<span class="text-success-emphasis fw-900">全台第一家</span></h1>
+                            <h1>FOODBUNNY餐廳</h1>
+                            <p class="mb-1 mt-4">獨到的 <span class="text-danger h1">創新</span>,</p>
+                            <p class="mb-1">優質的 <span class="text-warning h1">食材</span>,</p>
+                            <p class="mb-1">完善的 <span class="text-primary h1">服務</span>,</p>
+                            <p class="mb-1">放鬆的 <span class="text-success h1">環境</span>.</p>
+                            <div class="row">
+                                <div class="col-md-3 mt-4">
+                                    <h4 class="fw-700">平均訂單</h4>
+                                    <h2 class="fw-700 counter01">1586<span class="h4">/筆</span></h2>
+                                </div>
+                                <div class="col-md-3 mt-4">
+                                    <h4 class="fw-700">獲獎項目</h4>
+                                    <h2 class="fw-700 counter02">18<span class="h4">/項</span></h2>
+                                </div>
+                                <div class="col-md-3 mt-4">
+                                    <h4 class="fw-700">專業競爭</h4>
+                                    <h2 class="fw-700 counter03">27<span class="h4">/項</span></h2>
+                                </div>
+                                <div class="col-md-3 mt-4">
+                                    <h4 class="fw-700">服務據點</h4>
+                                    <h2 class="fw-700 counter04">52<span class="h4">/個</span></h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 幻燈片 -->
+            <section id="carousel">
+                <div class="container mt-3">
+                    <div class="row">
+                        <div class="col">
+                            <div id="carouselExampleCaptions" class="carousel slide rounded-5">
+                                <div class="carousel-indicators rounded-5">
+                                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0"
+                                        class="active" aria-current="true" aria-label="Slide 1"></button>
+                                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+                                        aria-label="Slide 2"></button>
+                                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+                                        aria-label="Slide 3"></button>
+                                </div>
+                                <div class="carousel-inner rounded-5">
+                                    <div class="carousel-item active img-fluid bg-cover rounded-5"
+                                        style="height: 480px; background-image: url(images/bg014.jpg);">
+                                        <div class="carousel-caption d-none d-md-block carousel_text c_text">
+                                            <h5>享受美食</h5>
+                                            <p>enjoy food</p>
+                                        </div>
+                                    </div>
+                                    <div class="carousel-item active img-fluid bg-cover  rounded-5"
+                                        style="height: 480px; background-image: url(images/bg015.jpg);">
+                                        <!-- <img src="images/bunny15.jpg" class="d-block w-100" alt="..."> -->
+                                        <div class="carousel-caption d-none d-md-block carousel_text  c_text">
+                                            <h5>吧檯</h5>
+                                            <p>alcoholic liquid</p>
+                                        </div>
+                                    </div>
+                                    <div class="carousel-item active img-fluid bg-cover  rounded-5"
+                                        style="height: 480px; background-image: url(images/bg016.jpg);">
+                                        <!-- <img src="images/bunny19.jpg" class="d-block w-100" alt="..."> -->
+                                        <div class="carousel-caption d-none d-md-block carousel_text  c_text">
+                                            <h5>裝潢擺設</h5>
+                                            <p>charming atmosphere</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button class="carousel-control-prev" type="button"
+                                    data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Previous</span>
+                                </button>
+                                <button class="carousel-control-next" type="button"
+                                    data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Next</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- 6.公司徵才 -->
+            <section id="RECRUIT">
+                <div class="container-fluid mt-3">
+                    <div class="row">
+                        <div class="col-md-6 bg-cover img-fluid"
+                            style="background-image: url(images/bg007.jpg); height: 360px;">
+                            <div class="row">
+                                <div class="col md-8 s09_text wow animate__slideInLeft" data-wow-duration="2s"
+                                    data-wow-delay="0s">
+                                    <small class="text-bg-success p-1 rounded-1">加入我們</small>
+                                    <h2 class="mt-2">誠徵合作夥伴</h2>
+                                    <p>對服務有熱誠的朋友們，歡迎加入FOODBUNNY的行列。</p>
+                                    <p>待遇: 內洽</p>
+                                    <a href="#" class="btn btn-outline-warning" data-bs-toggle="modal"
+                                        data-bs-target="#joinModal">加入我們</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 bg-cover img-fluid"
+                            style="background-image: url(images/bg008.jpg); height: 360px;">
+                            <div class="row">
+                                <div class="col md-8 s09_text wow animate__slideInRight" data-wow-duration="2s"
+                                    data-wow-delay="0s">
+                                    <small class="text-bg-success p-1 rounded-1">聯絡我們</small>
+                                    <h2 class="mt-2">CONTANT</h2>
+                                    <p>食材供應、合作聯名...</p>
+                                    <p>餐廳建議、員工相關問題、外送服務建議...</p>
+                                    <form class="d-flex" role="search">
+                                        <a href="#" class="btn btn-warning me-2" data-bs-toggle="modal"
+                                            data-bs-target="#contantModal">聯絡我們</a>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Modal 會員登入-->
+            <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header text-bg-success">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">會員登入</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="mb-3">
+                                <label for="login_username" class="form-label">帳號</label>
+                                <input type="text" class="form-control" id="login_username" placeholder="請輸入帳號">
+                            </div>
+                            <div class="mb-3">
+                                <label for="login_password" class="form-label">密碼</label>
+                                <input type="text" class="form-control" id="login_password" placeholder="請輸入密碼!">
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <a href="#" class="me-auto" data-bs-toggle="modal" data-bs-target="#registerModal">還沒有帳號,
+                                註冊去!</a>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+                            <button type="button" class="btn btn-success" id="login_btn">登入</button>
+                            <div id="showlogin"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- registerModal 會員註冊 -->
+            <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header text-bg-warning">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">會員註冊</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row modal-line">
+                                <div class="col-6">
+                                    <h3>會員守則</h3>
+                                    <p>1.提供真實、準確的個人資料，並保護好自己的帳號和密碼。</p>
+                                    <p>2.遵守網站的規章制度，不發表違法、不良言論，不從事任何非法活動。</p>
+                                    <p>3.尊重他人的知識產權和隱私權，不侵犯他人的合法權益。</p>
+                                    <p>4.維護良好的網絡秩序，不發表不實言論、不散佈謠言、不攻擊他人。</p>
+                                    <p>5.不利用網站進行商業活動或其他非法活動。</p>
+                                    <p>6.不利用網站傳播病毒、木馬等有害程序，不干擾網站正常運行。</p>
+                                    <p>7.遵守網站的交易規則，不進行虛假交易、不詐騙他人。</p>
+                                    <p>8.如有違反會員守則或其他規定，網站有權對會員進行處罰，包括但不限於限制會員權利、停止服務等。</p>
+                                    <div class="form-check">
+                                        <input type="checkbox" name="" id="" class="form-check-input">
+                                        <label for="" class="form-check-label">遵守</label>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="mb-3">
+                                        <label for="username" class="form-label">帳號</label>
+                                        <input type="text" class="form-control" id="username" name="username"
+                                            placeholder="請輸入帳號">
+                                        <div class="valid-feedback" id="valid_message">帳號輸入正確</div>
+                                        <div class="invalid-feedback" id="invalid_message">帳號輸入錯誤</div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="password" class="form-label">密碼</label>
+                                        <input type="text" class="form-control" id="password" placeholder="請輸入密碼">
+                                        <div class="valid-feedback">密碼輸入正確</div>
+                                        <div class="invalid-feedback">密碼輸入錯誤</div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="repassword" class="form-label">確認密碼</label>
+                                        <input type="text" class="form-control" id="repassword" placeholder="重新輸入密碼">
+                                        <div class="valid-feedback">確認密碼輸入正確</div>
+                                        <div class="invalid-feedback">確認密碼輸入錯誤</div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="nickname" class="form-label">暱稱</label>
+                                        <input type="text" class="form-control" id="nickname" placeholder="請輸入暱稱">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="email" class="form-label">Email</label>
+                                        <input type="text" class="form-control" id="email" placeholder="請輸入Email">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <a href="#" class="me-auto" data-bs-toggle="modal" data-bs-target="#loginModal">有帳號,登入去!</a>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+                            <button type="button" class="btn btn-warning" id="reg_btn">確認註冊</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- contantModal 聯繫我們 -->
+            <div class="modal fade" id="contantModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header text-primary">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">聯絡我們</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="mb-3">
+                                <label for="name" class="form-label">姓名*</label>
+                                <input type="text" class="form-control" id="name" name="name" required
+                                    placeholder="請輸入姓名!">
+                                <div class="valid-feedback">輸入正確</div>
+                                <div class="invalid-feedback">輸入錯誤</div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="c_email" class="form-label">電子信箱*</label>
+                                <input type="text" class="form-control" id="c_email" name="c_email" required
+                                    placeholder="請輸入Email!">
+                                <div class="valid-feedback">輸入正確</div>
+                                <div class="invalid-feedback">輸入錯誤</div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="phone" class="form-label">電話號碼*</label>
+                                <input type="text" class="form-control" id="phone" name="phone" required
+                                    placeholder="請輸入電話號碼!">
+                                <div class="valid-feedback">輸入正確</div>
+                                <div class="invalid-feedback">輸入錯誤</div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+                            <button type="button" class="btn btn-primary" id="c_btn">確認內容</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- joinModal 加入我們 -->
+            <div class="modal fade" id="joinModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header text-primary">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">加入我們</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="mb-3">
+                                <label for="j_name" class="form-label">姓名*</label>
+                                <input type="text" class="form-control" id="j_name" name="j_name" required
+                                    placeholder="請輸入姓名!">
+                                <div class="valid-feedback">輸入正確</div>
+                                <div class="invalid-feedback">輸入錯誤</div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="j_email" class="form-label">電子信箱*</label>
+                                <input type="text" class="form-control" id="j_email" name="j_email" required
+                                    placeholder="請輸入Email!">
+                                <div class="valid-feedback">輸入正確</div>
+                                <div class="invalid-feedback">輸入錯誤</div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="j_phone" class="form-label">電話號碼*</label>
+                                <input type="text" class="form-control" id="j_phone" name="j_phone" required
+                                    placeholder="請輸入電話號碼!">
+                                <div class="valid-feedback">輸入正確</div>
+                                <div class="invalid-feedback">輸入錯誤</div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+                            <button type="button" class="btn btn-primary" id="j_btn">確認內容</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 隱私政策 -->
+            <div class="modal fade" id="ppModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+                aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-scrollable">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="staticBackdropLabel">隱私政策</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <p>1.我們會收集您提供的個人資料，並僅在必要時使用。</p>
+                            <p>2.我們會保護您的個人資料，並採取措施防止未經授權的訪問或使用。</p>
+                            <p>3.我們不會分享或出售您的個人資料給第三方。</p>
+                            <p>4.我們會遵守所有適用的隱私法規和標準。</p>
+                            <p>5.我們會定期審查和更新我們的隱私政策以確保其有效性和合法性。</p>
+                            <p>6.我們會提供您訪問、更正和刪除您的個人資料的權利。</p>
+                            <p>7.我們會使用安全的技術和程序來保護您的個人資料。</p>
+                            <p>8.我們會明確告知您我們收集和使用您的個人資料的目的。</p>
+                            <p>9.我們會尊重您的選擇，如果您不希望我們收集或使用您的個人資料，我們會尊重您的決定。</p>
+                            <p>10.我們會提供透明度和易於理解的隱私政策，以確保您能夠了解我們如何處理您的個人資料。</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">關閉</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- footer -->
+        <footer class="copyright my-3">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-2">
+                        <a href="#NEWS">
+                            <h5>最新消息</h5>
+                        </a>
+                    </div>
+                    <div class="col-md-2">
+                        <a href="#SERVICE">
+                            <h5>服務項目</h5>
+                        </a>
+                    </div>
+                    <div class="col-md-2">
+                        <a href="#VISION">
+                            <h5>企業精神</h5>
+                        </a>
+                    </div>
+                    <div class="col-md-2">
+                        <a href="#ABOUT">
+                            <h5>關於我們</h5>
+                        </a>
+                    </div>
+                    <div class="col-md-2">
+                        <a href="#RECRUIT">
+                            <h5>團隊招募</h5>
+                        </a>
+                    </div>
+                    <div class="col-md-2 ms-auto">
+                        <a href="#" data-bs-toggle="modal" data-bs-target="#ppModal">
+                            <h5>隱私政策</h5>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery-3.7.0.min.js"></script>
+    <script src="https://unpkg.com/counterup2@2.0.2/dist/index.js"></script>
+    <script src="js/wow.min.js"></script>
+    <script>
+        const counterUp = window.counterUp.default
+
+        const callback = entries => {
+            entries.forEach(entry => {
+                const el = entry.target
+                if (entry.isIntersecting && !el.classList.contains('is-visible')) {
+                    counterUp(el, {
+                        duration: 2000,
+                        delay: 16,
+                    })
+                    el.classList.add('is-visible')
+                }
+            })
+        }
+        const IO = new IntersectionObserver(callback, { threshold: 1 })
+
+        const el01 = document.querySelector('.counter01')
+        IO.observe(el01)
+
+        const el02 = document.querySelector('.counter02')
+        IO.observe(el02)
+
+        const el03 = document.querySelector('.counter03')
+        IO.observe(el03)
+
+        const el04 = document.querySelector('.counter04')
+        IO.observe(el04)
+
+
+        var flag_username = false;
+        var flag_password = false;
+        var flag_repassword = false;
+
+
+        $(function () {
+            // 確認uid是否存在, 若存在傳遞至後端check_uid_api.php確認是否合法
+            if (getCookie('uid01') != "") {
+                // uid 存在, 傳遞至後端check_uid_api.php確認是否合法
+                $.ajax({
+                    type: "POST",
+                    url: "api/check_uid_api.php",
+                    dataType: "json",
+                    data: { uid: getCookie('uid01') },
+                    success: showdata_check_uid,
+                    error: function () {
+                        alert("check_uid-api/check_uid_api.php");
+                    }
+                });
+            }
+            // 即時監聽 username
+            $("#username").bind("input propertychange", function () {
+                // console.log($(this).val().length);
+                if ($(this).val().length > 4 && $(this).val().length < 10) {
+                    // 符合規定
+                    // $(this).removeClass("is-invalid");
+                    // $(this).addClass("is-valid");
+                    flag_username = true;
+
+                    // 傳遞帳號至後端api確認是否可以使用
+                    $.ajax({
+                        type: "POST",
+                        url: "api/reg_check_uni_api.php",
+                        data: { username: $("#username").val() },
+                        dataType: "json",
+                        success: showdata_check_uni,
+                        error: function () {
+                            alert("error-api/reg_check_uni_api.php");
+                        }
+                    });
+                } else {
+                    // 不符合規定
+                    $("#invalid_message").text("此帳號字數不符合規定");
+                    $(this).removeClass("is-valid");
+                    $(this).addClass("is-invalid");
+                    flag_username = false;
+                }
+            });
+            // 即時監聽 password
+            $("#password").bind("input propertychange", function () {
+                // console.log($(this).val().length);
+
+                if ($(this).val().length > 5) {
+                    $(this).removeClass("is-invalid");
+                    $(this).addClass("is-valid");
+                    flag_password = true;
+                } else {
+                    $(this).removeClass("is-valid");
+                    $(this).addClass("is-invalid");
+                    flag_password = false;
+                }
+            });
+            // 即時監聽 repassword
+            $("#repassword").bind("input propertychange", function () {
+                // console.log($(this).val().length);
+
+                if ($(this).val().length > 5) {
+                    $(this).removeClass("is-invalid");
+                    $(this).addClass("is-valid");
+                    flag_repassword = true;
+                } else {
+                    $(this).removeClass("is-valid");
+                    $(this).addClass("is-invalid");
+                    flag_repassword = false;
+                }
+            });
+            // 按鈕監聽 reg_btn
+            $("#reg_btn").click(function () {
+                if (flag_username && flag_password && flag_repassword) {
+                    // 欄位正確
+                    $.ajax({
+                        type: "POST",
+                        url: "api/reg_api.php",
+                        data: { username: $("#username").val(), password: $("#password").val(), repassword: $("#repassword").val(), email: $("#email").val() },
+                        dataType: "json",
+                        success: showdata_reg,
+                        error: function () {
+                            alert("註冊錯誤-api/reg_api.php");
+                        }
+                    });
+                } else {
+                    // 欄位錯誤
+                    alert("欄位輸入錯誤, 請修正!");
+                }
+            });
+            // 按鈕監聽 login_btn
+            $("#login_btn").click(function () {
+                // console.log($("#login_username").val());
+                // console.log($("#login_password").val());
+                // 傳遞至 login_api.php 執行登入行為
+                $.ajax({
+                    type: "POST",
+                    url: "api/login_api.php",
+                    data: { username: $("#login_username").val(), password: $("#login_password").val() },
+                    dataType: "json",
+                    success: showdata_login,
+                    error: function () {
+                        alert("登入相關錯誤-api/login_api.php");
+                    }
+                });
+            });
+
+            // 監聽
+            $("#nav_logout_btn").click(function () {
+                logout();
+            });
+        });
+        function showdata_reg(data) {
+            console.log(data);
+            if (data.state) {
+                alert(data.state);
+                alert(data.message);
+                $("#registerModal").modal("hide");
+                $("#loginModal").modal("show");
+            } else {
+                alert(data.message);
+            }
+        }
+
+        function showdata_check_uni(data) {
+            // 考慮帳號可否使用和帳號是否符合規則的提示feedback顯示時間?
+            console.log(data);
+            if (data.state) {
+                // 此帳號不存在, 可以使用
+                $("#valid_message").text("此帳號不存在, 可以使用");
+                $("#username").removeClass("is-invalid");
+                $("#username").addClass("is-valid");
+                flag_username = true;
+            } else {
+                // 此帳號存在, 不可以使用
+                $("#invalid_message").text("此帳號存在, 不可以使用");
+                $("#username").removeClass("is-valid");
+                $("#username").addClass("is-invalid");
+                flag_username = false;
+            }
+        }
+
+        function showdata_login(data) {
+            console.log(data);
+            if (data.state) {
+                if(data.data[0].UserState == 'true'){
+                    //帳號被啟用
+                    //登入成功
+                    alert(data.message);
+                    //將uid存入cookie
+                    setCookie('uid01', data.data[0].Uid01, 7);
+                    //loginModal 隱藏
+                    $("#loginModal").modal("hide");
+
+                    //1. 登入 s20_login_btn 按鈕隱藏
+                    //2. 註冊 s20_register_btn 按鈕隱藏
+                    //3. 顯示 後台管理 按鈕(可連結至control panel)
+
+                    $("#s20_login_btn").addClass('d-none');
+                    $("#s20_register_btn").addClass('d-none');
+                    $("#s20_control_btn").removeClass('d-none');
+
+                    //顯示歡迎詞
+                    $("#login_meaasge").removeClass('d-none');
+                    $("#login_meaasge").text('歡迎會員: '+data.data[0].Username);
+
+                    //顯示登出按鈕
+                    $("#s20_logout_btn").removeClass('d-none');
+
+                    // location.href = "20230810-control_panel.html";                    
+                
+                }else{
+                    alert("此帳號被停權，請聯絡管理員!");
+                }
+                    
+            } else {
+                //登入失敗
+                alert(data.message);
+            }
+        }
+        function showdata_check_uid(data) {
+            console.log(data);
+            if (data.state) {
+                // 驗證成功 表示已登入
+                // 1.登入 login_btn 按鈕隱藏
+                // 2.註冊 register_btn 按鈕隱藏
+                // 3.顯示 後台管理 按鈕(可連結式至control panel)
+
+                $("#nav_login_btn").addClass('d-none');
+                $("#nav_register_btn").addClass('d-none');
+                $("#nav_control_btn").removeClass('d-none');
+
+                // 顯示歡迎詞
+                $("#login_meaasge").removeClass('d-none');
+                $("#login_meaasge").text('歡迎會員:' + data.data[0].Username);
+
+                // 顯示登出按鈕
+                $("#nav_logout_btn").removeClass('d-none');
+            } else {
+                // 驗證失敗 需要重新登入
+                $("#loginModal").modal("show");
+            }
+        }
+        // 登出帳號
+        // 刪除uid並重整畫面
+        function logout() {
+            setCookie('uid01', '', 7);
+            location.href = "20230720-1.html";
+        }
+        // w3c 
+        function setCookie(cname, cvalue, exdays) {
+            const d = new Date();
+            d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+            let expires = "expires=" + d.toUTCString();
+            document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+        }
+
+        function getCookie(cname) {
+            let name = cname + "=";
+            let decodedCookie = decodeURIComponent(document.cookie);
+            let ca = decodedCookie.split(';');
+            for (let i = 0; i < ca.length; i++) {
+                let c = ca[i];
+                while (c.charAt(0) == ' ') {
+                    c = c.substring(1);
+                }
+                if (c.indexOf(name) == 0) {
+                    return c.substring(name.length, c.length);
+                }
+            }
+            return "";
+        }
+
+    </script>
+    <script>
+        new WOW().init();
+    </script>
+</body>
+
+</html>

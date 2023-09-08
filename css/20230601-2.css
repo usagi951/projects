@@ -1,0 +1,150 @@
+:root {
+    --mycolor01: #CACFE3;
+    --mycolor02: #838bb2;
+    --mycolor03: #E4A998;
+    --mycolor04: #ce8467;
+    --mycolor05: #F2eee5;
+    --mycolor06: #e5c1c5;
+    --mycolor07: #c3e2dd;
+    --mycolor08: #6e91d1;
+    --mycolor09: #e1dcd9;
+    --mycolor10: #8d8681;
+    --mycolor11: #a67f78;
+    --mycolor12: #32435f;
+    --mycolor13: #dcc1b0;
+    --mycolor14: #869dab;
+    --mycolor15: #847072;
+    --mycolor16: #3d313f;
+
+}
+
+body {
+    background-color: var(--mycolor01);
+    padding-top: 15px;
+}
+
+.wrapper {
+    margin: 0 auto;
+    width: 1024px;
+}
+
+.wrapper img {
+    width: 100%;
+}
+
+.wrapper .logo {
+    width: 100%;
+    height: 254px;
+    background-color: var(--mycolor05);
+    background-image: url(../images/07.jpg);
+    background-position: center center;
+    background-size: cover;
+
+}
+
+nav {
+    background-color: var(--mycolor02);
+    text-align: center;
+}
+
+nav ul {
+    display: inline-block;
+}
+
+nav ul li {
+    float: left;
+    list-style-type: none;
+}
+
+nav ul li a {
+    display: block;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    background-color: var(--mycolor01);
+    margin-right: 2px;
+    color: var(--mycolor08);
+    text-decoration: none;
+    font-weight: bolder;
+}
+
+nav ul li a:hover {
+    background-color: var(--mycolor03);
+    color: var(--mycolor04);
+}
+
+.friend_link nav {
+    background-color: var(--mycolor06);
+}
+
+.friend_link nav ul li a {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 25px;
+    padding-right: 25px;
+    background-color: var(--mycolor07);
+}
+
+.friend_link nav ul li a:hover {
+    background-color: var(--mycolor05);
+    color: var(--mycolor04);
+}
+
+.content_in {
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    text-align: center;
+    background-color: var(--mycolor05);
+}
+
+.content_in h1 {
+    color: var(--mycolor12);
+    margin-bottom: 30px;
+}
+
+.content_in p {
+    font-size: 16px;
+    margin-bottom: 25px;
+}
+
+.content_in a {
+    display: block;
+    width: 135px;
+    height: 40px;
+    margin: 0 auto;
+    background-color: var(--mycolor09);
+    text-decoration: none;
+    color: var(--mycolor12);
+    font-size: 18px;
+    font-weight: bolder;
+    line-height: 40px;
+
+}
+
+.content_in a:hover {
+    background-color: var(--mycolor03);
+    color: var(--mycolor04);
+}
+
+.footer {
+    background-color: var(--mycolor11);
+    color: var(--mycolor09);
+    text-align: center;
+    margin-top: 5px;
+}
+
+.footer p {
+    font-size: 18px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-top: 0px;
+}
+
+@media screen and (max-width: 1024px) {
+    .wrapper {
+        width: 95%;
+    }
+}

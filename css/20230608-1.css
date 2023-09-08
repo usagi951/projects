@@ -1,0 +1,224 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap');
+
+:root {
+    --mycolor01: #CACFE3;
+    --mycolor02: #838bb2;
+    --mycolor03: #E4A998;
+    --mycolor04: #ce8467;
+    --mycolor05: #F2eee5;
+    --mycolor06: #e5c1c5;
+    --mycolor07: #c3e2dd;
+    --mycolor08: #6e91d1;
+    --mycolor09: #e1dcd9;
+    --mycolor10: #8d8681;
+    --mycolor11: #a67f78;
+    --mycolor12: #32435f;
+    --mycolor13: #dcc1b0;
+    --mycolor14: #869dab;
+    --mycolor15: #847072;
+    --mycolor16: #3d313f;
+}
+
+.section01 {
+    height: 100vh;
+    background-color: var(--mycolor02);
+    position: relative;
+}
+
+.box01 {
+    width: 200px;
+    height: 200px;
+    background-color: var(--mycolor01);
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.box02 {
+    width: 200px;
+    height: 200px;
+    background-color: var(--mycolor01);
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.box03 {
+    width: 200px;
+    height: 200px;
+    background-color: var(--mycolor01);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.box04 {
+    width: 200px;
+    height: 200px;
+    background-color: var(--mycolor01);
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.userimg {
+    position: absolute;
+    top: 30px;
+    bottom: 30px;
+    left: 30px;
+    right: 30px;
+    background-color: var(--mycolor03);
+    background-image: url(images/10.jpg);
+    /* 固定背景圖片 */
+    background-attachment: fixed;
+}
+
+.bg-cover {
+    background-size: cover;
+    background-position: center center;
+}
+
+.usertext {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--mycolor12);
+    font-weight: bolder;
+    text-align: center;
+    /* background-color: rgba(0, 0, 0, 0.3); */
+    background-image: linear-gradient(180deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5));
+    padding: 15px;
+}
+
+.usertext h1 {
+    font-size: 80px;
+    margin-bottom: 0;
+    font-family: 'Noto Sans TC', sans-serif;
+}
+
+.usertext h2 {
+    font-size: 48px;
+
+    font-family: 'Noto Sans TC', sans-serif;
+}
+
+.usertext p {
+    font-family: 'Noto Sans TC', sans-serif;
+    font-size: 32px;
+}
+
+.wrapper {
+    width: 1200px;
+}
+
+.section02 {
+    height: 380px;
+    background-color: #fff;
+    position: relative;
+}
+
+.section02 img {
+    height: 100%;
+}
+
+.circle01 {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background-color: var(--mycolor06);
+    position: absolute;
+    left: 10%;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    margin-right: 10%;
+    background-image: url(images/1.jpg);
+    text-align: center;
+    line-height: 270px;
+}
+
+.circle01 p {
+    color: #000;
+    font-size: 36px;
+    font-family: 'Noto Sans TC', sans-serif;
+}
+
+.circle01 a {
+    color: #b3dfd6;
+    text-decoration: none;
+}
+
+.circle02 {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background-color: var(--mycolor06);
+    position: absolute;
+    left: 40%;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    margin-right: 40%;
+    background-image: url(images/1.jpg);
+    text-align: center;
+    line-height: 270px;
+
+}
+
+.circle02 p {
+    color: #000;
+    font-size: 36px;
+    font-family: 'Noto Sans TC', sans-serif;
+}
+
+.circle02 a {
+    color: #b3dfd6;
+    text-decoration: none;
+}
+
+.circle03 {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    /* background-color: var(--mycolor06); */
+    position: absolute;
+    right: 10%;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    margin-left: 10%;
+    /* background-image: url(images/1.jpg); */
+    background-image: linear-gradient(180deg, rgb(118, 141, 216), rgba(114, 82, 231, 0.801));
+    text-align: center;
+    line-height: 270px;
+}
+
+.circle03 p {
+    color: #000;
+    font-size: 36px;
+    font-family: 'Noto Sans TC', sans-serif;
+}
+
+.circle03 a {
+    color: #b3dfd6;
+    text-decoration: none;
+}
+
+@media screen and (max-width: 1440px) {
+
+    .circle01 {
+        width: 20%;
+        height: 70%;
+
+    }
+
+    .circle02 {
+        width: 20%;
+        height: 70%;
+
+    }
+
+    .circle03 {
+        width: 20%;
+        height: 70%;
+    }
+
+}

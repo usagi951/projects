@@ -1,0 +1,33 @@
+:root {
+    --mycolor01: #CACFE3;
+    --mycolor02: #838bb2;
+    --mycolor03: #E4A998;
+    --mycolor04: #ce8467;
+    --mycolor05: #F2eee5;
+    --mycolor06: #e5c1c5;
+    --mycolor07: #c3e2dd;
+    --mycolor08: #6e91d1;
+    --mycolor09: #f5ddad;
+}
+
+.box {
+    width: 100px;
+    height: 100px;
+    border: 2px solid #838bb2;
+    padding: 5px;
+}
+
+.box01 {
+    width: 300px;
+    height: 300px;
+    border: 4px solid #CE8467;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.box02 {
+    width: 150px;
+    height: 150px;
+    border: 2px solid red;
+    background-color: var(--mycolor01);
+}

@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@1,300;1,400&display=swap');
+:root {
+    --mycolor01: #32435F;
+    --mycolor02: #838bb2;
+    --mycolor03: #ffb471;
+    --mycolor04: #ffa289;
+    --mycolor05: #e8c7b6;
+    --mycolor06: #FFC2C3;
+    --mycolor07: #89dab5;
+    --mycolor08: #6e91d1;
+    --mycolor09: #d5c5e9;
+    --mycolor10: #7e212c;
+    --mycolor11: #a67f78;
+    --mycolor12: #32435f;
+    --mycolor13: #50293c;
+    --mycolor14: #c2e3f4;
+    --mycolor15: #fae4b2;
+    --mycolor16: #ff6745;
+    --mycolor17: #ff7979;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+    list-style: none;
+    box-sizing: border-box;
+    border-collapse: inherit;
+}
+
+body {
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+.demo {
+    border: 5px solid var(--mycolor04);
+    margin: 15px;
+    padding: 15px;
+}
+
+.fw-100 {
+    font-weight: 100px;
+}
+
+.fw-300 {
+    font-weight: 300px;
+}
+
+.fw-500 {
+    font-weight: 500px;
+}
+
+.fw-700 {
+    font-weight: 700px;
+}
+
+.fw-900 {
+    font-weight: 900;
+}
+
+.demo {
+    border: 5px solid var(--mycolor04);
+    margin: 15px;
+    padding: 15px;
+}
+
+.box01{
+    height: 180px;
+    border: 5px solid var(--mycolor07);
+    background-color: var(--mycolor06);
+}
+.box02{
+    height: 150px;
+    /* width: 180px; */
+    border: 5px solid var(--mycolor12);
+    background-color: var(--mycolor07);
+    margin: 10px;
+}
+
+.bg-cover{
+    background-position: center center;
+    background-size: cover;
+}
+.box03{
+    height: 180px;
+    border-radius: 50%;
+    border: 5px solid var(--mycolor15);
+    background-color: var(--mycolor16);
+}
+.box04{
+    
+    height: 420px;
+    padding: 10px;
+    margin: 10px;
+    border: 5px solid #000;
+}
+.box05{
+    
+    width: 420px;
+    padding: 10px;
+    margin: 10px;
+    border: 5px solid #000;
+}
+
+.box06{
+    height: 400px;
+    width: 1px;
+}
+

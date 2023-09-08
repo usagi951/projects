@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap');
+
+:root {
+    --mycolor01: #CACFE3;
+    --mycolor02: #838bb2;
+    --mycolor03: #ffb471;
+    --mycolor04: #ffa289;
+    --mycolor05: #F2eee5;
+    --mycolor06: #FFC2C3;
+    --mycolor07: #89dab5;
+    --mycolor08: #6e91d1;
+    --mycolor09: #d5c5e9;
+    --mycolor10: #7e212c;
+    --mycolor11: #a67f78;
+    --mycolor12: #32435f;
+    --mycolor13: #50293c;
+    --mycolor14: #c2e3f4;
+    --mycolor15: #fee19f;
+    --mycolor16: #ff6745;
+}
+
+body {
+    font-family: 'Noto Sans TC', sans-serif;
+}
+.section01 {
+    height: 100vh;
+    background-color: var(--mycolor02);
+    position: relative;
+}
+
+.box01 {
+    width: 200px;
+    height: 200px;
+    background-color: var(--mycolor01);
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.box02 {
+    width: 200px;
+    height: 200px;
+    background-color: var(--mycolor01);
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.box03 {
+    width: 200px;
+    height: 200px;
+    background-color: var(--mycolor01);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.box04 {
+    width: 200px;
+    height: 200px;
+    background-color: var(--mycolor01);
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.userimg {
+    position: absolute;
+    top: 30px;
+    bottom: 30px;
+    left: 30px;
+    right: 30px;
+    background-color: var(--mycolor03);
+    background-image: url(images/10.jpg);
+    /* 固定背景圖片 */
+    background-attachment: fixed;
+}
+
+.bg-cover {
+    background-size: cover;
+    background-position: center center;
+}
+
+.usertext {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--mycolor12);
+    font-weight: bolder;
+    text-align: center;
+    /* background-color: rgba(0, 0, 0, 0.3); */
+    background-image: linear-gradient(180deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5));
+    padding: 15px;
+}
+
+.usertext h1 {
+    font-size: 80px;
+    margin-bottom: 0;
+    font-family: 'Noto Sans TC', sans-serif;
+}
+
+.usertext h2 {
+    font-size: 48px;
+
+    font-family: 'Noto Sans TC', sans-serif;
+}
+
+.usertext p {
+    font-family: 'Noto Sans TC', sans-serif;
+    font-size: 32px;
+}
+
+.section02{
+    height: 50vh;
+    position: relative;
+}
+
+.col{
+    position: absolute;
+    margin: 100px;
+    left: 20%;
+}
+
+.circle{
+    position: relative;
+    height: 200px;
+    float: left;
+    width: 200px;
+    border-radius: 50%;
+    background-color: var(--mycolor03);
+    text-align: center;
+    
+    display: block;
+    margin: 50px;
+}
+.circle p {
+    color: #000;
+    font-size: 36px;
+    font-family: 'Noto Sans TC', sans-serif;
+}
+.circle a{
+    text-decoration: none;
+    color: var(--mycolor08);
+    text-align: center;
+}

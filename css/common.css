@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@1,300;1,400&display=swap');
+
+body {
+    font-family: 'Noto Sans TC', sans-serif;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+.fw-100 {
+    font-weight: 100;
+}
+
+.fw-300 {
+    font-weight: 300;
+}
+
+.fw-500 {
+    font-weight: 500;
+}
+
+.fw-700 {
+    font-weight: 700;
+}
+
+.fw-900 {
+    font-weight: 900;
+}
+
+.demo {
+    border: 5px solid var(--mycolor04);
+    margin: 15px;
+    padding: 15px;
+}
+
+.box01{
+    height: 180px;
+    border: 5px solid var(--mycolor07);
+    background-color: var(--mycolor06);
+}
+.box02{
+    height: 180px;
+    /* width: 180px; */
+    border: 5px solid var(--mycolor12);
+    background-color: var(--mycolor07);
+}
+
+.bg-cover{
+    background-position: center center;
+    background-size: cover;
+}
+.box03{
+    height: 180px;
+    border-radius: 50%;
+    border: 5px solid var(--mycolor15);
+    background-color: var(--mycolor16);
+}
+.box04{
+    
+    height: 420px;
+    padding: 10px;
+    margin: 10px;
+    border: 5px solid #000;
+}
