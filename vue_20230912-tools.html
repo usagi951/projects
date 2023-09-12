@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>代辦事項 - Tools</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/my.css">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/animate.css_4.1.1_animate.min.css">
+    <style>
+        .completed {
+            text-decoration: line-through;
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8 mt-5">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1">代辦事項</span>
+                        <input type="text" class="form-control" v-model="newTodo">
+                        <button class="btn btn-outline-secondary" type="button" id="button-addon2"
+                            @click="addTodo()">Button</button>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">
+                            <ul class="nav nav-tabs">
+                                <li class="nav-item">
+                                    <a class="nav-link" @click="visibility = 'all'" :class="{'active' : visibility == 'all'}" href="#">全部</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" @click="visibility = 'active'" :class="{'active' : visibility == 'active'}" href="#">進行中</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" @click="visibility = 'completed'" :class="{'active' : visibility == 'completed'}" href="#">已完成</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-group">
+                                <li class="list-group-item" v-for="(item, key) in filterTodo">
+                                    <div class="d-flex justify-content-between">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value=""
+                                                id="flexCheckDefault" v-model="item.completed">
+                                            <label class="form-check-label" :class="{'completed' : item.completed}"
+                                                for="flexCheckDefault">
+                                                {{ item.title }}
+                                            </label>
+                                        </div>
+                                        <button type="button" class="btn-close btn-close-dark"
+                                            aria-label="Close" @click="remvoeTodo(item)"></button>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="card-footer d-flex justify-content-between">
+                            <span>還有XX筆任務未完成</span>
+                            <a href="#">清除所有任務</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+        const App = {
+            data() {
+                return {
+                    newTodo: '吃早餐',
+                    visibility: 'all',
+                    todos: [
+                        {
+                            id: '001',
+                            title: '線上學習',
+                            completed: false
+                        },
+                        {
+                            id: '002',
+                            title: '開會',
+                            completed: false
+                        },
+                        {
+                            id: '003',
+                            title: '打掃',
+                            completed: false
+                        },
+                        {
+                            id: '004',
+                            title: '購物',
+                            completed: false
+                        }
+                    ]
+                }
+            },
+            methods: {
+                addTodo() {
+                    console.log(Date.now());
+                    const timestamp = Date.now();
+                    const mytitle = this.newTodo.trim();
+                    if (!mytitle) {
+                        return;
+                    }
+
+                    this.todos.push({
+                        id: timestamp,
+                        title: mytitle,
+                        completed: false
+                    });
+                    this.newTodo = '';
+                },
+                remvoeTodo(todo) {
+                    const vm = this;
+                    const newIndex = vm.todos.findIndex((item, index) => {
+                        return todo.id == item.id
+                    });
+                    vm.todos.splice(newIndex, 1);
+                }
+            },
+            computed: {
+                filterTodo() {
+                    const vm = this;
+                    if(vm.visibility == 'all'){
+                        return vm.todos;
+                    }else if(vm.visibility == 'active'){
+                        const activeTodo = [];
+                        vm.todos.forEach((item, key) => {
+                            if(!item.completed){
+                                activeTodo.push(item);
+                            }
+                        });
+                        return activeTodo;
+                    }else if(vm.visibility == 'completed'){
+                        const completedTodo = [];
+                        vm.todos.forEach((item, key) => {
+                            if(item.completed){
+                                completedTodo.push(item);
+                            }
+                        });
+                        return completedTodo;
+                    }
+                }
+            }
+        }
+        Vue.createApp(App).mount('#app');
+    </script>
+</body>
+
+</html>

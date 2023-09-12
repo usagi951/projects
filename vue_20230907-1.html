@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vue 練習</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/my.css">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/animate.css_4.1.1_animate.min.css">
+    <style>
+        .box01 {
+            width: 180px;
+            height: 180px;
+            transition: transform 1s;
+        }
+
+        .rotate {
+            transform: rotate(45deg);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <!-- 1. v-if v-for 練習-->
+        <div class="demo">
+            <h2>1. v-if v-for 練習</h2>
+            <ul class="nav nav-tabs my-3">
+                <li class="nav-item">
+                    <a class="nav-link" href="#" v-on:click="mylink = '台北市'"
+                        v-bind:class="{'active' : mylink == '台北市'}">台北市</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" v-on:click="mylink = '台中市'"
+                        v-bind:class="{'active' : mylink == '台中市'}">台中市</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" v-on:click="mylink = '台南市'"
+                        v-bind:class="{'active' : mylink == '台南市'}">台南市</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" v-on:click="mylink = '台東市'"
+                        v-bind:class="{'active' : mylink == '台東市'}">台東市</a>
+                </li>
+            </ul>
+            <ul class="list-group">
+                <template v-for="(item, key) in list">
+                    <li class="list-group-item" v-if="item.city == mylink">
+                        {{ item.city }} 地區 {{ item.product }} 1公斤 {{ item.price }} 元
+                    </li>
+                </template>
+            </ul>
+        </div>
+        <!-- 2. 反轉文字 methods 宣告-->
+        <div class="demo">
+            <h2>2. 反轉文字 methods 宣告</h2>
+            <input type="text" class="form-control" v-model="reverseTxtx" name="" id="" v-on:keyup.enter="rText()"
+                v-on:keyup.esc="canaelText">
+            <!-- v-on.change="rText()"  -->
+            <a href="#" class="btn btn-primary my-2" v-on:click="rText()">反轉文字</a>
+            <h2>反轉文字: {{ r_Text }}</h2>
+            <h2>即時反轉文字(computed): {{ c_rText }}</h2>
+        </div>
+        <!-- 3. 旋轉-->
+        <div class="demo">
+            <div class="box01" v-bind:class="{'rotate' : !isRotate}"></div>
+            <hr class="my-4">
+            <a href="#" class="btn btn-outline-primary" v-on:click.prevent="isRotate = !isRotate">旋轉</a>
+        </div>
+        <!-- 4. BMI計算-->
+        <div class="demo">
+            <div class="mb-3">
+                <label for="" class="form-label">體重</label>
+                <input type="number" class="form-control" v-model="weight">
+            </div>
+            <div class="mb-3">
+                <label for="" class="form-label">身高</label>
+                <input type="number" class="form-control" v-model="height">
+            </div>
+            <a href="#" class="btn btn-success my-2" v-on:click.prevent="cal_bmi()">計算BMI</a>
+            <h2>您的BMI為: {{ bmi }}</h2>
+            <h2>您的BMI為(即時): {{ c_bmi }}</h2>
+        </div>
+        <!-- 5. 常用表單(input)練習 -->
+        <div class="demo">
+            <h2>5.常用表單(input)練習</h2>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="" v-model="checkboxM">
+                <label class="form-check-label" for="">
+                    是否要點餐(麥當勞)
+                </label>
+            </div>
+            <div v-if="checkboxM">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="漢堡" id="" v-model="checkboxM_array">
+                    <label class="form-check-label" for="">
+                        漢堡
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="薯條" id="" v-model="checkboxM_array">
+                    <label class="form-check-label" for="">
+                        薯條
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="雞塊" id="" v-model="checkboxM_array">
+                    <label class="form-check-label" for="">
+                        雞塊
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="麥脆雞" id="" v-model="checkboxM_array">
+                    <label class="form-check-label" for="">
+                        麥脆雞
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="可樂" id="" v-model="checkboxM_array">
+                    <label class="form-check-label" for="">
+                        可樂
+                    </label>
+                </div>
+                <select class="form-select" aria-label="Default select example" v-model="selectSugar">
+                    <option disabled>飲料甜度</option>
+                    <option value="全糖">全糖</option>
+                    <option value="半糖">半糖</option>
+                    <option value="微糖">微糖</option>
+                </select>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" value="現金" id="" v-model="radioPay">
+                    <label class="form-check-label" for="">
+                        現金
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" value="刷卡" id="" v-model="radioPay">
+                    <label class="form-check-label" for="">
+                        刷卡
+                    </label>
+                </div>
+
+                <hr>
+                <h2>您訂購的餐點為：</h2>
+                <ul class="list-group">
+                    <li class="list-group-item" v-for="(item, key) in checkboxM_array">
+                        {{ key+1 }} -- {{ item }}
+                    </li>
+                </ul>
+                <h2>您選擇的付款方式為: {{ radioPay }}</h2>
+                <h2>您選擇的飲料甜度為: {{ selectSugar }}</h2>
+            </div>
+
+        </div>
+        <script src="js/bootstrap.bundle.min.js"></script>
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+        <script>
+            const App = {
+                data() {
+                    return {
+                        // 下參數
+                        text01: 'hello',
+                        mylink: '台北市',
+                        reverseTxtx: '',
+                        r_Text: '', //文字反轉
+                        isRotate: false, //紀錄是否旋轉
+                        weight: 60,
+                        height: 160,
+                        bmi: 0,
+                        checkboxM: false,
+                        checkboxM_array: [],
+                        radioPay: '現金',
+                        selectSugar: '全糖',
+                        list: [
+                            {
+                                product: '草莓',
+                                price: 100,
+                                city: '台中市'
+                            },
+                            {
+                                product: '草莓',
+                                price: 150,
+                                city: '台北市'
+                            },
+                            {
+                                product: '香蕉',
+                                price: 80,
+                                city: '台中市'
+                            },
+                            {
+                                product: '香蕉',
+                                price: 90,
+                                city: '台北市'
+                            },
+                            {
+                                product: '西瓜',
+                                price: 300,
+                                city: '台北市'
+                            },
+                            {
+                                product: '西瓜',
+                                price: 200,
+                                city: '台南市'
+                            },
+                            {
+                                product: '水蜜桃',
+                                price: 600,
+                                city: '台東市'
+                            },
+                            {
+                                product: '水蜜桃',
+                                price: 650,
+                                city: '台中市'
+                            },
+                        ]
+
+                    }
+                },
+                methods: {
+                    rText() {
+                        // split 拆字
+                        // reverse 反轉
+                        // join 陣列
+                        this.r_Text = this.reverseTxtx.split('').reverse().join('');
+                    },
+                    canaelText() {
+                        this.r_Text = '';
+                        this.reverseTxtx = '';
+                    },
+                    cal_bmi() {
+                        new_height = this.height / 100;
+                        this.bmi = this.weight / (new_height * new_height);
+                    }
+                },
+                computed: {
+                    // 回傳值
+                    c_bmi() {
+                        new_height = this.height / 100;
+                        return this.weight / (new_height * new_height);
+                    },
+                    c_rText() {
+                        return this.reverseTxtx.split('').reverse().join('');
+                    }
+                }
+            }
+            Vue.createApp(App).mount('#app');
+        </script>
+
+
+</body>
+
+</html>
