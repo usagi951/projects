@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>欄與列搭配斷點</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/my.css">
+    <style>
+        .logo{
+            margin-top: 5px;
+        }
+        .box02{
+            height: 180px;
+            margin-top: 10px;
+            text-align: center;
+            font-weight: bolder;
+            font-size: 26px;
+            line-height: 180px;
+        }
+        
+        .box04 {
+            border: 3px solid #000;
+            margin-top: 15px;
+            padding: 10px;
+        }
+
+        .footer {
+            margin: 10px;
+        }
+        .box{
+            margin-top: 15px;
+        }
+        .image_box{
+            height: 300px;
+        }
+       @media screen and(min-width:992px) {
+        .box02{
+            width: 180px;
+            border-radius: 50%;
+            margin: 10px auto;
+            background-color: #90d6ab;
+        }
+       }
+       @media screen and (min-width:1200px) {
+        .box02{
+            background-color: rgb(204, 84, 71);
+        }
+       }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 d-none d-sm-block">
+                <div class="logo"><img src="https://fakeimg.pl/1400x300/824" class="img-fluid"></div>
+            </div>
+        </div>
+        <div class="row text-center">
+            <div class="col-sm-6 col-md-3 ">
+                <div class="box02">選單01</div>
+            </div>
+            <div class="col-sm-6 col-md-3 ">
+                <div class="box02">選單02</div>
+            </div>
+            <div class="col-sm-6 col-md-3">
+                <div class="box02">選單03</div>
+            </div>
+            <div class="col-sm-6 col-md-3">
+                <div class="box02">選單04</div>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-6 col-lg-4">
+                <div class="box04">
+                    <div class="image_box"><img src="https://fakeimg.pl/500x300/200" class="img-fluid"></div>
+                    <h5 class="fw-700">兔兔介紹001</h5>
+                    <p>可以用眾人，彼此緩緩浪費一道以往說完主任節省空間職務，我這瀏覽次數尷尬話題技巧。</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="box04">
+                    <div class="image_box"><img src="https://fakeimg.pl/500x300/200" class="img-fluid"></div>
+                    <h5 class="fw-700">兔兔介紹002</h5>
+                    <p>可以用眾人，彼此緩緩浪費一道以往說完主任節省空間職務，我這瀏覽次數尷尬話題技巧。</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="box04">
+                    <div class="image_box"><img src="https://fakeimg.pl/500x300/200" class="img-fluid"></div>
+                    <h5 class="fw-700">兔兔介紹003</h5>
+                    <p>可以用眾人，彼此緩緩浪費一道以往說完主任節省空間職務，我這瀏覽次數尷尬話題技巧。</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="box04">
+                    <div class="image_box"><img src="https://fakeimg.pl/500x300/200" class="img-fluid"></div>
+                    <h5 class="fw-700">兔兔介紹004</h5>
+                    <p>可以用眾人，彼此緩緩浪費一道以往說完主任節省空間職務，我這瀏覽次數尷尬話題技巧。</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="box04">
+                    <div class="image_box"><img src="https://fakeimg.pl/500x300/200" class="img-fluid"></div>
+                    <h5 class="fw-700">兔兔介紹005</h5>
+                    <p>可以用眾人，彼此緩緩浪費一道以往說完主任節省空間職務，我這瀏覽次數尷尬話題技巧。</p>
+                </div>
+            </div>
+            <div class="col-sm-6 col-lg-4">
+                <div class="box04">
+                    <div class="image_box"><img src="https://fakeimg.pl/500x300/200" class="img-fluid"></div>
+                    <h5 class="fw-700">兔兔介紹006</h5>
+                    <p>可以用眾人，彼此緩緩浪費一道以往說完主任節省空間職務，我這瀏覽次數尷尬話題技巧。</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 d-none d-md-block">
+                <div class="footer"><img src="https://fakeimg.pl/1300x100/477?text=footer" class="img-fluid"></div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

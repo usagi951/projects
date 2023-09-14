@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>動畫練習</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/my.css">
+    <link rel="stylesheet" href="css/animate.css_4.1.1_animate.min.css">
+    <link rel="stylesheet" href="css/all.min.css">
+    <style>
+        .box02{
+    height: 180px;
+    width: 180px;
+    border: 5px solid var(--mycolor12);
+    /* background-color: var(--mycolor07); */
+    margin: 10px;
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row vh-100 bg-danger-subtle justify-content-center">
+            <!-- fa-大小 -->
+            <!-- wow animate__heartBeat 心跳動畫 -->
+            <!-- data-wow-delay 延遲動畫 -->
+            <!-- data-wow-duration 動的頻率 -->
+            <!-- data-wow-iteration 重複次數 -->
+            <div class="col-3 text-center p-5">
+                <i class="fa-solid fa-heart-pulse fa-8x text-danger wow animate__heartBeat" data-wow-delay="0s" data-wow-duration="0.5s" data-wow-iteration="infinite"></i>
+            </div>
+        </div>
+        <div class="row vh-100 bg-info-subtle">
+            <div class="col-6">
+                <div class="p-5 wow animate__fadeInLeft" data-wow-delay="0s" data-wow-duration="4s">
+                    <p>全家尊重發貼第三水果下列檢索有限推廣首頁防治，來自無派這種同事，教育促進知名明星化學，音樂無人新增。</p>
+                    <p>外國禮物強大直接角度食品解放計算不見不到三個一句話，無派不在信用世界盃在此專欄說了，也會為此方案作用留學承受記錄分享，經驗期限可憐類型小說我的心新增新臺幣，皇帝實業令人湖口等待這一合同幫我剛才想到你要快車變得不好，家電不限每日二十戀愛苗栗您是回去斗內，好。</p>
+                    <a href="#" class="btn btn-outline-primary wow animate__bounce" data-wow-delay="4s" data-wow-duration="1s" data-wow-iteration="infinite">了解更多</a>
+                </div>
+            </div>
+            <div class="col-6">
+                <img src="images/bg003.jpg" class="mt-2 img-fluid wow animate__fadeInRight" alt="" data-wow-delay="0s" data-wow-duration="2s">
+            </div>
+        </div>
+        <div class="row">
+            <div class="box02 animate__animated animate_fadeInRightBig"></div>
+            <div class="box02 wow animate__fadeInRightBig" data-wow-duration="2s" data-wow-delay="3s"></div>
+        </div>
+        <div class="row">
+            <div class="box02 animate__animated animate__fadeInTopLeft"></div>
+            <div class="box02 wow animate__fadeInTopLeft" data-wow-duration="2s" data-wow-delay="0s"></div>
+        </div>
+        <div class="row">
+            <div class="box02 animate__animated animate__bounceOut"></div>
+            <div class="box02 wow animate__heartBeat" data-wow-duration="2s" data-wow-delay="0s"></div>
+        </div>
+    </div>
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery-3.7.0.min.js"></script>
+    <script src="js/wow.min.js"></script>
+    <script>
+        new WOW().init();
+    </script>
+</body>
+</html>

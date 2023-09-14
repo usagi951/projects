@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>飲料表單</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/my.css">
+    <style>
+        .thisbox {
+            width: 100px;
+            height: 100px;
+            display: inline-block;
+            background-color: var(--mycolor08);
+        }
+
+        .thisdemo {
+            padding: 15px;
+            background-color: var(--mycolor09);
+            margin: 10px;
+        }
+
+        .thisdemo01 {
+            width: 300px;
+            height: 300px;
+            border: 1px solid var(--mycolor08);
+
+        }
+
+        .thisdemo02 {
+            width: 600px;
+            height: 600px;
+            border: 1px solid var(--mycolor08);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h4 class="display-3 fw-900 text-center">飲料表單</h4>
+        <div class="row justify-content-center">
+            <div class="col-8">
+                <div class="thisdemo border border-primary-subtle border-3 rounded-3 p-3">
+                    <form class="was-validated">
+                        <!-- 店家名稱 -->
+                        <div class="mb-3">
+                            <label for="shopname" class="form-label">店家名稱</label>
+                            <input type="text" class="form-control" id="shopname" name="shopname" placeholder="字數範圍3~8"
+                                required>
+                            <div class="form-text" id="err_shopname">不會記錄任何資訊!</div>
+                        </div>
+                        <!-- 店家地址 -->
+                        <div class="mb-3">
+                            <label for="addr" class="form-label">店家地址</label>
+                            <input type="text" class="form-control" id="addr" name="addr" placeholder="不得為空白" required>
+                            <div class="form-text" id="err_addr">不會記錄任何資訊!</div>
+                        </div>
+                        <!-- 產品名稱 建議選項 -->
+                        <div class="mb-3">
+                            <label for="food" class="form-label">產品名稱</label>
+                            <input type="text" class="form-control" id="food" list="myfood" placeholder="字數範圍3~10"
+                                required>
+                            <div class="form-text" id="err_food">不會記錄任何資訊!</div>
+                            <datalist id="myfood">
+                                <option value="紅茶拿鐵">
+                                <option value="四季春">
+                                <option value="珍珠奶茶">
+                                <option value="翡翠檸檬">
+                                <option value="高山青茶">
+                            </datalist>
+                        </div>
+                    </form>
+                    <!-- 主單 select -->
+                    <div class="mb-3">
+                        <label for="suger" class="form-label">糖度</label>
+                        <select class="form-select" name="suger" id="suger">
+                            <option value="無糖">無糖</option>
+                            <option value="微糖">微糖</option>
+                            <option value="半糖">半糖</option>
+                            <option value="少糖">少糖</option>
+                            <option value="全糖">全糖</option>
+                        </select>
+                        <label for="ice" class="form-label mt-1">冰塊</label>
+                        <select class="form-select" name="ice" id="ice">
+                            <option value="去冰">去冰</option>
+                            <option value="微冰">微冰</option>
+                            <option value="半冰">半冰</option>
+                            <option value="少冰">少冰</option>
+                            <option value="正常">正常</option>
+                        </select>
+                    </div>
+                    <h6 class="fw-500">加料選項</h6>
+                    <!-- 附加選項 checkbox -->
+                    <div class="mb-3 form-check-inline">
+                        <input type="checkbox" class="form-check-input" id="add01" name="add01" value="珍珠">
+                        <label for="add01" class="form-check-label">珍珠</label>
+                    </div>
+                    <div class="mb-3 form-check-inline">
+                        <input type="checkbox" class="form-check-input" id="add01" name="add01" value="椰果">
+                        <label for="add01" class="form-check-label">椰果</label>
+                    </div>
+                    <div class="mb-3 form-check-inline">
+                        <input type="checkbox" class="form-check-input" id="add01" name="add01" value="愛玉">
+                        <label for="add01" class="form-check-label">愛玉</label>
+                    </div>
+                    <div class="mb-3 form-check-inline">
+                        <input type="checkbox" class="form-check-input" id="add01" name="add01" value="仙草">
+                        <label for="add01" class="form-check-label">仙草</label>
+                    </div>
+                    <div class="mb-3 form-check-inline">
+                        <input type="checkbox" class="form-check-input" id="add01" name="add01" value="布丁">
+                        <label for="add01" class="form-check-label">布丁</label>
+                    </div>
+                    <h6 class="fw-500">付款方式</h6>
+                    <!-- 付款方式 radio -->
+                    <div class="mb-3 form-check-inline">
+                        <input type="radio" class="form-check-input" id="pay" name="pay" value="現金">
+                        <label for="pay" class="form-check-label">現金</label>
+                    </div>
+                    <div class="mb-3 form-check-inline">
+                        <input type="radio" class="form-check-input" id="pay" name="pay" value="信用卡">
+                        <label for="pay" class="form-check-label">信用卡</label>
+                    </div>
+                    <div class="mb-3 form-check-inline">
+                        <input type="radio" class="form-check-input" id="pay" name="pay" value="Line pay">
+                        <label for="pay" class="form-check-label">Line pay</label>
+                    </div>
+                    <div class="mb-3 form-check-inline">
+                        <input type="radio" class="form-check-input" id="pay" name="pay" value="街口支付">
+                        <label for="pay" class="form-check-label">街口支付</label>
+                    </div>
+                    <h6 class="fw-500">購物袋</h6>
+                    <!-- 購物袋 switch -->
+                    <div class="mb-3 form-check form-switch">
+                        <input type="checkbox" class="form-check-input" role="switch" id="shopbag" name="shopbag">
+                        <label for="shopbag" class="form-check-label">購買</label>
+                    </div>
+                    <!-- 數量 range -->
+                    <div class="mb-3">
+                        <label for="range" class="form-label" id="range_label">數量</label>
+                        <input type="range" class="form-range" min="0" max="50" step="1" id="range" name="range">
+                        <div class="form-text" id="err_range">調整飲料數量!</div>
+                    </div>
+                    <!-- 使用 input group, floating labels 使上述合理化-->
+                    <div class="mb-3 input-group">
+                        <span class="input-group-text">備註</span>
+                        <textarea class="form-control" aria-label="With textarea" id="remark"
+                            placeholder="需要分開裝，請先備註"></textarea>
+                    </div>
+                    <form class="was-validated">
+                        <div class="mb-3 form-floating">
+                            <input type="text" class="form-control" id="phonenumber" placeholder="請輸入手機號碼!" required>
+                            <label for="phonenumber" class="form-label">手機號碼</label>
+                            <div class="form-text" id="err_phonenumber"></div>
+                        </div>
+                        <!-- 使用 bs表單驗證(包含遵守xx功能checkbox) 使上述合理化-->
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="user" class="form-label">帳號</label>
+                                <input type="text" class="form-control is-invalid" id="user" name="user" required>
+                                <div class="form-text" id="err_user"></div>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="nickname" class="form-label">暱稱</label>
+                                <input type="text" class="form-control is-invalid" id="nickname" name="nickname" required>
+                                <div class="form-text" id="err_nickname"></div>
+                            </div>
+                            <div class="form-check mb-3">
+                                <input type="checkbox" class="form-check-input" id="agree" required>
+                                <label for="" class="form-check-label">同意遵守會員相關制度</label>
+                                <div class="valid-feedback">同意遵守</div>
+                                <div class="invalid-feedback">必須先同意遵守, 才能加入會員!</div>
+                            </div>
+                        </div>
+                        <!-- 使上述合理化, 按鈕監聽, 顯示於某空白處 -->
+                        <button type="button" class="btn btn-primary" id="ok_btn">確認</button>
+                    </form>
+                </div>
+                <div id="showmsg"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery-3.7.0.min.js"></script>
+
+    <script>
+        $(function () {
+            // flag 旗幟判斷
+            var flag_shopname = false;
+            var flag_addr = false;
+            var flag_food = false;
+            var flag_range = false;
+            var flag_phonenumber = false;
+            var flag_agree = false;
+            var flag_user = false;
+            var flag_nickname = false;
+
+            // #food 即時監聽
+            $("#food").bind("input propertychange", function () {
+                console.log($(this).val().length);
+
+                if ($(this).val().length > 2 && $(this).val().length < 11) {
+                    $("#err_food").html("字數符合");
+                    $("#err_food").removeClass("text-danger");
+                    $("#err_food").addClass("text-success");
+                    flag_food = true;
+                } else {
+                    $("#err_food").html("字數不符合");
+                    $("#err_food").removeClass("text-success");
+                    $("#err_food").addClass("text-danger");
+                    flag_food = false;
+                }
+            });
+            // #shopname 即時監聽
+            $("#shopname").bind("input propertychange", function () {
+                console.log($(this).val().length);
+
+                if ($(this).val().length > 2 && $(this).val().length < 9) {
+                    $("#err_shopname").html("字數符合");
+                    $("#err_shopname").removeClass("text-danger");
+                    $("#err_shopname").addClass("text-success");
+                    flag_shopname = true;
+                } else {
+                    $("#err_shopname").html("字數不符合");
+                    $("#err_shopname").removeClass("text-success");
+                    $("#err_shopname").addClass("text-danger");
+                    flag_shopname = false;
+                }
+            });
+            // #addr 即時監聽
+            $("#addr").bind("input propertychange", function () {
+                console.log($(this).val().length);
+
+                if ($(this).val().length > 0) {
+                    $("#err_addr").html("字數符合");
+                    $("#err_addr").removeClass("text-danger");
+                    $("#err_addr").addClass("text-success");
+                    flag_addr = true;
+                } else {
+                    $("#err_addr").html("字數不符合");
+                    $("#err_addr").removeClass("text-success");
+                    $("#err_addr").addClass("text-danger");
+                    flag_addr = false;
+                }
+            });
+            // #shopbag switch
+            $("#shopbag").change(function () {
+                if ($(this).is(':checked')) {
+                    console.log("購買");
+                    $(this).next().text("購買");
+                } else {
+                    console.log("不購買");
+                    $(this).next().text("不購買");
+                }
+            });
+            // #range
+            $("#range").bind("input propertychange", function () {
+                console.log($(this).val());
+                $("#range_label").text($(this).val() + "杯");
+                if ($(this).val() > 0) {
+                    $("#err_range").html("");
+                    $("#err_range").removeClass("text-danger");
+                    flag_range = true;
+                } else {
+                    $("#err_range").html("沒有選取杯數!");
+                    $("#err_range").addClass("text-danger");
+                    flag_range = false;
+                }
+            });
+            // input group
+            $("#phonenumber").bind("input propertychange", function () {
+                console.log($(this).val().length);
+
+                if ($(this).val().length > 9 && $(this).val().length < 11) {
+                    $("#err_phonenumber").html("字數符合");
+                    $("#err_phonenumber").removeClass("text-danger");
+                    $("#err_phonenumber").addClass("text-success");
+                    flag_phonenumber = true;
+                } else {
+                    $("#err_phonenumber").html("字數不符合");
+                    $("#err_phonenumber").removeClass("text-success");
+                    $("#err_phonenumber").addClass("text-danger");
+                    flag_phonenumber = false;
+                }
+            });
+
+            // Bs
+            $("#agree").click(function () {
+                if ($(this).is(':checked')) {
+                    console.log("同意");
+                    flag_agree = true;
+                } else {
+                    console.log("不同意");
+                    flag_agree = false;
+                }
+            });
+            $("#user").bind("input propertychange", function () {
+                console.log($(this).val().length);
+
+                if ($(this).val().length > 0) {
+                    $("#err_user").html("字數符合");
+                    $("#err_user").removeClass("text-danger");
+                    $("#err_user").addClass("text-success");
+                    flag_user = true;
+                } else {
+                    $("#err_user").html("字數不符合");
+                    $("#err_user").removeClass("text-success");
+                    $("#err_user").addClass("text-danger");
+                    flag_user = false;
+                }
+            });
+            $("#nickname").bind("input propertychange", function () {
+                console.log($(this).val().length);
+
+                if ($(this).val().length > 0) {
+                    $("#err_nickname").html("字數符合");
+                    $("#err_nickname").removeClass("text-danger");
+                    $("#err_nickname").addClass("text-success");
+                    flag_nickname = true;
+                } else {
+                    $("#err_nickname").html("字數不符合");
+                    $("#err_nickname").removeClass("text-success");
+                    $("#err_nickname").addClass("text-danger");
+                    flag_nickname = false;
+                }
+            });
+            // #ok_btn 按鈕監聽
+            $("#ok_btn").click(function () {
+                var add01 = [];
+                $.each($("input[name='add01']:checked"), function () {
+                    add01.push($(this).val());
+                });
+                console.log(add01);
+                add01 = add01.join(",");
+                if (flag_food && flag_shopname && flag_addr && flag_range && flag_phonenumber && flag_agree && flag_nickname && flag_user) {
+                    $("#showmsg").html("<h5>店家名稱:" + $("#shopname").val() + "</h5><h5>店家地址:" + $("#addr").val() + "</h5><h5>產品名稱:" + $("#food").val() + "</h5><h5>糖度:" + $("#suger").val() + "</h5><h5>冰塊:" + $("#ice").val() + "</h5><h5>加料:" + add01 + "</h5><h5>支付方式:" + $("#pay:checked").val() + "</h5><h5>購物袋:" + ($("#shopbag").is(':checked') ? "購買" : "不購買" ) + "</h5><h5>數量:" + $("#range").val() + "</h5><h5>手機號碼:" + $("#phonenumber").val() + "</h5><h5>備註:" + $("#remark").val() + "</h5><h5>帳號:" + $("#user").val() + "</h5><h5>暱稱:" + $("#nickname").val());
+                } else {
+                    alert("有欄位尚未符合, 請重新確認!");
+                }
+            });
+
+
+        });
+    </script>
+</body>
+
+</html>

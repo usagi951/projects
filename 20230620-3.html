@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>串接資料練習</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/my.css">
+</head>
+<body>
+    <div class="box05" id="mydata">
+        <h5>NAME</h5>
+    </div>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery-3.7.0.min.js"></script>
+    <script>
+        $(function(){
+            $.ajax({
+                type: "GET",
+                url:"http://192.168.10.51/wp/0620/2023620-getOpendata.php",
+                success: showdata,
+                error:function(){
+                    alert("錯誤-https://media.taiwan.net.tw/XMLReleaseALL_public/hotel_C_f.json");
+                }
+            });
+        });
+        function showdata(data){
+            console.log(data);
+
+            for(i=0; i<10;i++){
+                var strHTML = '<h5>'+data[i]["Name"]+'</h5></div>';
+                $("#mydata").append(strHTML);
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>table 表格</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/my.css">
+    <style>
+        @media screen and (max-width:768px) {
+            .table-rwd thead{
+                display:none;
+            }
+            .table-rwd tbody tr{
+                display:block;
+                border: 2px solid var(--mycolor06);
+                margin: 10px 0;
+            }
+            .table-rwd tbody tr td{
+                display:block;
+                font-size: 24px;
+                font-weight: 600;
+                overflow: hidden; 
+                /* 溢位 跑版 最後才寫 不可能預知 */
+            }
+            .table-rwd tbody tr td:before{
+                content: attr(data-th)" : ";
+                color: var(--mycolor08);
+                display: block;
+                float: left;
+                width: 6em;
+                text-align: right;
+                padding-right: 1em;
+            }
+            .table-rwd tbody tr td span.table-col{
+                display: block;
+                float: left;
+                width: calc(100% - 6em);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <table class="table table-striped table-hover table-bordered table-rwd border-secondary-">
+            <thead class="table-dark">
+                <tr>
+                    <th>編號</th>
+                    <th>產品名稱</th>
+                    <th>產品數量</th>
+                    <th>產品價格</th>
+                    <th>備註說明</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td data-th="產品編號"><span class="table-col">001</span></td>
+                    <td data-th="產品名稱"><span class="table-col">美式咖啡</span></td>
+                    <td data-th="產品數量"><span class="table-col">100</span></td>
+                    <td data-th="產品價格"><span class="table-col">90</span></td>
+                    <td data-th="備註說明"><span class="table-col">難以本身，美麗正常。</span></td>
+                </tr>
+                <tr class="bg-secondary">
+                    <td data-th="編號"><span class="table-col">002</span></td>
+                    <td data-th="產品名稱"><span class="table-col">拿鐵咖啡</span></td>
+                    <td data-th="產品數量"><span class="table-col">140</span></td>
+                    <td data-th="產品價格"><span class="table-col">100</span></td>
+                    <td data-th="備註說明"><span class="table-col">難以本身，美麗正常。</span></td>
+                </tr>
+                <tr class="bg-info">
+                    <td data-th="編號"><span class="table-col">003</span></td>
+                    <td data-th="產品名稱"><span class="table-col">榛果咖啡</span></td>
+                    <td data-th="產品數量"><span class="table-col">160</span></td>
+                    <td data-th="產品價格"><span class="table-col">120</span></td>
+                    <td data-th="備註說明"><span class="table-col">難以本身，美麗正常。</span></td>
+                </tr>
+                <tr>
+                    <td data-th="編號"><span class="table-col">004</span></td>
+                    <td data-th="產品名稱"><span class="table-col">焦糖瑪奇朵咖</span>啡</td>
+                    <td data-th="產品數量"><span class="table-col">160</span></td>
+                    <td data-th="產品價格"><span class="table-col">120</span></td>
+                    <td data-th="備註說明"><span class="table-col">難以本身，美麗正常。</span></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

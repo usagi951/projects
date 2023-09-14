@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>d-flex 排版練習</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/my.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="display-4 fw-700">使用flex-column搭配mt-auto 排版</h1>
+        <div class="row">
+            <div class="col-md-4 d-flex flex-column">
+                <img src="images/bunny04.jpg" class="img-fluid" alt="">
+                <h1 class="fw-700">這是兔子</h1>
+                <p>容易補充上傳塑膠互相我又一台流行事務大家動漫此時足夠最好的，評論背後破壞醫藥協議改革能夠，熱點意見本地下載相冊設計力量區別打。</p>
+                <a href="#" class="btn btn-primary mt-auto">詳細資料</a>
+            </div>
+            <div class="col-md-4 d-flex flex-column">
+                <img src="images/bunny09.jpg"class="img-fluid"  alt="">
+                <h1 class="fw-700">這是兔子</h1>
+                <p>容易補充上傳塑膠互相我又一台流行事務大家動漫此時足夠最好的，評論背後破壞醫藥協議改革能夠，熱點意見本地下載相冊設計力量區別打。</p>
+                <a href="#" class="btn btn-primary mt-auto">詳細資料</a>
+            </div>
+            <div class="col-md-4 d-flex flex-column">
+                <img src="images/bunny05.jpg" class="img-fluid" alt="">
+                <h1 class="fw-700">這是兔子</h1>
+                <p>好激動每個人作家事件以來典型一場等待選項不斷，評論背後破壞醫藥協議改革能夠，熱點意見本地下載相冊設計力量區別打。</p>
+                <a href="#" class="btn btn-primary mt-auto">詳細資料</a>
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="container">
+        <h1 class="display-4 fw-700">練習:使用上訴排版, 串接農委會地方美食資料(圖片, 店名, 地址, 詳細資料), 顯示使用前15筆資料</h1>
+        <div class="row" id="mydata">
+            <div class="col-md-4 d-flex flex-column">
+                <img src="images/bunny04.jpg" class="img-fluid" alt="">
+                <h1 class="fw-700">這是兔子</h1>
+                <p>容易補充上傳塑膠互相我又一台流行事務大家動漫此時足夠最好的，評論背後破壞醫藥協議改革能夠，熱點意見本地下載相冊設計力量區別打。</p>
+                <a href="#" class="btn btn-primary mt-auto">詳細資料</a>
+            </div>
+        </div>
+        
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery-3.7.0.min.js"></script>
+
+    <script>
+        $(function(){
+            $.ajax({
+                type:"GET",
+                url:"https://data.coa.gov.tw/Service/OpenData/ODwsv/ODwsvTravelFood.aspx", 
+                success: showdata,
+                error: function(){
+                    alert("串接資料錯誤-https://data.coa.gov.tw/Service/OpenData/ODwsv/ODwsvTravelFood.aspx");
+                }
+            });
+        });
+        function showdata(data){
+            console.log(data);
+
+            $("#mydata").empty();
+            for(var i=0 ; i<15 ; i++){
+                console.log(data[i]["Address"]);
+                var strHTML = '<div class="col-md-4 d-flex flex-column"><img src="'+data[i]["PicURL"]+'" class="img-fluid" alt=""><h1 class="fw-700">'+data[i]["Name"]+'</h1><p>'+data[i]["Address"]+'</p><a href="#" class="btn btn-primary mt-auto">詳細資料</a></div>';
+                $("#mydata").append(strHTML);
+            }
+        }
+    </script>
+</body>
+</html>

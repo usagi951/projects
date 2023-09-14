@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ch.9 通用類型</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/my.css">
+    <style>
+        .thisbox {
+            width: 100px;
+            height: 100px;
+            display: inline-block;
+            background-color: var(--mycolor08);
+        }
+
+        .thisdemo {
+            padding: 15px;
+            background-color: var(--mycolor09);
+            margin: 10px;
+        }
+
+        .thisdemo01 {
+            width: 300px;
+            height: 300px;
+            border: 1px solid var(--mycolor08);
+
+        }
+
+        .thisdemo02 {
+            width: 600px;
+            height: 600px;
+            border: 1px solid var(--mycolor08);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="display-4 fw-700">1.border</h1>
+        <div class="thisdemo">
+            <div class="thisbox bg-info border"></div>
+            <div class="thisbox bg-info border-top"></div>
+            <div class="thisbox bg-info border-bottom"></div>
+            <div class="thisbox bg-info border-start"></div>
+            <div class="thisbox bg-info border-end"></div>
+        </div>
+
+        <h1 class="display-4 fw-700">border 移除邊框</h1>
+        <div class="thisdemo">
+            <div class="thisbox bg-info border"></div>
+            <div class="thisbox bg-info border border-0"></div>
+            <div class="thisbox bg-info border border-top-0"></div>
+            <div class="thisbox bg-info border border-bottom-0"></div>
+            <div class="thisbox bg-info border border-start-0"></div>
+            <div class="thisbox bg-info border border-end-0"></div>
+            <div class="thisbox bg-info border border-start-0 border-end-0"></div>
+        </div>
+
+        <h1 class="display-4 fw-700">border 厚度與顏色</h1>
+        <div class="thisdemo">
+            <div class="thisbox bg-info border border-3 border-danger"></div>
+            <div class="thisbox bg-info border border-3 border-warning"></div>
+            <div class="thisbox bg-info border border-3 border-success"></div>
+            <div class="thisbox bg-info border border-3 border-primary"></div>
+            <div class="thisbox bg-info border border-3 border-dark"></div>
+            <div class="thisbox bg-info border border-3 border-secondary"></div>
+        </div>
+
+        <h1 class="display-4 fw-700">border 圓角</h1>
+        <div class="thisdemo">
+            <div class="thisbox bg-info border border-5 rounded"></div>
+            <div class="thisbox bg-info border border-5 rounded-top"></div>
+            <div class="thisbox bg-info border border-5 rounded-bottom"></div>
+            <div class="thisbox bg-info border border-5 rounded-start"></div>
+            <div class="thisbox bg-info border border-5 rounded-end"></div>
+            <div class="thisbox bg-info border border-5 rounded-circle"></div>
+            <div class="bg-info border border-5 rounded-pill" style="width: 200px;height: 100px;"></div>
+        </div>
+
+        <h1 class="display-4 fw-700">2. 文字顏色</h1>
+        <div class="thisdemo">
+            <p class="text-primary">電器肌膚兩年終於確認評估印象領導這場可。</p>
+            <p class="text-success">電器肌膚兩年終於確認評估印象領導這場可。</p>
+            <p class="text-warning">電器肌膚兩年終於確認評估印象領導這場可。</p>
+            <p class="text-danger">電器肌膚兩年終於確認評估印象領導這場可。</p>
+            <p>電器肌膚 <a href="#" class="link-info">兩年終於確認評估</a>印象領導這場可。</p>
+        </div>
+
+        <div class="thisdemo">
+            <p class="text-bg-primary">電器肌膚兩年終於確認評估印象領導這場可。</p>
+            <p class="text-bg-success">電器肌膚兩年終於確認評估印象領導這場可。</p>
+            <p class="text-bg-warning">電器肌膚兩年終於確認評估印象領導這場可。</p>
+            <p class="text-bg-danger">電器肌膚兩年終於確認評估印象領導這場可。</p>
+            <p class="text-bg-dark">電器肌膚 <a href="#" class="link-info">兩年終於確認評估</a>印象領導這場可。</p>
+        </div>
+
+        <h1 class="display-4 fw-700">3. display</h1>
+
+        <h3 class="display-5 fw-500">d-line</h3>
+        <div class="thisdemo">
+            <div class="text-bg-primary p-2">d-line</div>
+        </div>
+        <div class="thisdemo">
+            <div class="text-bg-primary p-2 d-inline">d-line</div>
+            <div class="text-bg-primary p-2 d-inline">d-line</div>
+            <div class="text-bg-primary p-2 d-inline">d-line</div>
+        </div>
+        <h3 class="display-5 fw-500">d-block</h3>
+        <div class="thisdemo">
+            <span class="text-bg-success p-2">d-line</span>
+        </div>
+        <div class="thisdemo">
+            <span class="text-bg-success p-2 d-block">d-line</span>
+        </div>
+
+        <h3 class="display-5 fw-500">d-none 行動版隱藏, 桌面板顯示</h3>
+        <div class="thisdemo">
+            <span class="text-bg-warning p-2 d-none d-lg-block">行動版隱藏, 桌面板顯示</span>
+        </div>
+
+        <h3 class="display-5 fw-500">水平等距排版 justify</h3>
+        <div class="thisdemo">
+            <div class="d-flex justify-content-between">
+                <div class="thisbox bg-danger"></div>
+                <div class="thisbox bg-danger"></div>
+                <div class="thisbox bg-danger"></div>
+            </div>
+        </div>
+
+        <h3 class="display-5 fw-500">兩左一右 mx-auto</h3>
+        <div class="thisdemo">
+            <div class="d-flex">
+                <div class="thisbox bg-danger me-2"></div>
+                <div class="thisbox bg-danger"></div>
+                <div class="thisbox bg-danger ms-auto"></div>
+            </div>
+        </div>
+
+        <h3 class="display-5 fw-500">垂直 flex-column</h3>
+        <div class="thisdemo">
+            <div class="d-flex flex-column">
+                <div class="thisbox bg-danger "></div>
+                <div class="thisbox bg-danger mb-2 mt-2"></div>
+                <div class="thisbox bg-danger"></div>
+            </div>
+        </div>
+        <h1 class="display-4 fw-700">4. 文字互動</h1>
+        <div class="thisdemo">
+            <p class="text-bg-secondary">以下很重要的驗證碼為：
+                <span class="text-bg-secondary user-select-all">#46546323218</span>
+            </p>
+            <p class="text-bg-secondary user-select-auto">義務自行基隆忘記，做什麼，辦。</p>
+            <p class="text-bg-secondary user-select-none">義務自行基隆忘記，做什麼，辦。</p>
+        </div>
+
+
+        <h1 class="display-4 fw-700">5. overflow (溢未, 跑版)</h1>
+        <div class="thisdemo">
+            <div class="thisbox bg-info">領域關注大陸醫療看過獎勵而已自信長時間，活動告知事務，轉身。</div>
+            <div class="thisbox bg-info overflow-auto">領域關注大陸醫療看過獎勵而已自信長時間，活動告知事務，轉身。</div>
+            <div class="thisbox bg-info overflow-visible">領域關注大陸醫療看過獎勵而已自信長時間，活動告知事務，轉身。</div>
+            <div class="thisbox bg-info overflow-scroll">領域關注大陸醫療看過獎勵而已自信長時間，活動告知事務，轉身。</div>
+            <div class="thisbox bg-info overflow-hidden">領域關注大陸醫療看過獎勵而已自信長時間，活動告知事務，轉身。</div>
+        </div>
+
+        <h3 class="display-5 fw-500">手機板橫向滑動選單</h3>
+        <div class="thisdemo w-100">
+            <ul class="bg-info list-unstyled d-flex justify-content-between flex-nowrap overflow-auto">
+                <li class="text-nowrap p-2 bg-warning-subtle me-1">選單功能01- 深深。</li>
+                <li class="text-nowrap p-2 bg-warning-subtle me-1">選單功能01- 深深。</li>
+                <li class="text-nowrap p-2 bg-warning-subtle me-1">選單功能01- 深深。</li>
+                <li class="text-nowrap p-2 bg-warning-subtle me-1">選單功能01- 深深。</li>
+                <li class="text-nowrap p-2 bg-warning-subtle me-1">選單功能01- 深深。</li>
+            </ul>
+        </div>
+
+        <h1 class="display-4 fw-700">6. position(定位)</h1>
+        <div class="thisdemo01 position-relative">
+            <div class="thisbox position-absolute"></div>
+            <div class="thisbox position-absolute bottom-0 start-50 translate-middle-x"></div>
+            <div class="thisbox position-absolute top-50 end-0 translate-middle-y"></div>
+        </div>
+
+        <h3 class="display-5 fw-500 my-5">定位練習01</h3>
+        <div class="thisdemo02 position-relative mt-2">
+            <div class="thisbox position-absolute"></div>
+            <div class="thisbox position-absolute start-50"></div>
+            <div class="thisbox position-absolute start-100"></div>
+            <div class="thisbox position-absolute top-50"></div>
+            <div class="thisbox position-absolute top-50 start-50"></div>
+            <div class="thisbox position-absolute top-50 start-100"></div>
+            <div class="thisbox position-absolute top-100"></div>
+            <div class="thisbox position-absolute top-100 start-50"></div>
+            <div class="thisbox position-absolute top-100 start-100"></div>
+        </div>
+
+    <h3 class="display-5 fw-500 my-5">定位練習02</h3>
+        <div class="thisdemo02 position-relative mt-2">
+            <div class="thisbox position-absolute translate-middle"></div>
+            <div class="thisbox position-absolute start-50 translate-middle"></div>
+            <div class="thisbox position-absolute start-100 translate-middle"></div>
+            <div class="thisbox position-absolute top-50 translate-middle"></div>
+            <div class="thisbox position-absolute top-50 start-50 translate-middle"></div>
+            <div class="thisbox position-absolute top-50 start-100 translate-middle"></div>
+            <div class="thisbox position-absolute top-100 translate-middle"></div>
+            <div class="thisbox position-absolute top-100 start-50 translate-middle"></div>
+            <div class="thisbox position-absolute top-100 start-100 translate-middle"></div>
+        </div>
+
+        <h3 class="display-5 fw-500 my-5">定位練習03</h3>
+        <div class="thisdemo02 position-relative mt-2">
+            <div class="thisbox position-absolute"></div>
+            <div class="thisbox position-absolute start-50 translate-middle-x"></div>
+            <div class="thisbox position-absolute end-0"></div>
+            <div class="thisbox position-absolute top-50 translate-middle-y"></div>
+            <div class="thisbox position-absolute top-50 start-50 translate-middle"></div>
+            <div class="thisbox position-absolute top-50 end-0 translate-middle-y"></div>
+            <div class="thisbox position-absolute bottom-0"></div>
+            <div class="thisbox position-absolute bottom-0 start-50 translate-middle-x"></div>
+            <div class="thisbox position-absolute bottom-0 end-0"></div>
+        </div>
+
+        <h3 class="display-5 fw-500 my-5">定位練習04</h3>
+        <div class="thisdemo">
+            <button class="btn btn-primary position-relative">我的留言
+                <span class="badge text-bg-danger position-absolute top-0 start-100 translate-middle">99</span>
+            </button>
+        </div>
+        <h3 class="display-5 fw-500 my-5">定位練習05-三步驟引導</h3>
+        <div class="thisdemo">
+            <div class="position-relative m-4">
+                <div class="progress" style="height: 2px;">
+                    <div class="progress-bar" role="progressbar" aria-label="Basic example" style="width: 50%"
+                        aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                <button class="btn btn-primary btn-sm rounded-pill position-absolute top-0 start-0 translate-middle"
+                    style="width: 2rem;
+                height: 2rem;">1</button>
+                <button class="btn btn-primary btn-sm rounded-pill position-absolute top-0 start-50 translate-middle"
+                    style="width: 2rem;
+                height: 2rem;">2</button>
+                <button class="btn btn-secondary btn-sm rounded-pill position-absolute top-0 start-100 translate-middle"
+                    style="width: 2rem;
+                height: 2rem;">3</button>
+            </div>
+        </div>
+
+        <h3 class="display-5 fw-500 my-5">定位練習06-五步驟引導</h3>
+        <div class="thisdemo">
+            <div class="position-relative m-4">
+                <div class="progress" style="height: 2px;">
+                    <div class="progress-bar bg-success" role="progressbar" aria-label="Basic example"
+                        style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                <i class="bi bi-battery text-success h2 position-absolute start-0 top-0 translate-middle"></i>
+                <i class="bi bi-battery text-success h2 position-absolute top-0 translate-middle"
+                    style="left: 25%;"></i>
+                <i class="bi bi-battery text-secondary h2 position-absolute start-50 top-0 translate-middle"></i>
+                <i class="bi bi-battery text-secondary h2 position-absolute top-0 translate-middle"
+                    style="left: 75%;"></i>
+                <i class="bi bi-battery text-secondary h2 position-absolute start-100 top-0 translate-middle"></i>
+            </div>
+        </div>
+        <h1 class="display-4 fw-700">7. 上下定位. fixed</h1>
+        <!-- <div class="bg-info p-3 fixed-top">
+            <h2>固定上方</h2>
+        </div>
+        <div class="bg-info p-3 fixed-bottom">
+            <h2>固定下方</h2>
+        </div> -->
+
+        <h1 class="display-4 fw-700">8. 卷軸固定</h1>
+        <div class="bg-secondary" style="height: 1000px;">
+            <div class="row">
+                <div class="col-4">
+                    <ul class="list-group sticky-top">
+                        <li class="list-group-item">選單01</li>
+                        <li class="list-group-item">選單02</li>
+                        <li class="list-group-item">選單03</li>
+                    </ul>
+                </div>
+                <div class="col-8">
+                    <p>協調網際快車點評組織許可值得讓他，要有引起簡體活力你好相同人力不知導致這次體系，第一章你還去了台鐵官員更為味道體現誘惑處於照顧外面程式加盟，取消沒什麼出現在分鐘不行一切都，精選上次，回覆陷入，都說對付專家顯示把它不敢統計探索感情詢問學術提醒故事，警方想法。
+                    </p>
+                    <p>協調網際快車點評組織許可值得讓他，要有引起簡體活力你好相同人力不知導致這次體系，第一章你還去了台鐵官員更為味道體現誘惑處於照顧外面程式加盟，取消沒什麼出現在分鐘不行一切都，精選上次，回覆陷入，都說對付專家顯示把它不敢統計探索感情詢問學術提醒故事，警方想法。
+                    </p>
+                    <p>協調網際快車點評組織許可值得讓他，要有引起簡體活力你好相同人力不知導致這次體系，第一章你還去了台鐵官員更為味道體現誘惑處於照顧外面程式加盟，取消沒什麼出現在分鐘不行一切都，精選上次，回覆陷入，都說對付專家顯示把它不敢統計探索感情詢問學術提醒故事，警方想法。
+                    </p>
+                    <p>協調網際快車點評組織許可值得讓他，要有引起簡體活力你好相同人力不知導致這次體系，第一章你還去了台鐵官員更為味道體現誘惑處於照顧外面程式加盟，取消沒什麼出現在分鐘不行一切都，精選上次，回覆陷入，都說對付專家顯示把它不敢統計探索感情詢問學術提醒故事，警方想法。
+                    </p>
+                    <p>協調網際快車點評組織許可值得讓他，要有引起簡體活力你好相同人力不知導致這次體系，第一章你還去了台鐵官員更為味道體現誘惑處於照顧外面程式加盟，取消沒什麼出現在分鐘不行一切都，精選上次，回覆陷入，都說對付專家顯示把它不敢統計探索感情詢問學術提醒故事，警方想法。
+                    </p>
+                    <p>協調網際快車點評組織許可值得讓他，要有引起簡體活力你好相同人力不知導致這次體系，第一章你還去了台鐵官員更為味道體現誘惑處於照顧外面程式加盟，取消沒什麼出現在分鐘不行一切都，精選上次，回覆陷入，都說對付專家顯示把它不敢統計探索感情詢問學術提醒故事，警方想法。
+                    </p>
+                    <p>協調網際快車點評組織許可值得讓他，要有引起簡體活力你好相同人力不知導致這次體系，第一章你還去了台鐵官員更為味道體現誘惑處於照顧外面程式加盟，取消沒什麼出現在分鐘不行一切都，精選上次，回覆陷入，都說對付專家顯示把它不敢統計探索感情詢問學術提醒故事，警方想法。
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <h1 class="display-4 fw-700">9. shadow 陰影</h1>
+        <div class="thisdemo bg-light">
+            <div class="shdow p-3 mt-3">shadow 保險春天南方回來類似僅僅好像奇蹟，承諾。</div>
+            <div class="shadow-lg p-3 mt-3">shadow-lg 保險春天南方回來類似僅僅好像奇蹟，承諾。</div>
+            <div class="shadow-sm p-3 mt-3">shadow-sm 保險春天南方回來類似僅僅好像奇蹟，承諾。</div>
+            <div class="shadow-none p-3 mt-3">shadow-none 保險春天南方回來類似僅僅好像奇蹟，承諾。</div>
+            <div class="p-3 mt-3" style="box-shadow: 2px -2px 2px 2px var(--mycolor09);">自訂陰影</div>
+        </div>
+
+        <h1 class="display-4 fw-700">10. sizing 尺寸</h1>
+        <div class="thisdemo">
+            <div class="border p-3 mt-1 bg-secondary w-25">w-25</div>
+            <div class="border p-3 mt-1 bg-secondary w-50">w-50</div>
+            <div class="border p-3 mt-1 bg-secondary w-75">w-75</div>
+            <div class="border p-3 mt-1 bg-secondary w-100">w-100</div>
+        </div>
+        <h4 class="display-6 fw-700">vh-100: 與瀏覽器同高</h4>
+        <h4 class="display-6 fw-700">vw-100: 與瀏覽器同寬</h4>
+        <div class="thisdemo" style="height: 300px;">
+            <div class="border p-3 mt-1 bg-secondary d-inline-block h-25">h-25</div>
+            <div class="border p-3 mt-1 bg-secondary d-inline-block h-50">h-50</div>
+            <div class="border p-3 mt-1 bg-secondary d-inline-block h-75">h-75</div>
+            <div class="border p-3 mt-1 bg-secondary d-inline-block h-100">h-100</div>
+            <div class="border p-3 mt-1 bg-secondary d-inline-block h-auto">Lorem</div>
+        </div>
+
+        <h1 class="display-4 fw-700">11. 文字屬性相關</h1>
+        <h4 class="display-6 fw-700">配合中斷點移動位置</h4>
+        <div class="thisdemo mb-5">
+            <p class="text-sm-start text-lg-end">text-start text-lg-end</p>
+            <p class="text-md-center text-xl-start">text-md-center text-xl-start</p>
+            <p class="text-end">text-end</p>
+        </div>
+        <h4 class="display-6 fw-700">字型大小</h4>
+        <div class="thisdemo mb-5">
+            <p class="fs-1">fs-1</p>
+            <p class="fs-2">fs-2</p>
+            <p class="fs-3">fs-3</p>
+            <p class="fs-4">fs-4</p>
+            <p class="fs-5">fs-5</p>
+        </div>
+        <h1 class="display-4 fw-700">12. 隱藏和顯示</h1>
+        <h4 class="display-6 fw-700">invisible</h4>
+        <div class="thisdemo">
+            <div class="thisbox invisible"></div>
+            <div class="thisbox d-none"></div>
+            <div class="thisbox"></div>
+        </div>
+
+        <div class="thisdemo bg-dark shadow-lg rounded-5" style="width: 400px;">
+            <div class="d-flex justify-content-between">
+                <div class="thisbox bg-danger rounded-circle shadow " id="led01"></div>
+                <div class="thisbox bg-warning rounded-circle shadow " id="led02"></div>
+                <div class="thisbox bg-success rounded-circle shadow " id="led03"></div>
+            </div>
+        </div>
+
+    </div>
+    </div>
+    </div>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery-3.7.0.min.js"></script>
+    <script>
+        var counter = 0;  // 公有變數
+        $(function(){
+            setInterval(function (){
+                counter++; // counter = counter + 1
+                console.log(counter);
+                if(counter % 3 == 0){
+                    console.log("red");
+                    setred();
+                }else if(counter % 3 == 1){
+                    console.log("yellow");
+                    setyellow();
+                }else if(counter % 3 == 2){
+                    console.log("green");
+                    setgreen();
+                }
+            }, 1000);
+           
+        });
+
+        function setred() {
+            $("#led01").removeClass("invisible");
+            $("#led02").addClass("invisible");
+            $("#led03").addClass("invisible");
+        }
+
+        function setyellow() {
+            $("#led01").addClass("invisible");
+            $("#led02").removeClass("invisible");
+            $("#led03").addClass("invisible");
+            
+        }
+
+        function setgreen() {
+            $("#led01").addClass("invisible");
+            $("#led02").addClass("invisible");
+            $("#led03").removeClass("invisible");
+            
+        }
+    </script>
+</body>
+
+</html>

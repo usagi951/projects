@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>產品資料建檔</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/my.css">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/animate.css_4.1.1_animate.min.css">
+</head>
+
+<body>
+    <div class="container p-5">
+        <div class="row justify-content-center border border-2 p-5 rounded-5">
+            <div class="col-md-10">
+                <ul class="nav">
+                    <li class="nav-item me-3 ">
+                        <a class="nav-link" aria-current="page" href="20230727-read.html">產品列表</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="20230801-create.html">產品新增</a>
+                    </li>
+                </ul>
+                <div class="mb-3">
+                    <label for="pname" class="form-label">產品名稱</label>
+                    <input type="text" class="form-control" id="pname" name="pname" placeholder="字數3~6!">
+                    <div class="valid-feedback">輸入正確</div>
+                    <div class="invalid-feedback">輸入錯誤</div>
+                </div>
+                <div class="mb-3">
+                    <label for="price" class="form-label">產品價格</label>
+                    <input type="number" min="0" max="120" class="form-control" id="price" name="price" placeholder="0~120元">
+                    <div class="valid-feedback">輸入正確</div>
+                    <div class="invalid-feedback">輸入錯誤</div>
+                </div>
+                <div class="mb-3">
+                    <label for="pnum" class="form-label">產品數量</label>
+                    <input type="number" min="0" max="50" class="form-control" id="pnum" name="pnum" placeholder="0~50個">
+                    <div class="valid-feedback">輸入正確</div>
+                    <div class="invalid-feedback">輸入錯誤</div>
+                </div>
+                <div class="text-center">
+                    <a href="#" class="btn btn-secondary">取消</a>
+                    <a href="#" class="btn btn-primary" id="ok_btn">確認</a>
+                    <div class="valid-feedback">輸入正確</div>
+                    <div class="invalid-feedback">輸入錯誤</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery-3.7.0.min.js"></script>
+    <script src="https://unpkg.com/counterup2@2.0.2/dist/index.js"></script>
+    <script src="js/wow.min.js"></script>
+    <script>
+        $(function(){
+            var flag_pname = false;
+            var flag_price = false;
+            var flag_pnum = false;
+
+            // 監聽 pname
+            $("#pname").bind("input propertychange", function(){
+                if($(this).val().length > 2 && $(this).val().length < 121){
+                    $(this).removeClass("is-invalid");
+                    $(this).addClass("is-valid");
+                    flag_pname = true;
+                }else{
+                    $(this).removeClass("is-valid");
+                    $(this).addClass("is-invalid");
+                    flag_pname = false;
+                }
+            });
+            $("#price").bind("input propertychange", function(){
+                if($(this).val() > 0 && $(this).val() < 121){
+                    $(this).removeClass("is-invalid");
+                    $(this).addClass("is-valid");
+                    flag_price = true;
+                }else{
+                    $(this).removeClass("is-valid");
+                    $(this).addClass("is-invalid");
+                    flag_price = false;
+                }
+            });
+            $("#pnum").bind("input propertychange", function(){
+                if($(this).val() > 0 && $(this).val() < 51){
+                    $(this).removeClass("is-invalid");
+                    $(this).addClass("is-valid");
+                    flag_pnum = true;
+                }else{
+                    $(this).removeClass("is-valid");
+                    $(this).addClass("is-invalid");
+                    flag_pnum = false;
+                }
+            });
+
+            $("#ok_btn").click(function(){
+                if(flag_pname && flag_pnum && flag_price){
+                    console.log("參數正確, 可以傳遞至後端API");
+                    $.ajax({
+                        type: "POST",
+                        url: "20230727-create.php",
+                        dataType: "json",
+                        data: {pname : $("#pname").val(), price : $("#price").val(), pnum : $("#pnum").val()},
+                        success: showdata,
+                        error: function(){
+                            alert("錯誤-20230727-create.php");
+                        }
+                    });
+
+                }else{
+                    console.log("參數錯誤, 不可以傳遞至後端API");
+                }
+            });
+        });
+
+        function showdata(data){
+            console.log(data);
+            if(data.state){
+                alert(data.message);
+                location.href = "20230801-create.html";
+            }else{
+                alert(data.message);
+            }
+        }
+    </script>
+    
+</body>
+
+</html>

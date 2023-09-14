@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>檔案上傳(圖片)</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/my.css">
+</head>
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-8">
+                <p class="h2 fw-700">1. 註冊會員才能上傳圖片</p>
+                <p class="h2 fw-700">2. 大頭照???</p>
+                <div class="my-3">
+                    <label for="fileupload" class="form-label">檔案上傳(圖片)</label>
+                    <input type="file" class="form-control" id="fileupload" name="fileupload">
+                    <img src="#" alt="" id="previmg" class="d-none w-50 mt-3">
+                </div>
+                <a href="#" class="btn btn-info mt-3" id="upload_btn">確定上傳</a>
+            </div>
+        </div>
+    </div>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery-3.7.0.min.js"></script>
+    <script>
+        $(function(){
+            $("#fileupload").change(function(){
+                console.log("test");
+                console.log(fileupload);
+                console.log(fileupload.files[0]);
+                console.log(fileupload.files[0].name);
+                console.log(fileupload.files[0].type);
+                console.log(fileupload.files[0].size);
+                console.log(URL.createObjectURL(fileupload.files[0]));
+                if(fileupload.files[0].type == 'image/png' || fileupload.files[0].type == 'image/jpeg'){
+                    $("#previmg").removeClass('d-none');
+                    $("#previmg").attr('src', URL.createObjectURL(fileupload.files[0]));
+                }else{
+                    alert("只支援jpeg或png格式圖片!請重新上傳!");
+                    $("#previmg").addClass('d-none');
+                }
+            });
+
+            $("#upload_btn").click(function(){
+                uploadFile();
+            });
+        });
+
+        function uploadFile(){
+            console.log(fileupload);
+            console.log(fileupload.files[0]);
+            
+            //轉換格式 符合$_FILE需求 ; 利用FormData()
+            var formData = new FormData();
+            formData.append('file', fileupload.files[0]);
+            console.log(formData);
+
+            //將收集完成的資料formData 傳遞至api
+            $.ajax({
+                type: "POST",
+                url: "20230829-file_img_api.php",
+                data: formData,
+                dataType: "json",
+                cache: false,
+                contentType: false,
+                processData: false,
+                success: showdata_uploadFile,
+                error: function(){
+                    alert("error-20230829-file_img_api.php");
+                }
+            });
+        }
+        function showdata_uploadFile(data){
+            console.log(data);
+        }
+    </script>
+</body>
+</html>

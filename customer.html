@@ -281,12 +281,14 @@
                                             id="s20_login_btn">登入</button>
                                         <button type="button" class="btn btn-primary me-2" data-bs-toggle="modal"
                                             data-bs-target="#registerModal" id="s20_register_btn">註冊</button>
-                                        <a href="20230810-control_panel.html" target="_blank" class="btn btn-danger ms-2 me-2 d-none" id="s20_control_btn">後臺管理</a>
+                                        <a href="20230810-control_panel.html" target="_blank" class="btn btn-danger ms-1 me-1 d-none" id="s20_control_btn">後臺管理</a>
+                                        <a href="member.html" class="btn btn-primary me-1 d-none" id="s20_member_btn">個人資料</a>
+                                        <a href="cart.html" class="btn btn-primary me-1 d-none" id="s20_cart_btn">購物車</a>
                                         <span>
-                                            <h3 class="text-success me-2 d-none" id="login_meaasge">歡迎xxx回來</h3>
+                                            <h3 class="text-success me-1 d-none" id="login_meaasge">歡迎xxx回來</h3>
                                         </span>
                                         <span>
-                                            <a href="#" class="btn btn-success ms-2 d-none" id="s20_logout_btn">登出</a>
+                                            <a href="#" class="btn btn-success ms-1 d-none" id="s20_logout_btn">登出</a>
                                         </span>  
                                     </div>
                                 </div>
@@ -1124,6 +1126,8 @@
                     $("#s20_login_btn").addClass('d-none');
                     $("#s20_register_btn").addClass('d-none');
                     $("#s20_control_btn").removeClass('d-none');
+                    $("#s20_member_btn").removeClass('d-none');
+                    $("#s20_cart_btn").removeClass('d-none');
 
                     //顯示歡迎詞
                     $("#login_meaasge").removeClass('d-none');
@@ -1155,6 +1159,8 @@
                 $("#s20_login_btn").addClass('d-none');
                 $("#s20_register_btn").addClass('d-none');
                 $("#s20_control_btn").removeClass('d-none');
+                $("#s20_member_btn").removeClass('d-none');
+                $("#s20_cart_btn").removeClass('d-none');
 
                 //顯示歡迎詞
                 $("#login_meaasge").removeClass('d-none');

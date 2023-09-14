@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>客戶管理系統</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/my.css">
+</head>
+
+<body>
+    <!-- 本功能需要登入會員後才能寬看
+    出現登入會員帳號與登出按鈕 -->
+    <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand text-bg-danger" href="#">客戶管理系統</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">首頁</a>
+                    </li>
+                </ul>
+                <div>
+                    <span class="h3 fw-700 text-danger me-3" id="login_meaasge"></span>
+                    <a href="#" class="btn btn-success" id="logout_btn">登出</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- 表格 -->
+    <div class="container my-5">
+        <h3 style="text-align: center;">個人資料</h3>
+        <div class="doemo">
+            <div id="mem_table"></div>
+        </div>
+        
+    </div>
+    <!-- updateModal -->
+    <div class="modal fade" id="updateModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header text-bg-warning">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">會員更新</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="username" class="form-label">帳號</label>
+                        <input type="text" class="form-control" id="username" name="username" disabled>
+                    </div>
+                    <div class="mb-3">
+                        <label for="nickname" class="form-label">暱稱</label>
+                        <input type="text" class="form-control" id="nickname" name="nickname">
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" name="email">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary" id="modal_update_btn">確認更新</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery-3.7.0.min.js"></script>
+    <script>
+        var u_id; //for update
+        $(function () {
+            //確認uid是否存在, 若存在傳遞至後端check_uid_api.php確認是否合法
+            if (getCookie('uid01') != "") {
+                //uid是存在, 傳遞至後端check_uid_api.php確認是否合法
+                $.ajax({
+                    type: "POST",
+                    url: "api/check_uid_api.php",
+                    data: { uid: getCookie('uid01') },
+                    dataType: "json",
+                    success: showdata_check_uid,
+                    error: function () {
+                        alert("error-api/check_uid_api.php");
+                    }
+                });
+            } else {
+                //uid是不存在
+                alert("請先登入會員!");
+                location.href = "20230720-1.html";
+            }
+        });//end fun
+        function showdata_update(data) {
+            console.log(data);
+            if (data.state) {
+                alert(data.message);
+                location.href = "20230810-control_panel.html";
+            } else {
+                alert(data.message);
+            }
+        }
+
+        function showdata_delete(data) {
+            console.log(data);
+            if (data.state) {
+                alert(data.message);
+                location.href = "20230810-control_panel.html";
+            } else {
+                alert(data.message);
+            }
+        }
+
+        function showdata_table(data) {
+            console.log(data);
+            if (data.state) {
+                console.log(data);
+                
+            } else {
+                alert(data.message);
+            }
+        }
+        function showdata_check_uid(data) {
+            console.log(data);
+            if (data.state) {
+                //uid 驗證成功
+                
+                var ownData = '<p>編號：' + data.data[0].ID + '<p>帳號：' + data.data[0].Username + '</p><p>暱稱：' + data.data[0].Nickname + '</p><p>Email：' + data.data[0].Email + '</p><p>創建時間：' + data.data[0].Created_at + '<br><a href="#" class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#updateModal" data-id="' + data.data[0].ID + '"data-username="' + data.data[0].Username + '"data-nickname="' + data.data[0].Nickname + '"data-Email="' + data.data[0].Email + '"id="update_btn">更新</a>';
+                var mem_table = document.getElementById("mem_table");
+
+                mem_table.innerHTML = ownData;
+
+                //顯示歡迎詞
+                $("#login_meaasge").text('歡迎會員: ' + data.data[0].Username);
+
+                //顯示功能畫面
+                $.ajax({
+                    type: "GET",
+                    url: "api/control_panel_r_mem_api.php",
+                    dataType: "json",
+                    async: false,
+                    success: showdata_table,
+                    error: function () {
+                        alert("error-api/control_panel_r_mem_api.php");
+                    }
+                });
+                //update_btn按鈕監聽
+                $("#mem_table #update_btn").click(function () {
+                    console.log($(this).data("id"));
+                    console.log($(this).data("username"));
+                    console.log($(this).data("nickname"));
+                    console.log($(this).data("email"));
+
+                    $("#username").val($(this).data("username"));
+                    $("#nickname").val($(this).data("nickname"));
+                    $("#email").val($(this).data("email"));
+                    u_id = $(this).data("id");
+                });
+
+                //delete_btn按鈕監聽
+                $("#mem_table #delete_btn").click(function () {
+                    console.log($(this).data("id"));
+                    console.log($(this).data("username"));
+                    if (confirm("確認刪除: " + $(this).data("username") + "?")) {
+                        //傳遞後端control_panel_d_mem_api.php執行刪除
+                        $.ajax({
+                            type: "POST",
+                            url: "api/control_panel_d_mem_api.php",
+                            data: { id: $(this).data("id") },
+                            dataType: "json",
+                            success: showdata_delete,
+                            error: function () {
+                                alert("error-api/control_panel_d_mem_api.php");
+                            }
+                        });
+                    }
+                });
+
+                //modal_update_btn按鈕監聽
+                $("#modal_update_btn").click(function () {
+                    console.log($("#nickname").val());
+                    console.log($("#email").val());
+                    console.log(u_id);
+
+                    $.ajax({
+                        type: "POST",
+                        url: "api/control_panel_u_mem_api.php",
+                        data: { id: u_id, nickname: $("#nickname").val(), email: $("#email").val() },
+                        dataType: "json",
+                        success: showdata_update,
+                        error: function () {
+                            alert("error-api/control_panel_u_mem_api.php");
+                        }
+                    });
+                });
+
+                //監聽登出按鈕 #logout_btn
+                $("#logout_btn").click(function () {
+                    logout();
+                });
+
+            } else {
+                //uid 驗證失敗
+                alert("請先登入會員!");
+                location.href = "20230720-1.html";
+            }
+        }
+
+        //登出帳號
+        //刪除uid並重整畫面
+        function logout() {
+            setCookie('uid01', '', 7);
+            location.href = "20230720-1.html";
+        }
+
+        function showdata_u_mem_userstate(data) {
+            console.log(data);
+            if (data.state) {
+                // 帳號狀態更新成功
+                alert(data.message);
+            } else {
+                // 帳號狀態更新失敗
+                alert(data.message);
+            }
+        }
+
+        //w3c
+        function setCookie(cname, cvalue, exdays) {
+            const d = new Date();
+            d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+            let expires = "expires=" + d.toUTCString();
+            document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+        }
+        function getCookie(cname) {
+            let name = cname + "=";
+            let decodedCookie = decodeURIComponent(document.cookie);
+            let ca = decodedCookie.split(';');
+            for (let i = 0; i < ca.length; i++) {
+                let c = ca[i];
+                while (c.charAt(0) == ' ') {
+                    c = c.substring(1);
+                }
+                if (c.indexOf(name) == 0) {
+                    return c.substring(name.length, c.length);
+                }
+            }
+            return "";
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>資料opendata串接練習</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/my.css">
+</head>
+<body>
+    <div class="container" >
+        <div class="row" id="picdata">
+            <div class="col-md-4">
+                <h3>莓宴餐坊</h3>
+                <img src="https://ezgo.coa.gov.tw/Uploads/opendata/TainmaMain01/APPLY_D/20151007173924.jpg" class="img-fluid" alt="">
+            </div>
+        </div>
+    </div>
+    <div class="box05" id="secdata">
+        <h4>餐坊</h4>
+        <img src="https://ezgo.coa.gov.tw/Uploads/opendata/TainmaMain01/APPLY_D/20151007173924.jpg" width="50%" alt="">
+    </div>
+    <div class="box05" id="mydata"></div>
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery-3.7.0.min.js"></script>
+    <script>
+        $(function(){
+            $.ajax({
+                type:"GET",
+                url:"https://data.coa.gov.tw/Service/OpenData/ODwsv/ODwsvTravelFood.aspx",
+                success: showdata,
+                error: function(){
+                    console.log("資料串接錯誤-https://data.coa.gov.tw/Service/OpenData/ODwsv/ODwsvTravelFood.aspx")
+                }
+            });
+        });
+
+        function showdata(data){
+            console.log(data);
+            for(var i=0;i<data.length;i++){
+                console.log(i+" : "+data[i]["名稱"]);
+                // $("#mydata").html(i);
+                // 在外面先編譯好，再帶入
+                var strHTML = i+" : "+data[i]["名稱"] + "<br>";
+                $("#mydata").append(strHTML);
+                // $("#mydata").append(i+" : "+ data[i]["名稱"]+"<br>");
+
+
+                // var strHTML01 = '<h1>'+data[i]["名稱"]+'</h1><img src="'+data[i]["圖片"]+'">';
+                var strHTML01 = '<div class="col-md-4"><h3>'+data[i]["名稱"]+ '</h3><img src="'+data[i]["圖片"]+'" class="img-fluid" alt=""></div>';
+                $("#picdata").append(strHTML01);
+
+
+                var strHTML02 = '<h4>'+data[i]["名稱"]+'</h4><img src="'+data[i]["圖片"]+'" width="50%" alt="">';
+                $("#secdata").append(strHTML02);
+            }
+        }
+    </script>
+</body>
+</html>

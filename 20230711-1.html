@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ch.11 表單</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/my.css">
+    <style>
+        .thisbox {
+            width: 100px;
+            height: 100px;
+            display: inline-block;
+            background-color: var(--mycolor08);
+        }
+
+        .thisdemo {
+            padding: 15px;
+            background-color: var(--mycolor09);
+            margin: 10px;
+        }
+
+        .thisdemo01 {
+            width: 300px;
+            height: 300px;
+            border: 1px solid var(--mycolor08);
+
+        }
+
+        .thisdemo02 {
+            width: 600px;
+            height: 600px;
+            border: 1px solid var(--mycolor08);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-8">
+                <h1 class="display-4 fw-700">1.基本款表單</h1>
+                <div class="thisdemo border border-primary-subtle border-2 rounded-2">
+                    <form>
+                        <div class="mb-3">
+                            <label for="username">帳號</label>
+                            <input type="text" id="username" name="username" class="form-control"
+                                placeholder="帳號字數1~5字!">
+                            <div class="form-text" id="err_username">不會記錄任何資訊!</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="password">密碼</label>
+                            <input type="password" id="password" name="password" class="form-control"
+                                placeholder="密碼字數8~12字!">
+                            <div class="form-text" id="err_password">不會記錄任何資訊!</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" class="form-control"
+                                placeholder="email字數大於10字!">
+                            <div class="form-text" id="err_email">不會記錄任何資訊!</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="address">地址</label>
+                            <input type="address" id="address" name="address" class="form-control"
+                                placeholder="地址字數不得為空白!">
+                            <div class="form-text" id="err_address">不會記錄任何資訊!</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="menu" class="form-label">餐點</label>
+                            <input class="form-control" list="myfood" id="menu" name="menu" placeholder="你想吃的午餐是什麼?">
+                            <datalist id="myfood">
+                                <option value="牛肉麵">
+                                <option value="雞腿飯">
+                                <option value="漢堡">
+                            </datalist>
+                        </div>
+                        <div class="mb-3">
+                            <label for="edu" class="form-label">學歷</label>
+                            <select class="form-select" name="edu" id="edu">
+                                <option value="大學(專)">大學(專)</option>
+                                <option value="高中職">高中職</option>
+                                <option value="其他">其他</option>
+                            </select>
+                        </div>
+                        <hr>
+                        <h4 class="fw-700">複選項目</h4>
+                        <div class="mb-3 form-check-inline">
+                            <!-- form-check input & label反過來 -->
+                            <!-- 官方用法 -->
+                            <input type="checkbox" class="form-check-input" id="interest01" name="interest01"
+                                value="閱讀">
+                            <label for="" class="form-check-label">閱讀</label>
+                        </div>
+                        <div class="mb-3 form-check-inline">
+                            <input type="checkbox" class="form-check-input" id="interest01" name="interest01"
+                                value="運動">
+                            <label for="" class="form-check-label">運動</label>
+                        </div>
+                        <div class="mb-3 form-check-inline">
+                            <input type="checkbox" class="form-check-input" id="interest01" name="interest01"
+                                value="打電動">
+                            <label for="" class="form-check-label">打電動</label>
+                        </div>
+                        <div class="mb-3 form-check-inline">
+                            <input type="checkbox" class="form-check-input" id="interest01" name="interest01"
+                                value="看電影">
+                            <label for="" class="form-check-label">看電影</label>
+                        </div>
+                        <div class="mb-3 form-check-inline">
+                            <input type="checkbox" class="form-check-input" id="interest01" name="interest01"
+                                value="追劇">
+                            <label for="" class="form-check-label">追劇</label>
+                        </div>
+                        <div class="mb-3 form-check-inline">
+                            <input type="checkbox" class="form-check-input" id="interest01" name="interest01"
+                                value="動漫">
+                            <label for="" class="form-check-label">動漫</label>
+                        </div>
+                        <div class="mb-3 form-check-inline">
+                            <input type="checkbox" class="form-check-input" id="interest01" name="interest01"
+                                value="其他">
+                            <label for="" class="form-check-label">其他</label>
+                        </div>
+                        <h4 class="fw-700">單選項目</h4>
+                        <div class="mb-3 form-check-inline">
+                            <input type="radio" class="form-check-input" id="interest02" name="interest02" value="閱讀">
+                            <label for="" class="form-check-label">閱讀</label>
+                        </div>
+                        <div class="mb-3 form-check-inline">
+                            <input type="radio" class="form-check-input" id="interest02" name="interest02" value="運動">
+                            <label for="" class="form-check-label">運動</label>
+                        </div>
+                        <div class="mb-3 form-check-inline">
+                            <input type="radio" class="form-check-input" id="interest02" name="interest02" value="打電動">
+                            <label for="" class="form-check-label">打電動</label>
+                        </div>
+                        <div class="mb-3 form-check-inline">
+                            <input type="radio" class="form-check-input" id="interest02" name="interest02" value="動漫">
+                            <label for="" class="form-check-label">動漫</label>
+                        </div>
+                        <div class="mb-3 form-check-inline">
+                            <input type="radio" class="form-check-input" id="interest02" name="interest02" value="其他">
+                            <label for="" class="form-check-label">其他</label>
+                        </div>
+
+                        <button type="button" class="btn btn-primary" id="ok_btn">確認</button>
+                        <!-- 常用的方式 -->
+                        <!-- <button type="submit" class="btn btn-primary">確認-form</button> -->
+                        <!-- 被form包覆的內容會傳送到網址上 -->
+                        <div id="showmsg"></div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="col-12">
+                <div class="thisdemo border border-primary-subtle border-2 rounded-2">
+                    <div class="row align-items-center">
+                        <div class="col-auto">
+                            <label for="username">帳號</label>
+                        </div>
+                        <div class="col-auto">
+                            <input type="password" id="password" name="password" class="form-control">
+                        </div>
+                        <div class="col-auto">
+                            <div class="form-text">不會記錄任何資訊!</div>
+                        </div>
+                    </div>
+                    <div class="row mt-3 align-items-center mb-3">
+                        <div class="col-auto">
+                            <label for="password">密碼</label>
+                        </div>
+                        <div class="col-auto">
+                            <input type="password" id="password" name="password" class="form-control">
+                        </div>
+                        <div class="col-auto">
+                            <div class="form-text">不會記錄任何資訊!</div>
+                        </div>
+                    </div>
+                    <button type="button" class="btn btn-primary">確認-js監聽</button>
+                    <!-- 常用的方式 -->
+                    <button type="submit" class="btn btn-primary">確認-form</button>
+                    <!-- 被form包覆的內容會傳送到網址上 -->
+                </div>
+            </div>
+            <!-- 2.input 尺寸 -->
+            <div class="col-8">
+                <h1 class="display-4 fw-700">2.input 尺寸</h1>
+                <div class="thisdemo border border-primary-subtle border-2 rounded-2">
+                    <input type="text" id="username" name="username" class="form-control form-control-lg mb-2"
+                        placeholder="form-control-lg">
+                    <input type="text" id="username" name="username" class="form-control mb-2"
+                        placeholder="form-control">
+                    <input type="text" id="username" name="username" class="form-control form-control-sm"
+                        placeholder="form-control-sm">
+                </div>
+            </div>
+            <!-- 3.input 檔案 -->
+            <div class="col-8">
+                <h1 class="display-4 fw-700">3.input 檔案</h1>
+                <div class="thisdemo border border-primary-subtle border-2 rounded-2">
+                    <div class="mb-3">
+                        <label class="form-label" for="">選取檔案(單)</label>
+                        <input type="file" id="" name="" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="">選取檔案(多個)</label>
+                        <input type="file" id="" name="" class="form-control" multiple>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="">選取檔案(關閉)</label>
+                        <input type="file" id="" name="" class="form-control" disabled>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="">選取檔案(lg)</label>
+                        <input type="file" id="" name="" class="form-control form-control-lg">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="">選取檔案(sm)</label>
+                        <input type="file" id="" name="" class="form-control form-control-sm">
+                    </div>
+
+                </div>
+            </div>
+            <!-- 4.input 建議選項-->
+            <div class="col-8">
+                <h1 class="display-4 fw-700">4.input 建議選項</h1>
+                <div class="thisdemo border border-primary-subtle border-2 rounded-2">
+                    <div class="mb-3">
+                        <label for="" class="form-label">餐點</label>
+                        <input class="form-control" list="myfood" placeholder="你喜歡吃的午餐是什麼?">
+                        <datalist id="myfood">
+                            <option value="牛肉麵">
+                            <option value="雞腿飯">
+                            <option value="漢堡">
+                        </datalist>
+                    </div>
+                </div>
+            </div>
+            <!-- 5.select 下拉選單  -->
+            <div class="col-8">
+                <h1 class="display-4 fw-700">5.select 下拉選單 </h1>
+                <div class="thisdemo border border-primary-subtle border-2 rounded-2">
+                    <div class="mb-3">
+                        <label for="edu" class="form-label">學歷</label>
+                        <select class="form-select" name="" id="">
+                            <option value="大學(專)">大學(專)</option>
+                            <option value="高中職">高中職</option>
+                            <option value="其他">其他</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="thisdemo border border-primary-subtle border-2 rounded-2">
+                    <div class="mb-3">
+                        <label for="edu" class="form-label">學歷</label>
+                        <!-- multiple 多選項 -->
+                        <!-- size 顯示幾個 -->
+                        <select class="form-select" name="edu" id="edu" multiple size="4">
+                            <option value="大學(專)">大學(專)</option>
+                            <option value="高中職">高中職</option>
+                            <option value="其他01">其他01</option>
+                            <option value="其他02">其他02</option>
+                            <option value="其他03">其他03</option>
+                            <option value="其他04">其他04</option>
+                            <option value="其他05">其他05</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <!-- 6. checkbox (複選)-->
+            <div class="col-8">
+                <h1 class="display-4 fw-700">6. checkbox(複選)</h1>
+                <div class="thisdemo border border-primary-subtle border-2 rounded-2">
+                    <div class="mb-3 form-check-inline">
+                        <!-- form-check input & label反過來 -->
+                        <!-- 官方用法 -->
+                        <input type="checkbox" class="form-check-input" id="interest01" name="interest01" value="閱讀">
+                        <label for="" class="form-check-label">閱讀</label>
+                    </div>
+                    <div class="mb-3 form-check-inline">
+                        <input type="checkbox" class="form-check-input" id="interest01" name="interest01" value="運動">
+                        <label for="" class="form-check-label">運動</label>
+                    </div>
+                    <div class="mb-3 form-check-inline">
+                        <input type="checkbox" class="form-check-input" id="interest01" name="interest01" value="打電動">
+                        <label for="" class="form-check-label">打電動</label>
+                    </div>
+                    <div class="mb-3 form-check-inline">
+                        <input type="checkbox" class="form-check-input" id="interest01" name="interest01" value="看電影">
+                        <label for="" class="form-check-label">看電影</label>
+                    </div>
+                    <div class="mb-3 form-check-inline">
+                        <input type="checkbox" class="form-check-input" id="interest01" name="interest01" value="追劇">
+                        <label for="" class="form-check-label">追劇</label>
+                    </div>
+                    <div class="mb-3 form-check-inline">
+                        <input type="checkbox" class="form-check-input" id="interest01" name="interest01" value="動漫">
+                        <label for="" class="form-check-label">動漫</label>
+                    </div>
+                    <div class="mb-3 form-check-inline">
+                        <input type="checkbox" class="form-check-input" id="interest01" name="interest01" value="其他">
+                        <label for="" class="form-check-label">其他</label>
+                    </div>
+                    <button class="btn btn-primary" id="checkbox_btn">確認</button>
+                </div>
+            </div>
+            <!-- 7.radio(單選) -->
+            <div class="col-8">
+                <h1 class="display-4 fw-700">7. radio(單選)</h1>
+                <div class="thisdemo border border-primary-subtle border-2 rounded-2">
+                    <div class="mb-3 form-check-inline">
+                        <input type="radio" class="form-check-input" id="interest02" name="interest02" value="閱讀">
+                        <label for="" class="form-check-label">閱讀</label>
+                    </div>
+                    <div class="mb-3 form-check-inline">
+                        <input type="radio" class="form-check-input" id="interest02" name="interest02" value="運動">
+                        <label for="" class="form-check-label">運動</label>
+                    </div>
+                    <div class="mb-3 form-check-inline">
+                        <input type="radio" class="form-check-input" id="interest02" name="interest02" value="打電動">
+                        <label for="" class="form-check-label">打電動</label>
+                    </div>
+                    <div class="mb-3 form-check-inline">
+                        <input type="radio" class="form-check-input" id="interest02" name="interest02" value="動漫">
+                        <label for="" class="form-check-label">動漫</label>
+                    </div>
+                    <div class="mb-3 form-check-inline">
+                        <input type="radio" class="form-check-input" id="interest02" name="interest02" value="其他">
+                        <label for="" class="form-check-label">其他</label>
+                    </div>
+                    <button class="btn btn-primary" id="radio_btn">確認</button>
+                </div>
+            </div>
+            <!-- 8. switch(撥動開關) -->
+            <div class="col-8">
+                <h1 class="display-4 fw-700">8. switch(撥動開關)</h1>
+                <div class="thisdemo border border-primary-subtle border-2 rounded-2">
+                    <div class="mb-3 form-check form-switch">
+                        <!-- 先後順序 -->
+                        <input type="checkbox" class="form-check-input" role="switch">
+                        <label for="" class="form-check-label">開關</label>
+                    </div>
+                    <!-- switch 開關 -->
+                    <div class="mb-3 form-check form-switch">
+                        <input type="checkbox" class="form-check-input" role="switch" checked>
+                        <!-- checked 開 -->
+                        <label for="" class="form-check-label">開關</label>
+                    </div>
+                    <div class="mb-3 form-check form-switch">
+                        <input type="checkbox" class="form-check-input" role="switch" checked disabled>
+                        <!-- disabled 屏蔽 -->
+                        <label for="" class="form-check-label">開關</label>
+                    </div>
+                </div>
+                <h3 class="fw-700">水平</h3>
+                <div class="thisdemo border border-primary-subtle border-2 rounded-2">
+                    <div class="mb-3 form-check-inline form-switch">
+                        <input type="checkbox" class="form-check-input" role="switch" id="switch01" name="switch01">
+                        <label for="switch01" class="form-check-label">開關</label>
+                    </div>
+                    <div class="mb-3 form-check-inline form-switch">
+                        <input type="checkbox" class="form-check-input" role="switch"  id="switch02" name="switch02">
+                        <label for="switch02" class="form-check-label">開(背景灰色)關(背景黑色)</label>
+                    </div>
+                    <div class="mb-3 form-check-inline form-switch">
+                        <input type="checkbox" class="form-check-input" role="switch" checked disabled>
+                        <label for="" class="form-check-label">開關</label>
+                    </div>
+                </div>
+            </div>
+            <!-- 9. range -->
+            <div class="col-8">
+                <h1 class="display-4 fw-700">9. range</h1>
+                <div class="thisdemo border border-primary-subtle border-2 rounded-2">
+                   <div class="mb-3">
+                    <label for="range01" class="form-label" id="range01_label">數值</label>
+                    <input type="range" class="form-range" min="0" max="100" step="1" id="range01" name="range01">
+                   </div>
+                   <div class="mb-3">
+                    <label for="range02" class="form-label" id="range02_label">數值</label>
+                    <input type="range" class="form-range" min="0" max="100" step="1" id="range02" name="range02">
+                   </div>
+                </div>
+            </div>
+            <!-- 10. input group -->
+            <div class="col-8">
+                <h1 class="display-4 fw-700">10. input group</h1>
+                <div class="thisdemo border border-primary-subtle border-2 rounded-2">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1">@</span>
+                        <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                    </div>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                        <span class="input-group-text" id="basic-addon2">@example.com</span>
+                      </div>
+                      <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                        <button class="btn btn-outline-success" type="button" id="button-addon2">搜尋</button>
+                    </div> 
+                </div>
+            </div>
+            <!-- 11. floating labels -->
+            <div class="col-8">
+                <h1 class="display-4 fw-700">11. floating labels</h1>
+                <div class="thisdemo border border-primary-subtle border-2 rounded-2">
+                    <div class="mb-3 form-floating">
+                        <input type="text" class="form-control" id="username" placeholder="請輸入帳號!">
+                        <label for="username">帳號</label>
+                    </div>
+                </div>
+            </div>
+            <!-- 12. 表單驗證 -->
+            <div class="col-8">
+                <h1 class="display-4 fw-700">12. 表單驗證</h1>
+                <div class="thisdemo border border-primary-subtle border-2 rounded-2">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label for="username" class="form-label">帳號</label>
+                            <input type="text" class="form-control is-valid" id="username" name="username">
+                            <div class="valid-feedback">輸入正確</div>
+                            <div class="invalid-feedback">輸入錯誤</div>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="nickname" class="form-label">暱稱</label>
+                            <input type="text" class="form-control is-invalid" id="nickname" name="nickname">
+                            <div class="valid-feedback">輸入正確</div>
+                            <div class="invalid-feedback">輸入錯誤</div>
+                        </div>
+                        <div class="col-12 mt-3">
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input is-invalid">
+                                <label for="" class="form-check-label">同意遵守會員守則</label>
+                                <div class="valid-feedback">同意遵守</div>
+                                <div class="invalid-feedback">必須先同意遵守, 才能入會!</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery-3.7.0.min.js"></script>
+    <script>
+        // flag 立旗子判斷 1 (true) & 0 (false)
+        var flag_username = false;
+        var flag_password = false;
+        var flag_email = false;
+        var flag_address = false;
+        $(function () {
+             // range02 監聽input propertychange事件
+             // 移動過程，數字跟著變化
+             $("#range02").bind("input propertychange", function(){
+                console.log($(this).val());
+                $("#range02_label").text($(this).val()+ "度");
+             });
+            
+            // range01 監聽change()事件
+            // 移動到定點，數字才變換
+            $("#range01").change(function(){
+                console.log($(this).val());
+                $("#range01_label").text($(this).val() + "度");
+            });
+
+            // switch01 監聽change()事件, 判斷switch是否被勾選
+            $("#switch01").change(function(){
+                if($(this).is(':checked')){
+                    // is 是或否
+                    console.log("開");
+                    $(this).next().text("開燈");
+                }else{
+                    console.log("關");
+                    $(this).next().text("關燈");
+                }
+               
+            });
+            // switch02 監聽change()事件
+            $("#switch02").change(function(){
+                if($(this).is(':checked')){
+                    console.log("開");
+                    $(this).next().text("開燈");
+                    $("body").css("background-color", "gray");
+                }else{
+                    console.log("關");
+                    $(this).next().text("關燈");
+                    $("body").css("background-color", "black");
+                }
+               
+            });
+
+            // radio_btn 按鈕監聽
+            $("#radio_btn").click(function () {
+                var myinterest2 = [];
+                // console.log("radio_btn");
+                $.each($("input[name='interest02']:checked"), function () {
+                    myinterest2.push($(this).val());
+                });
+                // console.log(myinterest2);
+                console.log(myinterest2.join(", "));
+            });
+            // checkbox_btn 按鈕監聽
+            $("#checkbox_btn").click(function () {
+                // 宣告
+                var myinterest = [];
+                console.log("checkbox_btn");
+                // $.each 掃描-jq用法
+                // 要符合左邊的條件，才執行右邊的動作
+                $.each($("input[name='interest01']:checked"), function () {
+                    // 陣列
+                    myinterest.push($(this).val());
+                });
+                console.log(myinterest);
+                console.log(myinterest.join(", "));
+            });
+
+            // #ok_btn 按鈕監聽
+            $("#ok_btn").click(function () {
+                // if(flag_username == true && flag_password == true && flag_email == true && flag_address == true)  精簡↓
+                if (flag_username && flag_password && flag_email && flag_address) {
+                    console.log($("#username").val());
+                    console.log($("#password").val());
+
+                    //顯示帳號密碼於 #showmsg
+                    $("#showmsg").html("<h2>帳號:" + $("#username").val() + "</h2><h2>密碼:" + $("#password").val() + "</h2><h2>信箱:" + $("#email").val() + "</h2><h2>地址:" + $("#address").val() + "</h2><h2>午餐:" + $("#menu").val() + "</h2><h2>學歷:" + $("#edu").val() + "</h2><h2>複選:" + $("#interest01:checked").val() + "</h2><h2>單選:" + $("#interest02:checked").val() + "</h2>");
+                } else {
+                    // alert 彈跳視窗
+                    alert("欄位有錯, 請修正!");
+                }
+
+
+            });
+
+            // #username 即時監聽
+            $("#username").bind("input propertychange", function () {
+                // this 剛剛的事件 (與bind搭配)
+                console.log($(this).val().length)
+
+                if ($(this).val().length > 0 && $(this).val().length < 6) {
+                    // 帳號字數1~5字 符合規則顯示"字數符合規則"  綠色
+                    $("#err_username").html("字數符合規則");
+                    // $("#err_username").css("color", "green");  CSS用法
+                    //使用 bootstrap text-success
+                    $("#err_username").removeClass("text-danger");
+                    $("#err_username").addClass("text-success");
+                    flag_username = true;
+                } else {
+                    // 帳號字數1~5字 不符合規則顯示"字數不符合規則" 紅色
+                    $("#err_username").html("字數不符合規則");
+                    // $("#err_username").css("color", "red");
+                    //使用 bootstrap text-danger
+                    $("#err_username").removeClass("text-success");
+                    $("#err_username").addClass("text-danger");
+                    flag_username = false;
+                }
+            });
+            // #password 即時監聽
+            $("#password").bind("input propertychange", function () {
+                console.log($(this).val().length)
+
+                if ($(this).val().length > 7 && $(this).val().length < 13) {
+                    $("#err_password").html("密碼符合規定");
+                    $("#err_password").removeClass("text-danger");
+                    $("#err_password").addClass("text-success");
+                    flag_password = true;
+                } else {
+                    $("#err_password").html("密碼不符合規定");
+                    $("#err_password").removeClass("text-success");
+                    $("#err_password").addClass("text-danger");
+                    flag_password = false;
+                }
+            });
+            // #email 即時監聽
+            $("#email").bind("input propertychange", function () {
+                console.log($(this).val().length)
+
+                if ($(this).val().length > 11) {
+                    $("#err_email").html("email符合規定");
+                    $("#err_email").removeClass("text-danger");
+                    $("#err_email").addClass("text-success");
+                    flag_email = true;
+                } else {
+                    $("#err_email").html("email不符合規定");
+                    $("#err_email").removeClass("text-success");
+                    $("#err_email").addClass("text-danger");
+                    flag_email = false;
+                }
+            });
+            // bind 回傳
+            // input propertychange 為即時監聽
+            // #address 即時監聽
+            // removeClass 元素移除
+            // addClass 新增元素
+            $("#address").bind("input propertychange", function () {
+                console.log($(this).val().length)
+
+                if ($(this).val().length > 0) {
+                    $("#err_address").html("address符合規定");
+                    $("#err_address").removeClass("text-danger");
+                    $("#err_address").addClass("text-success");
+                    flag_address = true;
+                } else {
+                    $("#err_address").html("address不符合規定");
+                    $("#err_address").removeClass("text-success");
+                    $("#err_address").addClass("text-danger");
+                    flag_address = false;
+                }
+            });
+
+
+        });
+    </script>
+</body>
+
+</html>

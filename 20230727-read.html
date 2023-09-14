@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API串接資料</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/my.css">
+    <style>
+        .table-rwd {
+            margin-top: 15px;
+        }
+
+        @media screen and (max-width:768px) {
+            .table-rwd thead {
+                display: none;
+            }
+
+            .table-rwd tbody tr {
+                display: block;
+                border: 2px solid var(--mycolor03);
+                margin-top: 10px;
+            }
+
+            .table-rwd tbody tr td {
+                display: block;
+                overflow: hidden;
+            }
+
+            .table-rwd tbody tr td:before {
+                content: attr(data-th)" : ";
+                font-weight: 700;
+                color: var(--mycolor04);
+                display: block;
+                float: left;
+                width: 6em;
+                text-align: right;
+                padding-right: 1em;
+            }
+
+            .table-rwd tbody tr td span.table-col {
+                display: block;
+                float: left;
+                width: calc(100% - 6em);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 offset-1">
+                <ul class="nav">
+                    <li class="nav-item me-3 ">
+                        <a class="nav-link" aria-current="page" href="20230727-read.html">產品列表</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="20230801-create.html">產品新增</a>
+                    </li>
+                </ul>
+                <table class="table table-rwd">
+                    <thead class="text-bg-danger table-dark">
+                        <tr>
+                            <th width="8%">編號</th>
+                            <th width="15%">產品名稱</th>
+                            <th width="15%">產品價格</th>
+                            <th width="15%">產品數量</th>
+                            <th width="22%">建檔時間</th>
+                            <th width="25%">#</th>
+                        </tr>
+                    </thead>
+                    <tbody id="mytable">
+                        <tr>
+                            <td data-th="編號"><span class="table-col">01</span></td>
+                            <td data-th="產品名稱"><span class="table-col">湖莓宴餐坊</span></td>
+                            <td data-th="產品價格"><span class="table-col">037-9995677</span></td>
+                            <td data-th="產品數量"><span class="table-col">湖莓宴開在大湖酒莊的4樓，是大湖地</span></td>
+                            <td data-th="建檔時間"><span class="table-col">True</span></td>
+                            <td><a href="#" class="btn btn-warning" id="update_btn">更新</a><a href="#" class="btn btn-danger" id="delete_btn">刪除</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal fade" id="updateModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h1 class="modal-title fs-5" id="exampleModalLabel">產品更新</h1>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label for="pname" class="form-label">產品名稱</label>
+                            <input type="text" class="form-control" id="pname" name="pname" placeholder="字數3~6!">
+                            <div class="valid-feedback">輸入正確</div>
+                            <div class="invalid-feedback">輸入錯誤</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="price" class="form-label">產品價格</label>
+                            <input type="number" min="0" max="120" class="form-control" id="price" name="price" placeholder="0~120元">
+                            <div class="valid-feedback">輸入正確</div>
+                            <div class="invalid-feedback">輸入錯誤</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="pnum" class="form-label">產品數量</label>
+                            <input type="number" min="0" max="50" class="form-control" id="pnum" name="pnum" placeholder="0~50個">
+                            <div class="valid-feedback">輸入正確</div>
+                            <div class="invalid-feedback">輸入錯誤</div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary">取消</button>
+                        <button type="button" class="btn btn-primary" id="modal_update_btn">確認更新</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+        </div>
+    </div>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery-3.7.0.min.js"></script>
+    <script>
+        $(function () {
+            var flag_pname = false;
+            var flag_price = false;
+            var flag_pnum = false;
+
+            $.ajax({
+                type: "GET",
+                url: "20230727-read.php",
+                dataType: "json",
+                async:false,
+                // async:false 按照順序執行
+                success: showdata,
+                error: function () {
+                    alert("串接資料錯誤-20230727-read.php");
+                }
+            });
+
+            // 監聽更新按鈕update_btn
+            $("#mytable #update_btn").click(function(){
+                console.log($(this).data("id"));
+                console.log($(this).data("pname"));
+                console.log($(this).data("price"));
+                console.log($(this).data("pnum"));
+                 //將data-xxx 傳遞至modal表單
+                $("#pname").val($(this).data("pname"));
+                $("#price").val($(this).data("price"));
+                $("#pnum").val($(this).data("pnum"));
+                uid = $(this).data("id");
+            });
+            // 監聽更新按鈕modal_update_btn
+            $("#modal_update_btn").click(function(){
+                console.log($("#pname").val());
+                console.log($("#price").val());
+                console.log($("#pnum").val());
+                console.log(uid);
+                if(flag_pname && flag_pnum && flag_price){
+                // 傳遞至update api 執行更新
+                $.ajax({
+                    type: "POST",
+                    url: "20230801-update.php",
+                    data: {pname: $("#pname").val(), price: $("#price").val(), pnum: $("#pnum").val(), id: uid},
+                    dataType: "json",
+                    success: showdata_updata,
+                    error: function(){
+                        alert("錯誤!-20230801-update.php");
+                    }
+                });
+                }else{
+                    alert("參數錯誤, 不可以傳遞至後端API");
+                }
+            });
+            // 監聽刪除按鈕 delete_btn
+            $("#mytable #delete_btn").click(function(){
+                console.log($(this).data("id"));
+
+                if(confirm("確認刪除?")){
+                    // 傳遞至 delete_api 執行刪除行為
+                    $.ajax({
+                        type: "POST",
+                        url: "20230801-delete.php",
+                        data: { id: $(this).data("id")},
+                        dataType: "json",
+                        success:showdata_delete,
+                        error: function(){
+                            alert("錯誤-20230801-delete.php");
+                        }
+                    });
+                } 
+            });
+            // 監聽
+            $("#pname").bind("input propertychange", function(){
+                if($(this).val().length > 2 && $(this).val().length < 121){
+                    $(this).removeClass("is-invalid");
+                    $(this).addClass("is-valid");
+                    flag_pname = true;
+                }else{
+                    $(this).removeClass("is-valid");
+                    $(this).addClass("is-invalid");
+                    flag_pname = false;
+                }
+            });
+            $("#price").bind("input propertychange", function(){
+                if($(this).val() > 0 && $(this).val() < 121){
+                    $(this).removeClass("is-invalid");
+                    $(this).addClass("is-valid");
+                    flag_price = true;
+                }else{
+                    $(this).removeClass("is-valid");
+                    $(this).addClass("is-invalid");
+                    flag_price = false;
+                }
+            });
+            $("#pnum").bind("input propertychange", function(){
+                if($(this).val() > 0 && $(this).val() < 51){
+                    $(this).removeClass("is-invalid");
+                    $(this).addClass("is-valid");
+                    flag_pnum = true;
+                }else{
+                    $(this).removeClass("is-valid");
+                    $(this).addClass("is-invalid");
+                    flag_pnum = false;
+                }
+            });
+        });
+        function showdata(data) {
+            console.log(data);
+            
+            $("#mytable").empty();
+            data.forEach(function(item){
+                console.log(item);
+                var strHTML = '<tr><td data-th="編號"><span class="table-col">'+item.ID+'</span></td><td data-th="產品名稱"><span class="table-col">'+item.Pname+'</span></td><td data-th="產品價格"><span class="table-col">'+item.Price+'</span></td><td data-th="產品數量"><span class="table-col">'+ item.Pnum +'</span></td><td data-th="建檔時間"><span class="table-col">'+ item.Created_at +'</span></td><td><a href="#" class="btn btn-warning me-3" data-bs-toggle="modal" data-bs-target="#updateModal" data-id="'+item.ID+'" data-pname="'+item.Pname+'" data-price="'+item.Price+'" data-pnum="'+ item.Pnum +'" id="update_btn">更新</a><a href="#" class="btn btn-danger" data-id="'+item.ID+'" id="delete_btn">刪除</a></td></tr>';
+                $("#mytable").append(strHTML);
+            }); 
+            }
+        function showdata_updata(data){
+            console.log(data);
+            if(data.state){
+                alert(data.message);
+                location.href = "20230727-read.html";
+            }else{
+                alert(data.message);
+            }
+        }
+
+        function showdata_delete(data){
+            console.log(data);
+            if(data.state){
+                alert(data.message);
+                location.href = "20230727-read.html";
+            }else{
+                alert(data.message);
+            }
+        }
+        
+    </script>
+</body>
+
+</html>

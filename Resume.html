@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/my.css">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/animate.css_4.1.1_animate.min.css">
+    <style>
+        :root {
+            --mycolor01: #FDDCEF;
+            --mycolor02: #3A5A69;
+            --mycolor03: #07090c;
+            --mycolor05: #D5C5E9;
+        }
+
+        body {
+            background-color: #fff;
+        }
+
+        .basic-card {
+            width: 100%;
+            height: 25%;
+            background-color: var(--mycolor01);
+            position: relative;
+            left: 0;
+        }
+
+        .image-1 {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 3px solid var(--mycolor03);
+            background-color: var(--mycolor05);
+            position: absolute;
+            top: 15%;
+            right: 15%;
+            transform: translate(5%, -5%);
+        }
+
+        .content {
+            width: 100%;
+            height: 100%;
+            background-color: var(--mycolor01);
+            padding-top: 10px;
+        }
+
+        .timeline-section {
+            position: relative;
+        }
+
+        .timeline-section:before {
+            position: absolute;
+            content: "";
+            top: 5%;
+            bottom: 10%;
+            width: 2px;
+            background-color: var(--mycolor03);
+            left: 0%;
+            transform: translateX(-50%);
+        }
+
+        .timeline-section-pointer {
+            position: relative;
+        }
+
+        .timeline-section-pointer:before {
+            position: absolute;
+            content: "";
+            top: 5%;
+            left: 0%;
+            transform: translateX(-50%);
+            width: 15px;
+            height: 15px;
+            border-radius: 15px;
+            border: 3px solid var(--mycolor03);
+            background-color: var(--mycolor04);
+        }
+
+        h5 {
+
+            height: 30px;
+            border-radius: 20px;
+            border: 3px solid var(--mycolor03);
+            background-color: var(--mycolor05);
+        }
+
+        .timeline-section-pointer:hover:before {
+            width: 20px;
+            height: 20px;
+        }
+
+        .line {
+            position: relative;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+        }
+
+        @media screen and (max-width:768px) {
+            .image-1 {
+                width: 120px;
+                height: 120px;
+                right: 7%;
+
+            }
+        }
+    </style>
+</head>
+
+<body oncontextmenu="window.event.returnValue=false">
+    <div class="section1">
+        <div class="container">
+            <div class="basic-card">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="col mt-4">
+                                <p><span style="font-size: 36px;">吳佳蓉</span></p>
+                                <p><span class="me-4">應徵職位：後端工程師</span></p>
+                                <p><span class="me-4">性別：女</span><span class="me-4">年齡：25歲</span>居住地：台中市</p>
+                                <p><span class="me-4">電話：0981701070</span>Email：papaushi951@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="image-1"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section2">
+        <div class="container">
+            <div class="content">
+                <div class="container">
+                    <div class="row">
+
+                        <h5><span class="ms-4"><i class="fa-solid fa-user-graduate me-2"></i></span>
+                            <span class="fw-700">學歷</span>
+                        </h5>
+
+                        <div class="col timeline-section ms-3">
+                            <div class="row timeline-section-pointer">
+                                <div class="text">
+                                    <p><span class="me-3">僑光科技大學</span>企業管理系</p>
+                                    <p style="font-size: 15px;">2016-09 ~ 2020-06，畢業</p>
+                                </div>
+                            </div>
+                            <div class="row timeline-section-pointer">
+                                <div class="text">
+                                    <p><span class="me-3">明道中學</span>餐飲科</p>
+                                    <p style="font-size: 15px;">2013-09 ~ 2016-06，畢業</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <h5><span class="me-3"><i class="fa-solid fa-pen"></i></span>
+                            <span class="fw-700">學習經歷</span>
+                        </h5>
+                        <div class="col timeline-section ms-3">
+                            <div class="row timeline-section-pointer">
+                                <div class="text">
+                                    <p><span class="me-3">職訓局</span>學員</p>
+                                    <p style="font-size: 15px;">2023-04 ~ 2023-09</p>
+                                </div>
+                            </div>
+                            <div class="row timeline-section-pointer">
+                                <div class="text">
+                                    <p><span class="me-3">超商</span>門市人員</p>
+                                    <p style="font-size: 15px;">2022-01 ~ 2023-02</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <h5><span class="me-3"><i class="fa-solid fa-pen"></i></span>
+                            <span class="fw-700">專長經歷</span>
+                        </h5>
+
+                    </div>
+                    <div class="row">
+                        <h5><span class="me-3"><i class="fa-solid fa-pen"></i></span>
+                            <span class="fw-700">自傳</span>
+                        </h5>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery-3.7.0.min.js"></script>
+    <script src="https://unpkg.com/counterup2@2.0.2/dist/index.js"></script>
+    <script src="js/wow.min.js"></script>
+
+</body>
+
+</html>

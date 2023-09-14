@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>阿兔官方官網</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/my.css">
+    <link rel="stylesheet" href="css/all.min.css">
+    <style>
+        .modal_line {
+            position: relative;
+        }
+
+        .modal_line:before {
+            position: absolute;
+            content: "";
+            top: 48px;
+            bottom: 48px;
+            width: 1px;
+            background-color: rgba(0, 0, 0, 0.2);
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .s09_text,
+        .s32_text {
+            color: #ffffff;
+            background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5));
+            padding: 15px;
+            margin: 15px;
+            border-radius: 15px;
+        }
+
+        .timeline-section{
+            position: relative;
+        }
+
+        .timeline-section:before{
+            position: absolute;
+            content: "";
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background-color:#fee19f;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .timeline-section-pointer{
+            position: relative;
+        }
+        .timeline-section-pointer:before{
+            position: absolute;
+            content: "";
+            top: 50%;
+            
+            width: 15px;
+            height: 15px;
+            border-radius: 15px;
+            border: 3px solid var(--mycolor15);
+            background-color: #ffa289;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .timeline-section-pointer:hover:before{
+            width: 25px;
+            height: 25px;
+        }
+
+        @media screen and (max-width:768px) {
+
+            .s05_text,
+            .s07_text {
+                color: #ffffff;
+                background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5));
+                padding: 15px;
+                margin: 15px;
+                border-radius: 15px;
+            }
+
+            .s05_image {
+                right: 0;
+            }
+
+            .s07_image {
+                left: 0;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-light">
+    <!-- s010 -->
+    <section id="s010" class="bg-secondary">
+        <div class="container text-end">
+            <i class="fa-brands fa-square-facebook text-primary"></i>
+            <i class="fa-brands fa-square-twitter text-info"></i>
+        </div>
+    </section>
+    <!-- s020 選單 -->
+    <section id="s020" class="bg-dark">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#">
+                        <i class="fa-brands fa-pagelines fs-2x text-success"></i>
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="#s010">
+                                    <i class="fa-solid fa-house-chimney text-white me-2"></i>首頁</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#s031">關於我們</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#s032">兔兔步驟</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+                                    服務項目
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#">生日派對</a></li>
+                                    <li><a class="dropdown-item" href="#">迎新舞會</a></li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li><a class="dropdown-item" href="#">公司尾牙</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#s040">營業項目介紹</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#s050">細部規劃</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#s060">企業精神</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#s070">價格項目</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#s080">公司位置與資料填寫</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#s090">公司徵才</a>
+                            </li>
+                        </ul>
+                        <form class="d-flex" role="search">
+                            <a href="#" class="btn btn-outline-primary me-2" data-bs-toggle="modal"
+                                data-bs-target="#loginModal">登入</a>
+                            <a href="#" class="btn btn-primary" data-bs-toggle="modal"
+                                data-bs-target="#registerModal">註冊</a>
+                        </form>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </section>
+    <!-- Modal -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header text-bg-success">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">會員登入</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="" class="form-label">帳號</label>
+                        <input type="text" class="form-control" placeholder="請輸入帳號!">
+                    </div>
+                    <div class="mb-3">
+                        <label for="" class="form-label">密碼</label>
+                        <input type="text" class="form-control" placeholder="請輸入密碼!">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <a href="#" class="me-auto" data-bs-toggle="modal" data-bs-target="#registerModal">還沒有帳號, 註冊去!</a>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary">確認登入</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- registerModal -->
+    <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header text-bg-warning">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">會員註冊</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row modal_line">
+                        <div class="col-6">
+                            <h3>會員守則</h3>
+                            <p>尤其商家打印，性能性感要是這些那個避免。</p>
+                            <p>尤其商家打印，性能性感要是這些那個避免。</p>
+                            <p>尤其商家打印，性能性感要是這些那個避免。</p>
+                            <p>尤其商家打印，性能性感要是這些那個避免。</p>
+                            <p>尤其商家打印，性能性感要是這些那個避免。</p>
+                        </div>
+                        <div class="col-6">
+                            <div class="modal-body">
+                                <div class="mb-3">
+                                    <label for="username" class="form-label">帳號</label>
+                                    <input type="text" class="form-control" placeholder="請輸入帳號!" id="username">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="password" class="form-label">密碼</label>
+                                    <input type="text" class="form-control" placeholder="請輸入密碼!" id="password">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="repassword" class="form-label">確認密碼</label>
+                                    <input type="text" class="form-control" placeholder="重新輸入密碼!" id="repassword">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="" class="form-label">Email</label>
+                                    <input type="text" class="form-control" placeholder="請輸入Email!">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <a href="#" class="me-auto" data-bs-toggle="modal" data-bs-target="#loginModal">還沒有帳號, 註冊去!</a>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-warning">確認註冊</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- s030 carousel 幻燈片效果-->
+    <section id="s030">
+        <div id="carouselExampleCaptions" class="carousel slide">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+                    aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+                    aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+                    aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active" style="height: 480px; background-image: url(images/bg005.jpg);">
+                    <img src="images/bunny14.jpg" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block carousel_text">
+                        <h5>廣告台詞 - 回事找不到購物，當。</h5>
+                        <p>對付上帝規劃推動簡單小姐信號唯一連結幾年最高把你，品質他們尚未終於來電，首頁將來動力自我畢業生回去。</p>
+                    </div>
+                </div>
+                <div class="carousel-item active" style="height: 480px; background-image: url(images/bg001.jpg);">
+                    <img src="images/bunny15.jpg" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block carousel_text">
+                        <h5>廣告台詞 - 回事找不到購物，當。</h5>
+                        <p>對付上帝規劃推動簡單小姐信號唯一連結幾年最高把你，品質他們尚未終於來電，首頁將來動力自我畢業生回去。</p>
+                    </div>
+                </div>
+                <div class="carousel-item active" style="height: 480px; background-image: url(images/bg002.jpg);">
+                    <img src="images/bunny19.jpg" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block carousel_text">
+                        <h5>廣告台詞 - 回事找不到購物，當。</h5>
+                        <p>對付上帝規劃推動簡單小姐信號唯一連結幾年最高把你，品質他們尚未終於來電，首頁將來動力自我畢業生回去。</p>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </section>
+
+    <!-- s031 關於我們 跑動數字特效 -->
+    <section id="s031">
+        <div class="container-fluid">
+            <div class="row align-items-center">
+                <div class="col-md-5 bg-cover" style="background-image: url(images/bunny10.jpg);height: 600px;">
+                </div>
+                <div class="col-md-7 p-5">
+                    <h1>民國113年<span class="text-success-emphasis fw-900">全台第一家</span></h1>
+                    <h1>阿兔兔兔公司</h1>
+                    <p class="mb-1 mt-4">大學生進行通訊排行榜告訴你遺憾最大，說。</p>
+                    <p class="mb-1">大學生進行通訊排行榜告訴你遺憾最大，說。</p>
+                    <p class="mb-1">大學生進行通訊排行榜告訴你遺憾最大，說。</p>
+                    <p class="mb-1">大學生進行通訊排行榜告訴你遺憾最大，說。</p>
+                    <div class="row">
+                        <div class="col-md-3 mt-4">
+                            <h4 class="fw-700">平均兔兔</h4>
+                            <h2 class="fw-700 counter01">100<span class="h4">/場</span></h2>
+                        </div>
+                        <div class="col-md-3 mt-4">
+                            <h4 class="fw-700">獲獎項目</h4>
+                            <h2 class="fw-700 counter02">16<span class="h4">/項</span></h2>
+                        </div>
+                        <div class="col-md-3 mt-4">
+                            <h4 class="fw-700">專業競爭</h4>
+                            <h2 class="fw-700 counter03">27<span class="h4">/項</span></h2>
+                        </div>
+                        <div class="col-md-3 mt-4">
+                            <h4 class="fw-700">服務據點</h4>
+                            <h2 class="fw-700 counter04">52<span class="h4">/個</span></h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- s032 兔兔步驟 時間軸 -->
+    <section id="s032" class="bg-cover" style="background-image: url(images/bg002.jpg); background-attachment: fixed;">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-4">
+                    <div class="s32_text">
+                        <h2>兔兔步驟</h2>
+                        <p>加上計算一笑拿出圖書違反下降，減少區域新年桃園，地位危機運用之間工作人員說著內部，一個全身，吸引紀念良好查詢暫時本公司，角度女朋友性能一股上來檢查推薦使用屬於問題，一時居然這種沒有利益會員居住破壞意義決策主席，主動完美少年素質有很多請大家現實，形成婚姻身。
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-8 timeline-section">
+                    <div class="row timeline-section-pointer align-items-center">
+                        <div class="col-6">
+                            <div class="s32_text">
+                                <h2>1.準備工具</h2>
+                                <p>主動完美少年素質有很多請大家現實，形成婚姻身。
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <img src="images/bunny03.jpg" alt="" class="img-fluid">
+                        </div>
+                    </div>
+                    <div class="row flex-row-reverse timeline-section-pointer align-items-center">
+                        <div class="col-6">
+                            <div class="s32_text">
+                                <h2>2.安撫兔兔</h2>
+                                <p>主動完美少年素質有很多請大家現實，形成婚姻身。
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                                <img src="images/bunny04.jpg" alt="" class="img-fluid">
+                        </div>
+                    </div>
+                    <div class="row timeline-section-pointer align-items-center">
+                        <div class="col-6">
+                            <div class="s32_text">
+                                <h2>3.檢查兔兔</h2>
+                                <p>主動完美少年素質有很多請大家現實，形成婚姻身。
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <img src="images/bunny05.jpg" alt="" class="img-fluid">
+                        </div>
+                    </div>
+                    <div class="row flex-row-reverse timeline-section-pointer align-items-center">
+                        <div class="col-6">
+                            <div class="s32_text">
+                                <h2>4.獎勵兔兔</h2>
+                                <p>主動完美少年素質有很多請大家現實，形成婚姻身。
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <img src="images/bunny06.jpg" alt="" class="img-fluid">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- s040 主要營業項目-->
+    <section id="s040" class="bg-info py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 text-center">
+                    <i class="fa-solid fa-paw fa-6x text-warning"></i>
+                    <h3 class="fw-700 my-3 text-primary">營業項目01</h3>
+                    <p class="text-white fw-700">一家執行時間少女搜尋轉載設計方向高興帳號領導供應商新型通用，到達山西體會拒絶，已經歌曲版權所有，工。</p>
+                </div>
+                <div class="col-md-4 text-center">
+                    <i class="fa-solid fa-carrot fa-6x text-warning"></i>
+                    <h3 class="fw-700 my-3 text-primary">營業項目02</h3>
+                    <p class="text-white fw-700">一家執行時間少女搜尋轉載設計方向高興帳號領導供應商新型通用，到達山西體會拒絶，已經歌曲版權所有，工。</p>
+                </div>
+                <div class="col-md-4 text-center">
+                    <i class="fa-solid fa-sun fa-6x text-warning"></i>
+                    <h3 class="fw-700 my-3 text-primary">營業項目03</h3>
+                    <p class="text-white fw-700">一家執行時間少女搜尋轉載設計方向高興帳號領導供應商新型通用，到達山西體會拒絶，已經歌曲版權所有，工。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- s050 營業項目01 - 細部介紹 -->
+    <section id="s050" style="position: relative;">
+        <div class="row">
+            <div class="col-md-5 bg-cover img-fluid s05_image"
+                style="position: absolute;background-image: url(images/bunny25.jpg);top: 0; bottom: 0; z-index: -1;">
+            </div>
+        </div>
+        <div class="container">
+            <div class="row justify-content-end">
+                <div class="col-md-7 py-3 s05_text">
+                    <h2>笑着這一點阿宅人民共。</h2>
+                    <p>應當角色平台公斤接着態度性感，機會榮譽一半你怎麼簽名，差距你在一句話訊息液晶更為醫生政策球隊，範圍內廣泛我在，成長您可以面議吸收不好你怎不來戀愛適用於專題依據時候，先後模型不喜歡美麗笑容力道，十大上午不滿利用溫州期待戰略，還不飲食，大廈大家整合相冊身體之。
+                    </p>
+                    <a href="#" class="btn btn-outline-info">查看更多</a>
+                    <div class="row mt-3">
+                        <div class="col-6">
+                            <h3>文檔也是，銀行。</h3>
+                            <p>播放一片學科登錄每日球員，至於日報人們畢業生我覺得，這麼多友情連結吸引歲月自我規格連續，運動未經崗。</p>
+                        </div>
+                        <div class="col-6">
+                            <h3>文檔也是，進入。</h3>
+                            <p>播放一片學科登錄每日球員，至於日報人們畢業生我覺得，這麼多友情連結吸引歲月自我規格連續，運動未經崗。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- s060 企業精神- 經營理念.. -->
+    <section id="s060">
+        <div class="container">
+            <h2 class="display-4 fw-900 text-center text-primary my-4">動物產業方針與經營理念介紹</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="d-flex align-items-center">
+                        <i class="fa-solid fa-hand-holding-heart fa-6x me-2 text-danger"></i>
+                        <div>
+                            <h1 class="fw-900 text-center">經營理念001</h1>
+                            <p>農民提交毫無常見一片適應贏得，人物好激動，人間移動，一身工資殺手是從原創多麼還沒綜合事件貼圖促銷有點遠。</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="d-flex align-items-center">
+                        <i class="fa-regular fa-handshake fa-6x me-2 text-success"></i>
+                        <div>
+                            <h1 class="fw-900 text-center">經營理念002</h1>
+                            <p>農民提交毫無常見一片適應贏得，人物好激動，人間移動，一身工資殺手是從原創多麼還沒綜合事件貼圖促銷有點遠。</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="d-flex align-items-center">
+                        <i class="fa-solid fa-hand-holding-medical fa-6x me-2 text-warning"></i>
+                        <div>
+                            <h1 class="fw-900 text-center">經營理念003</h1>
+                            <p>農民提交毫無常見一片適應贏得，人物好激動，人間移動，一身工資殺手是從原創多麼還沒綜合事件貼圖促銷有點遠。</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="d-flex align-items-center">
+                        <i class="fa-regular fa-thumbs-down fa-6x me-2 text-primary"></i>
+                        <div>
+                            <h1 class="fw-900 text-center">經營理念004</h1>
+                            <p>農民提交毫無常見一片適應贏得，人物好激動，人間移動，一身工資殺手是從原創多麼還沒綜合事件貼圖促銷有點遠。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- s070 價格介紹 -->
+    <section id="s070" style="position: relative;">
+        <div class="container my-2">
+            <div class="row">
+                <div class="col-md-7 s07_text">
+                    <!-- typography -->
+                    <dl class="row">
+                        <dt class="col-sm-3">Description lists</dt>
+                        <dd class="col-sm-9">A description list is perfect for defining terms.</dd>
+
+                        <dt class="col-sm-3">Term</dt>
+                        <dd class="col-sm-9">
+                            <p>Definition for the term.</p>
+                            <p>And some more placeholder definition text.</p>
+                        </dd>
+
+                        <dt class="col-sm-3">Another term</dt>
+                        <dd class="col-sm-9">This definition is short, so no extra paragraphs or anything.</dd>
+
+                        <dt class="col-sm-3 text-truncate">Truncated term is truncated</dt>
+                        <dd class="col-sm-9">This can be useful when space is tight. Adds an ellipsis at the end.</dd>
+
+                        <dt class="col-sm-3">Nesting</dt>
+                        <dd class="col-sm-9">
+                            <dl class="row">
+                                <dt class="col-sm-4">Nested definition list</dt>
+                                inside your definition list.
+                        </dd>
+                    </dl>
+                    </dd>
+                    </dl>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-end">
+            <div class="col-md-5 bg-cover img-fluid s07_image"
+                style="position: absolute; background-image: url(images/bunny24.jpg); top: 0; bottom: 0;z-index: -1;">
+            </div>
+        </div>
+    </section>
+
+    <!-- s080 公司位置與客戶資料收集-->
+    <section id="s080">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d58249.315479367215!2d120.6392383947323!3d24.151305896235826!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34693d9dd9fe0011%3A0x6f9d8ebd38727566!2z5Yuk576OIOiqoOWTgee2oOWckumBkw!5e0!3m2!1szh-TW!2stw!4v1689668286870!5m2!1szh-TW!2stw"
+                        width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label for="" class="form-label">姓名</label>
+                        <input type="text" class="form-control is-invalid" placeholder="請輸入姓名!">
+                        <div class="valid-feedback">輸入正確</div>
+                        <div class="invalid-feedback">輸入錯誤</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="" class="form-label">電話</label>
+                        <input type="text" class="form-control is-valid" placeholder="請輸入電話!">
+                        <div class="valid-feedback">輸入正確</div>
+                        <div class="invalid-feedback">輸入錯誤</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="" class="form-label">Email</label>
+                        <input type="text" class="form-control" placeholder="請輸入Email!">
+                    </div>
+                    <div class="mb-3">
+                        <label for="" class="form-label">人數</label>
+                        <input type="number" class="form-control mb-2" min="0" max="10">
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <label for="">攜帶寵物</label>
+                        <input type="radio" class="form-check-input" id="" name="pet">
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <label for="">無攜帶寵物</label>
+                        <input type="radio" class="form-check-input" id="" name="pet">
+                    </div>
+                    <div class="text-end mt-3">
+                        <a href="#" class="btn btn-secondary">取消</a>
+                        <a href="#" class="btn btn-primary">送出</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- s090 公司徵才-->
+    <section id="s090">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-6 bg-cover img-fluid"
+                    style="background-image: url(images/bunny20.jpg); height: 360px;">
+                    <div class="row">
+                        <div class="col md-8 s09_text">
+                            <small class="text-bg-success p-1 rounded-1">加入我們</small>
+                            <h2>誠徵業位經理數名</h2>
+                            <p>工作內容: 問題不喜歡目前也可面議，汽車好激動整個工程師浪費電視台最高職務，很大等等，產業本人魅力是誰經營，變。</p>
+                            <p>待遇: 內洽</p>
+                            <a href="#" class="btn btn-outline-warning">加入我們</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 bg-cover img-fluid"
+                    style="background-image: url(images/bunny10.jpg); height: 360px;">
+                    <div class="row">
+                        <div class="col md-8 s09_text">
+                            <small class="text-bg-success p-1 rounded-1">加入我們</small>
+                            <h2>誠徵業位經理數名</h2>
+                            <p>工作內容: 問題不喜歡目前也可面議，汽車好激動整個工程師浪費電視台最高職務，很大等等，產業本人魅力是誰經營，變。</p>
+                            <p>待遇: 內洽</p>
+                            <a href="#" class="btn btn-outline-warning">加入我們</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- s100 內容選項卡-->
+    <section id="s100">
+        <div class="container">
+            <ul class="nav">
+                <li class="nav-item">
+                    <a class="nav-link disabled">教學範例 2023</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Link01</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link02</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link03</a>
+                </li>
+            </ul>
+        </div>
+    </section>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery-3.7.0.min.js"></script>
+    <script src="https://unpkg.com/counterup2@2.0.2/dist/index.js"></script>
+    <script>
+        const counterUp = window.counterUp.default
+
+        const callback = entries => {
+            entries.forEach(entry => {
+                const el = entry.target
+                if (entry.isIntersecting && !el.classList.contains('is-visible')) {
+                    counterUp(el, {
+                        duration: 2000,
+                        delay: 16,
+                    })
+                    el.classList.add('is-visible')
+                }
+            })
+        }
+        const IO = new IntersectionObserver(callback, { threshold: 1 })
+
+        const el01 = document.querySelector('.counter01')
+        IO.observe(el01)
+
+        const el02 = document.querySelector('.counter02')
+        IO.observe(el02)
+
+        const el03 = document.querySelector('.counter03')
+        IO.observe(el03)
+
+        const el04 = document.querySelector('.counter04')
+        IO.observe(el04)
+
+        $(function(){
+            var flag_username = false;
+            var flag_password = false;
+            var flag_repassword = false;
+            $("#username").bind("input propertychange", function(){
+                if($(this).val().length > 4 && $(this).val().length < 9){
+                    $.ajax({
+                        type: "POST",
+                        url: "api/reg_check_uni_api.php",
+                        data: {uesrname: $("#username").val()},
+                        dataType: "json",
+                        success: showdata_check_uni,
+                        error: function(){alert("確認帳號確認-api/reg_check_uni_api.php");
+                    }
+                    });
+                }else{
+                    $("#invaild_message").text("")
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CH.8 spacing</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/my.css">
+</head>
+<body>
+    <div class="container">
+        <div class="row pt-5">
+            <div class="col-md-3">
+                <!-- <ul class="list-group">
+                    <li class="list-group-item">功能一</li>
+                    <li class="list-group-item">功能二</li>
+                    <li class="list-group-item">功能三</li>
+                  </ul> -->
+                  <div class="list-group">
+                    <a href="#" class="list-group-item list-group-item-action" id="btn01">功能一</a>
+                    <a href="#" class="list-group-item list-group-item-action" id="btn02">功能二</a>
+                    <a href="#" class="list-group-item list-group-item-action" id="btn03">功能三</a>
+                  </div>
+            </div>
+            <div class="col-md-9">
+                <div class="row gx-3" id="mydata">
+                    <div class="col-md-4">
+                        <img src="images/bunny20.jpg" class="img-fluid" alt="">
+                        <p>不願確定，有個是什麼，住了主任您是為了行情也不那種心理參加視頻歐洲，你要患者天空樣子是怎麼，嚴格過。</p>
+                    </div>
+                    <div class="col-md-4">
+                        <img src="images/bunny20.jpg" class="img-fluid" alt="">
+                        <p>不願確定，有個是什麼，住了主任您是為了行情也不那種心理參加視頻歐洲，你要患者天空樣子是怎麼，嚴格過。</p>
+                    </div>
+                    <div class="col-md-4">
+                        <img src="images/bunny20.jpg" class="img-fluid" alt="">
+                        <p>不願確定，有個是什麼，住了主任您是為了行情也不那種心理參加視頻歐洲，你要患者天空樣子是怎麼，嚴格過。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery-3.7.0.min.js"></script>
+    <script>
+        $(function(){
+            $("#btn01").click(function(){
+                console.log("001");
+                $("#mydata").html("功能一的選單資料!");
+                $("#btn02").removeClass("active");
+                $("#btn03").removeClass("active");
+                $("#btn01").addClass("active");
+            });
+            $("#btn02").click(function(){
+                console.log("002");
+                $("#mydata").html("功能二的選單資料!");
+                $("#btn01").removeClass("active");
+                $("#btn03").removeClass("active");
+                $("#btn02").addClass("active");
+            });
+            $("#btn03").click(function(){
+                console.log("003");
+                $("#mydata").html("功能三的選單資料!");
+                $("#btn01").removeClass("active");
+                $("#btn02").removeClass("active");
+                $("#btn03").addClass("active");
+            });
+        });
+    </script>
+</body>
+</html>

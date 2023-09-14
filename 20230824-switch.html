@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/my.css">
+</head>
+
+<body>
+    <div class="container">
+        <table class="table">
+            <thead class="text-bg-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>帳號</th>
+                    <th>狀態</th>
+                </tr>
+            </thead>
+            <tbody id="userlist">
+                <tr>
+                    <td>001</td>
+                    <td>XXX</td>
+                    <td>
+                        <div class="mb-3 form-check form-switch">
+                            <input type="checkbox" class="form-check-input" role="switch">
+                            <label for="" class="form-check-label">開關</label>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery-3.7.0.min.js"></script>
+    <script>
+        var userdata = [
+            {
+                "ID" : 01,
+                "username" : "owner01",
+                "userState" : false  //true: 啟用  false: 停權
+            },
+            {
+                "ID" : 02,
+                "username" : "owner02",
+                "userState" : true  //true: 啟用  false: 停權
+            },
+            {
+                "ID" : 03,
+                "username" : "owner03",
+                "userState" : true  //true: 啟用  false: 停權
+            },
+            {
+                "ID" : 04,
+                "username" : "owner04",
+                "userState" : true  //true: 啟用  false: 停權
+            },
+        ];
+        
+        $("#userlist").empty();
+        userdata.forEach(function(item){
+            if(item.userState){
+                var switch01 = '<div class="mb-3 form-check form-switch"><input type="checkbox" class="form-check-input" role="switch" checked id="switch01" data-id="'+item.ID+'"><label for="" class="form-check-label">啟用</label></div>';
+            }else{
+                var switch01 = '<div class="mb-3 form-check form-switch"><input type="checkbox" class="form-check-input" role="switch" id="switch01" data-id="'+item.ID+'"><label for="" class="form-check-label">停權</label></div>';
+            }
+            var strHTML = '<tr><td>'+item.ID+'</td><td>'+item.username+'</td><td>'+switch01+'</td></tr>';
+
+            $("#userlist").append(strHTML);
+        });
+
+        //監聽switch
+        $("#userlist #switch01").change(function(){
+            // console.log($(this).val());
+            if($(this).is(':checked')){
+                console.log('啟用' + $(this).data('id'));
+                $(this).next().text('啟用');
+            }else{
+                console.log('停權' + $(this).data('id'));
+                $(this).next().text('停權');
+            }
+        });
+    </script>
+</body>
+
+</html>

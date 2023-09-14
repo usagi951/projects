@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>歷史消費紀錄</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/my.css">
+    <style>
+        @media screen and (max-width: 768px) {
+            .table-rwd thead {
+                display: none;
+            }
+
+            .table-rwd tbody tr {
+                display: block;
+                border: 2px solid black;
+                margin: 10px 0;
+            }
+
+            .table-rwd tbody tr td {
+                display: block;
+                font-size: 24px;
+                font-weight: 600;
+                overflow: hidden;
+            }
+
+            .table-rwd tbody tr td:before {
+                content: attr(data-th)" : ";
+                color: black;
+                display: block;
+                float: left;
+                width: 6em;
+                text-align: right;
+                padding-right: 1em;
+            }
+
+            .table-rwd tbody tr td span.table-col {
+                display: block;
+                float: left;
+                width: calc(100% - 6em);
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-light">
+    <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">消費紀錄</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">首頁</a>
+                    </li>
+                </ul>
+                <div>
+                    <span class="h3 fw-700 text-danger me-3" id="login_meaasge"></span>
+                    <a href="#" class="btn btn-success" id="logout_btn">登出</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="container my-5">
+        <table class="table table-striped table-hover table-sm table-bordered border-secondary table-rwd">
+            <thead class="text-bg-dark">
+                <tr>
+                    <th>序號</th>
+                    <th>帳號</th>
+                    <th>等級</th>
+                    <th>商品名稱</th>
+                    <th>商品價格</th>
+                    <th>消費金額</th>
+                    <th>消費紀錄</th>
+                </tr>
+            </thead>
+            <tbody id="mem_table">
+                <tr>
+                    <td data-th="序號"><span class="table-col">001</span></td>
+                    <td data-th="帳號"><span class="table-col">owner</span></td>
+                    <td data-th="等級"><span class="table-col">銅</span></td>
+                    <td data-th="商品名稱"><span class="table-col">XXX</span></td>
+                    <td data-th="商品價格"><span class="table-col">1000</span></td>
+                    <td data-th="消費金額"><span class="table-col">1000</span></td>
+                    <td data-th="消費紀錄"><span class="table-col">2023-09-08 00:00:00</span></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery-3.7.0.min.js"></script>
+    <script>
+        var u_id; //for update
+        $(function () {
+            //確認uid是否存在, 若存在傳遞至後端check_uid_api.php確認是否合法
+            if (getCookie('uid01') != "") {
+                //uid是存在, 傳遞至後端check_uid_api.php確認是否合法
+                $.ajax({
+                    type: "POST",
+                    url: "api/check_uid_api.php",
+                    data: { uid: getCookie('uid01') },
+                    dataType: "json",
+                    success: showdata_check_uid,
+                    error: function () {
+                        alert("error-api/check_uid_api.php");
+                    }
+                });
+            } else {
+                //uid是不存在
+                alert("請先登入會員!");
+                location.href = "20230720-1.html";
+            }
+        });//end fun
+        function showdata_table(data) {
+            console.log(data);
+            if (data.state) {
+                $("#mem_table").empty();
+                data.data.forEach(function (item) {
+                    console.log(item);
+
+                    if (item.UserState == 'true') {
+                        var switch01 = '<div class="mb-3 form-check form-switch"><input type="checkbox" class="form-check-input" role="switch" checked id="switch01" data-id="' + item.ID + '"><label for="" class="form-check-label">啟用</label></div>';
+                    } else {
+                        var switch01 = '<div class="mb-3 form-check form-switch"><input type="checkbox" class="form-check-input" role="switch" id="switch01" data-id="' + item.ID + '"><label for="" class="form-check-label">停權</label></div>';
+                    }
+
+                    var strHTML = '<tr><td data-th="序號"><span class="table-col">' + item.ID + '</span></td><td data-th="帳號"><span class="table-col">' + item.Username + '</span></td><td data-th="等級"><span class="table-col">' + item.Rank + '</span></td><td data-th="商品名稱"><span class="table-col">' + item.product + '</span></td><td data-th="商品價格"><span class="table-col">' + item.price + '</span></td><td data-th="消費金額"><span class="table-col">' + item.total + '</span></td><td data-th="消費紀錄"><span class="table-col">' + item.Created_at + '</span></td></tr>';
+
+                    $("#mem_table").append(strHTML);
+                });
+            } else {
+                alert(data.message);
+            }
+        }
+        function showdata_update(data) {
+            console.log(data);
+            if (data.state) {
+                alert(data.message);
+                location.href = "20230810-control_panel.html";
+            } else {
+                alert(data.message);
+            }
+        }
+
+        function showdata_delete(data) {
+            console.log(data);
+            if (data.state) {
+                alert(data.message);
+                location.href = "20230810-control_panel.html";
+            } else {
+                alert(data.message);
+            }
+        }
+
+        function showdata_check_uid(data) {
+            console.log(data);
+            if (data.state) {
+                //uid 驗證成功
+                //顯示歡迎詞
+                $("#login_meaasge").text('歡迎會員: ' + data.data[0].Username);
+
+                //顯示功能畫面
+                $.ajax({
+                    type: "GET",
+                    url: "api/control_panel_r_mem_api.php",
+                    dataType: "json",
+                    async: false,
+                    success: showdata_table,
+                    error: function () {
+                        alert("error-api/control_panel_r_mem_api.php");
+                    }
+                });
+                //update_btn按鈕監聽
+                $("#mem_table #update_btn").click(function () {
+                    console.log($(this).data("id"));
+                    console.log($(this).data("username"));
+                    console.log($(this).data("nickname"));
+                    console.log($(this).data("email"));
+
+                    $("#username").val($(this).data("username"));
+                    $("#nickname").val($(this).data("nickname"));
+                    $("#email").val($(this).data("email"));
+                    u_id = $(this).data("id");
+                });
+
+                //delete_btn按鈕監聽
+                $("#mem_table #delete_btn").click(function () {
+                    console.log($(this).data("id"));
+                    console.log($(this).data("username"));
+                    if (confirm("確認刪除: " + $(this).data("username") + "?")) {
+                        //傳遞後端control_panel_d_mem_api.php執行刪除
+                        $.ajax({
+                            type: "POST",
+                            url: "api/control_panel_d_mem_api.php",
+                            data: { id: $(this).data("id") },
+                            dataType: "json",
+                            success: showdata_delete,
+                            error: function () {
+                                alert("error-api/control_panel_d_mem_api.php");
+                            }
+                        });
+                    }
+                });
+
+                //modal_update_btn按鈕監聽
+                $("#modal_update_btn").click(function () {
+                    console.log($("#nickname").val());
+                    console.log($("#email").val());
+                    console.log(u_id);
+
+                    $.ajax({
+                        type: "POST",
+                        url: "api/control_panel_u_mem_api.php",
+                        data: { id: u_id, nickname: $("#nickname").val(), email: $("#email").val() },
+                        dataType: "json",
+                        success: showdata_update,
+                        error: function () {
+                            alert("error-api/control_panel_u_mem_api.php");
+                        }
+                    });
+                });
+
+                //監聽登出按鈕 #logout_btn
+                $("#logout_btn").click(function () {
+                    logout();
+                });
+
+                //監聽switch 啟用/停權
+                $("#mem_table #switch01").change(function () {
+                    // 傳遞給後端的參數
+                    var userstate, state_id;
+
+                    // console.log($(this).val());
+                    if ($(this).is(':checked')) {
+                        userstate = 'true';
+                        state_id = $(this).data('id');
+                        console.log(userstate + $(this).data('id'));
+                        $(this).next().text('啟用');
+                    } else {
+                        userstate = 'false';
+                        state_id = $(this).data('id');
+                        console.log(userstate + $(this).data('id'));
+                        $(this).next().text('停權');
+                    }
+                    //傳遞 id 和 啟用/停權 至後端更新會員狀態
+                    $.ajax({
+                        type: "POST",
+                        url: "api/control_panel_u_mem_userstate_api.php",
+                        data: { id: state_id, userstate: userstate },
+                        dataType: "json",
+                        success: showdata_u_mem_userstate,
+                        error: function () {
+                            alert("error-api/control_panel_u_mem_userstate_api.php");
+                        }
+                    });
+
+
+
+
+                });
+            } else {
+                //uid 驗證失敗
+                alert("請先登入會員!");
+                location.href = "20230720-1.html";
+            }
+        }
+
+        //登出帳號
+        //刪除uid並重整畫面
+        function logout() {
+            setCookie('uid01', '', 7);
+            location.href = "20230720-1.html";
+        }
+
+        function showdata_u_mem_userstate(data) {
+            console.log(data);
+            if (data.state) {
+                // 帳號狀態更新成功
+                alert(data.message);
+            } else {
+                // 帳號狀態更新失敗
+                alert(data.message);
+            }
+        }
+
+        //w3c
+        function setCookie(cname, cvalue, exdays) {
+            const d = new Date();
+            d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+            let expires = "expires=" + d.toUTCString();
+            document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+        }
+        function getCookie(cname) {
+            let name = cname + "=";
+            let decodedCookie = decodeURIComponent(document.cookie);
+            let ca = decodedCookie.split(';');
+            for (let i = 0; i < ca.length; i++) {
+                let c = ca[i];
+                while (c.charAt(0) == ' ') {
+                    c = c.substring(1);
+                }
+                if (c.indexOf(name) == 0) {
+                    return c.substring(name.length, c.length);
+                }
+            }
+            return "";
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>延伸練習-串接資料</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/my.css">
+    <style>
+        .myimg {
+            height: 280px;
+        }
+
+        h1 {
+            color: var(--mycolor16);
+        }
+
+        p {
+            color: var(--mycolor13);
+            font-size: 15px;
+        }
+
+        .timeline-section {
+            position: relative;
+        }
+
+        .timeline-section:before {
+            position: absolute;
+            content: "";
+            top: 0;
+            bottom: 0;
+            width: 5px;
+            /* background-color: var(--mycolor04); */
+            background-image: linear-gradient(180deg, rgba(0, 0, 0, 0), rgba(199, 118, 86, 0.5));
+            /* bgi->角度,起始色,終止色 */
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .timeline-section-pointer {
+            position: relative;
+        }
+
+        .timeline-section-pointer:before {
+            position: absolute;
+            content: "";
+            width: 20px;
+            height: 20px;
+            background-color: var(--mycolor16);
+            border-radius: 50%;
+            border: 5px solid var(--mycolor03);
+            /* bottom: 85%; */
+        }
+
+        .timeline-section-pointer:hover:before {
+            width: 30px;
+            height: 30px;
+            border: 8px solid var(--mycolor04);
+        }
+
+        @media screen and (max-width:768px) {
+
+            .timeline-section:before,
+            .timeline-section-pointer:before {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container py-5">
+        <div class="timeline-section" id="mydata">
+            <div class="row justify-content-center timeline-section-pointer">
+                <div class="col-md-5 mt-3">
+                    <div class="myimg bg-cover" style="background-image: url(images/bunny05.jpg);"></div>
+                </div>
+                <div class="col-md-5 mt-3">
+                    <h1 class="fw-700">店名</h1>
+                    <p class="fw-300">地址</p>
+                    <p class="fw-300">詳細資料</p>
+                </div>
+            </div>
+            <div class="row justify-content-center flex-row-reverse timeline-section-pointer">
+                <div class="col-md-5 mt-3">
+                    <div class="myimg bg-cover" style="background-image: url(images/bunny09.jpg);"></div>
+                </div>
+                <div class="col-md-5 mt-3">
+                    <h1 class="fw-700">店名</h1>
+                    <p class="fw-300">地址</p>
+                    <p class="fw-300">詳細資料</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery-3.7.0.min.js"></script>
+    <script>
+        $(function () {
+            $.ajax({
+                type: "GET",
+                url: ("https://data.coa.gov.tw/Service/OpenData/ODwsv/ODwsvTravelFood.aspx"),
+                success: showdata,
+                error: function () {
+                    alert("錯誤-https://data.coa.gov.tw/Service/OpenData/ODwsv/ODwsvTravelFood.aspx");
+                }
+            });
+        });
+        function showdata(data) {
+            console.log(data);
+
+            $("#mydata").empty();
+            for (var i = 0; i < 15; i++) {
+                var feature = data[i]["FoodFeature"].substring(0, 30);
+                //判斷是否為偶數
+                if ((i + 1) % 2 == 0) {
+                    //偶數
+                    var strHTML = '<div class="row justify-content-center flex-row-reverse timeline-section-pointer"><div class="col-md-5 mt-3"><div class="myimg bg-cover" style="background-image: url(' + data[i]["PicURL"] + ');"></div></div><div class="col-md-5 mt-3"><h1 class="fw-700">' + data[i]["Name"] + '</h1><p class="fw-300">地址:' + data[i]["Address"] + '</p><p class="fw-300">' + feature + '</p></div></div>';
+                } else {
+                    //基數
+                    var strHTML = '<div class="row justify-content-center timeline-section-pointer"><div class="col-md-5 mt-3"><div class="myimg bg-cover" style="background-image: url(' + data[i]["PicURL"] + ');"></div></div><div class="col-md-5 mt-3"><h1 class="fw-700">' + data[i]["Name"] + '</h1><p class="fw-300">地址:' + data[i]["Address"] + '</p><p class="fw-300">' + feature + '</p></div></div>';
+                }
+
+
+
+                $("#mydata").append(strHTML);
+            }
+        }
+    </script>
+</body>
+
+</html>
