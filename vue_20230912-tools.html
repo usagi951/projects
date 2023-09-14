@@ -4,15 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>代辦事項 - Tools</title>
+    <title>代辦事項 - ToDos</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/my.css">
-    <link rel="stylesheet" href="css/all.min.css">
-    <link rel="stylesheet" href="css/animate.css_4.1.1_animate.min.css">
     <style>
         .completed {
             text-decoration: line-through;
-            color: red;
+            color: var(--mycolor09);
+            font-weight: 700;
+            font-size: 18px;
         }
     </style>
 </head>
@@ -45,24 +45,28 @@
                         <div class="card-body">
                             <ul class="list-group">
                                 <li class="list-group-item" v-for="(item, key) in filterTodo">
-                                    <div class="d-flex justify-content-between">
+                                    <div class="d-flex justify-content-between" v-if="item.id != cacheItem.id">
                                         <div class="form-check">
                                             <input class="form-check-input" type="checkbox" value=""
                                                 id="flexCheckDefault" v-model="item.completed">
                                             <label class="form-check-label" :class="{'completed' : item.completed}"
-                                                for="flexCheckDefault">
+                                                for="flexCheckDefault" @dblclick="editTodo(item)">
                                                 {{ item.title }}
                                             </label>
                                         </div>
                                         <button type="button" class="btn-close btn-close-dark"
                                             aria-label="Close" @click="remvoeTodo(item)"></button>
                                     </div>
+                                    <input type="text" class="form-control" v-model="cacheTitle" 
+                                        v-if="item.id == cacheItem.id"
+                                        @keyup.enter="doneTodo(item)"
+                                        @keyup.esc="cancelTodo()">
                                 </li>
                             </ul>
                         </div>
                         <div class="card-footer d-flex justify-content-between">
-                            <span>還有XX筆任務未完成</span>
-                            <a href="#">清除所有任務</a>
+                            <span>還有{{ countActive }}筆任務未完成</span>
+                            <a href="#" @click="destory()">清除所有任務</a>
                         </div>
                     </div>
                 </div>
@@ -77,6 +81,8 @@
                 return {
                     newTodo: '吃早餐',
                     visibility: 'all',
+                    cacheTitle: '',
+                    cacheItem: [],
                     todos: [
                         {
                             id: '001',
@@ -123,6 +129,22 @@
                         return todo.id == item.id
                     });
                     vm.todos.splice(newIndex, 1);
+                },
+                editTodo(item) {
+                    this.cacheItem = item;
+                    this.cacheTitle = item.title;
+                },
+                doneTodo(item) {
+                    item.title = this.cacheTitle;
+                    this.cacheTitle = '';
+                    this.cacheItem = '';
+                },
+                cancelTodo() {
+                    this.cacheTitle = '';
+                    this.cacheItem = '';
+                },
+                destory() {
+                    this.todos = [];
                 }
             },
             computed: {
@@ -147,7 +169,16 @@
                         });
                         return completedTodo;
                     }
-                }
+                },
+                countActive() {
+                    let active = 0;
+                    this.todos.forEach((item, key) => {
+                        if(!item.completed){
+                            active++;
+                        }
+                    });
+                    return active;
+                },
             }
         }
         Vue.createApp(App).mount('#app');
