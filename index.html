@@ -4,433 +4,856 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>雲端練習首頁</title>
+    <title>網站</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/my.css">
     <link rel="stylesheet" href="css/all.min.css">
     <link rel="stylesheet" href="css/animate.css_4.1.1_animate.min.css">
     <style>
-        .nav_area {
-            position: fixed;
-            top: 20%;
-            right: 0;
+        body {
+            background-color: var(--mycolor05);
         }
 
-        .nav_area ul {
-            margin: 10px;
-            padding: 10px;
+        .modal_line {
+            position: relative;
         }
 
-        .nav_area ul li {
-            list-style-type: none;
-            display: block;
-            margin: 0;
-            font-size: 20px;
-            text-align: center;
-        }
-        .box07 {
-            width: 50px;
-            height: 140px;
-            background-color: white;
-            border-radius: 50px;
-            
+        .modal_line:before {
+            position: absolute;
+            content: "";
+            top: 0;
+            bottom: 0;
+            width: 1px;
+            background-color: rgba(0, 0, 0, 0.2);
+            left: 50%;
+            transform: translateX(-50%);
         }
 
-        .box08 {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
+        .carousel-caption {
+            background-color: rgba(0, 0, 0, 0.2);
+            ;
         }
 
-        .link_top {
-            position: fixed;
-            bottom: 20px;
-            right: 10px;
-        }
-
-        .link_top ul {
-            margin: 1px;
-            padding: 1px;
-        }
-
-        .link_top ul li {
-            list-style-type: none;
-            display: block;
-            font-size: 20px;
-            text-align: center;
-        }
-
-        .c_text {
-            color: #ffffff;
-            background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5));
+        .s09_text,
+        .s32_text {
+            color: var(--mywhite);
+            background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.8));
             padding: 15px;
             margin: 15px;
             border-radius: 15px;
         }
 
-        .copyright {
-            padding: 100px 0px 10px;
+        .timeline-section {
+            position: relative;
+        }
+
+        .timeline-section::before {
+            position: absolute;
+            content: "";
+            top: 48px;
+            bottom: 48px;
+            width: 2px;
+            background-color: var(--mycolor14);
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .timeline-section-pointer {
+            position: relative;
+        }
+
+        .timeline-section-pointer::before {
+            position: absolute;
+            content: "";
+            top: 50%;
+            width: 15px;
+            height: 15px;
+            background-color: var(--mycolor08);
+            border-radius: 50%;
+            left: 50%;
+            transform: translateX(-50%);
+            border: 3px solid var(--mycolor10);
+        }
+
+        .timeline-section-pointer:hover::before {
+            width: 25px;
+            height: 25px;
+        }
+
+        .copy {
             text-align: center;
             font-display: swap;
             font-style: italic;
             letter-spacing: .15em;
-            margin-left: auto;
+        }
+
+        .footer {
+            width: 100%;
+            height: 100px;
+
+        }
+
+        @media screen and (max-width: 768px) {
+
+            .s05_text,
+            .s07_text {
+                color: var(--mywhite);
+                background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.8));
+                padding: 15px;
+                margin: 15px;
+                border-radius: 30px;
+            }
+
+            .s50_image {
+                right: 0;
+            }
         }
     </style>
 </head>
 
-<body class="bg-info-subtle" oncontextmenu="window.event.returnValue=false">
-    <section id="navbar_area" class="bg-info-subtle">
-        <!-- 連結 -->
-        <div class="nav_area wow animate__fadeInRight" data-wow-delay="0s" data-wow-duration="2s">
-            <ul class="box07">
-                <li>
-                    <a class="nav-link active" aria-current="page" href="https://www.tiktok.com/zh-Hant-TW/"
-                        target="_blank">
-                        <i class="fa-brands fa-tiktok fa-1x text-dark"></i>
-                    </a>
-                </li>
-                <li>
-                    <a class="nav-link active" aria-current="page" href="https://www.instagram.com/" target="_blank">
-                        <i class="fa-brands fa-instagram fa-1x text-danger"></i>
-                    </a>
-                </li>
-                <li>
-                    <a class="nav-link" href="https://zh-tw.facebook.com/" target="_blank">
-                        <i class="fa-brands fa-square-facebook fa-1x text-primary"></i>
-                    </a>
-                </li>
-                <li>
-                    <a class="nav-link" href="https://twitter.com/" target="_blank">
-                        <i class="fa-brands fa-square-twitter fa-1x text-info"></i>
-                    </a>
-                </li>
-            </ul>
-        </div>
-        <!-- 回到最上層 -->
-        <div class="link_top wow animate__bounce" data-wow-delay="5s" data-wow-duration="4s"
-            data-wow-iteration="infinite">
-            <ul class="box08">
-                <li>
-                    <a class="nav-link" href="#">
-                        <i class="fa-solid fa-angle-up fa-1x"></i>top
-                    </a>
-                </li>
-            </ul>
-        </div>
-        <!-- navbar -->
-        <nav class="navbar navbar-expand-lg bg-info-subtle">
-            <div class="container">
-                <a class="navbar-brand" href="#">No.23</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#link">Link</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                                aria-expanded="false">
-                                Dropdown
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Bunny</a></li>
-                                <li><a class="dropdown-item" href="#">Bunny</a></li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li><a class="dropdown-item" href="#">Just Bunny</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                    <form class="d-flex" role="search">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-success" type="submit">Search</button>
-                    </form>
-                </div>
-            </div>
-        </nav>
-    </section>
-
-    <section id="Carousel">
-        <div id="carouselExampleCaptions" class="carousel slide">
-            <div class="carousel-indicators">
-                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
-                    aria-current="true" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
-                    aria-label="Slide 2"></button>
-                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
-                    aria-label="Slide 3"></button>
-            </div>
-            <div class="carousel-inner">
-                <div class="carousel-item active img-fluid bg-cover"
-                    style="height: 1000px; background-image: url(images/bunny06.jpg);">
-
-                    <div class="carousel-caption d-none d-md-block c_text">
-                        <h5>First Bunny</h5>
-                        <p>Some representative placeholder content for the first slide.</p>
-                    </div>
-                </div>
-                <div class="carousel-item img-fluid bg-cover"
-                    style="height: 1000px; background-image: url(images/bunny16.jpg);">
-
-                    <div class="carousel-caption d-none d-md-block c_text">
-                        <h5>Second Bunny</h5>
-                        <p>Some representative placeholder content for the second slide.</p>
-                    </div>
-                </div>
-                <div class="carousel-item img-fluid bg-cover"
-                    style="height: 1000px; background-image: url(images/bunny08.jpg);">
-
-                    <div class="carousel-caption d-none d-md-block" c_text>
-                        <h5>Third Bunny nose</h5>
-                        <p>Some representative placeholder content for the third slide.</p>
-                    </div>
-                </div>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
-                data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
-                data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
-        </div>
-
-    </section>
-
-    <section id="link">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 col-lg-4 col-xxl-3 mt-3">
-                    <div class="card" style="width: 18rem;">
-                        <img src="https://fakeimg.pl/300x200/714?text=net2ftp" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Net2ftp</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                                of the card's content.</p>
-                            <a href="http://192.168.10.51/net2ftp" target="_blank" class="btn btn-primary">Go
-                                somewhere</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4 col-xxl-3 mt-3">
-                    <div class="card" style="width: 18rem;">
-                        <img src="https://fakeimg.pl/300x200/228?text=phpMyAdmin" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">phpMyAdmin</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                                of the card's content.</p>
-                            <a href="http://192.168.10.51/phpMyAdmin" target="_blank" class="btn btn-primary">Go
-                                somewhere</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4 col-xxl-3 mt-3">
-                    <div class="card" style="width: 18rem;">
-                        <img src="https://fakeimg.pl/300x200/626?text=wp01" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">wp01</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                                of the card's content.</p>
-                            <a href="http://192.168.10.51/wp01" target="_blank" class="btn btn-primary">Go somewhere</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4 col-xxl-3 mt-3">
-                    <div class="card" style="width: 18rem;">
-                        <img src="https://fakeimg.pl/300x200/759?text=wp02" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">wp02</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                                of the card's content.</p>
-                            <a href="http://192.168.10.51/wp02" target="_blank" class="btn btn-primary">Go somewhere</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4 col-xxl-3 mt-3">
-                    <div class="card" style="width: 18rem;">
-                        <img src="https://fakeimg.pl/300x200/714?text=BBQ" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">wp03</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                                of the card's content.</p>
-                            <a href="http://192.168.10.51/wp03/" target="_blank" class="btn btn-primary">Go
-                                somewhere</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4 col-xxl-3 mt-3">
-                    <div class="card" style="width: 18rem;">
-                        <img src="https://fakeimg.pl/300x200/228?text=HTML-1" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">HTML-1</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                                of the card's content.</p>
-                            <a href="http://192.168.10.51/web202305/20230518-1.html" target="_blank"
-                                class="btn btn-primary">Go
-                                somewhere</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4 col-xxl-3 mt-3">
-                    <div class="card" style="width: 18rem;">
-                        <img src="https://fakeimg.pl/300x200/626?text=HTML-2" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">HTML-2</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                                of the card's content.</p>
-                            <a href="http://192.168.10.51/web202305/20230518-2.html" target="_blank"
-                                class="btn btn-primary">Go
-                                somewhere</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4 col-xxl-3 mt-3">
-                    <div class="card" style="width: 18rem;">
-                        <img src="https://fakeimg.pl/300x200/759?text=CSS-1" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">CSS-1</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                                of the card's content.</p>
-                            <a href="http://192.168.10.51/web202305/20230601-2.html" target="_blank"
-                                class="btn btn-primary">Go
-                                somewhere</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4 col-xxl-3 mt-3">
-                    <div class="card" style="width: 18rem;">
-                        <img src="https://fakeimg.pl/300x200/714?text=Resume" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Resume</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                                of the card's content.</p>
-                            <a href="http://192.168.10.51/web202305/20230608-1.html" target="_blank"
-                                class="btn btn-primary">Go
-                                somewhere</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4 col-xxl-3 mt-3">
-                    <div class="card" style="width: 18rem;">
-                        <img src="https://fakeimg.pl/300x200/228?text=container" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">container</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                                of the card's content.</p>
-                            <a href="http://192.168.10.51/web202305/20230617-3.html" target="_blank"
-                                class="btn btn-primary">Go
-                                somewhere</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4 col-xxl-3 mt-3">
-                    <div class="card" style="width: 18rem;">
-                        <img src="https://fakeimg.pl/300x200/626?text=flex-1" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">flex-1</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                                of the card's content.</p>
-                            <a href="http://192.168.10.51/web202305/20230626-2.html" target="_blank"
-                                class="btn btn-primary">Go
-                                somewhere</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4 col-xxl-3 mt-3">
-                    <div class="card" style="width: 18rem;">
-                        <img src="https://fakeimg.pl/300x200/759?text=flex-2" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">flex-2</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                                of the card's content.</p>
-                            <a href="http://192.168.10.51/web202305/20230627-2.html" target="_blank"
-                                class="btn btn-primary">Go
-                                somewhere</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4 col-xxl-3 mt-3">
-                    <div class="card" style="width: 18rem;">
-                        <img src="https://fakeimg.pl/300x200/714?text=broder-1" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">broder-1</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                                of the card's content.</p>
-                            <a href="http://192.168.10.51/web202305/20230706-2.html" target="_blank"
-                                class="btn btn-primary">Go
-                                somewhere</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4 col-xxl-3 mt-3">
-                    <div class="card" style="width: 18rem;">
-                        <img src="https://fakeimg.pl/300x200/228?text=container" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">container</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                                of the card's content.</p>
-                            <a href="http://192.168.10.51/web202305/20230711-1.html" target="_blank"
-                                class="btn btn-primary">Go
-                                somewhere</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4 col-xxl-3 mt-3">
-                    <div class="card" style="width: 18rem;">
-                        <img src="https://fakeimg.pl/300x200/626?text=list" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">list</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                                of the card's content.</p>
-                            <a href="http://192.168.10.51/web202305/20230712-1.html" target="_blank"
-                                class="btn btn-primary">Go
-                                somewhere</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4 col-xxl-3 mt-3">
-                    <div class="card" style="width: 18rem;">
-                        <img src="https://fakeimg.pl/300x200/759?text=SPA" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">SPA</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                                of the card's content.</p>
-                            <a href="http://192.168.10.51/web202305/20230720-1.html" target="_blank"
-                                class="btn btn-primary">Go
-                                somewhere</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<body>
     <div class="wrapper">
-        <div class="box06"></div>
+        <!-- navbar_area -->
+        <section id="navbar_area" class="bg-secondary">
+            <!-- 連結 -->
+            <div class="nav_area wow animate__fadeInRight" data-wow-delay="0s" data-wow-duration="2s">
+                <ul class="box07">
+                    <li>
+                        <a class="nav-link active" aria-current="page" href="https://www.tiktok.com/zh-Hant-TW/"
+                            target="_blank">
+                            <i class="fa-brands fa-tiktok fa-1x text-dark"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="nav-link active" aria-current="page" href="https://www.instagram.com/"
+                            target="_blank">
+                            <i class="fa-brands fa-instagram fa-1x text-danger"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="https://zh-tw.facebook.com/" target="_blank">
+                            <i class="fa-brands fa-square-facebook fa-1x text-primary"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="https://twitter.com/" target="_blank">
+                            <i class="fa-brands fa-square-twitter fa-1x text-info"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <!-- 回到最上層 -->
+            <div class="link_top wow animate__bounce" data-wow-delay="5s" data-wow-duration="4s"
+                data-wow-iteration="infinite">
+                <ul class="box08">
+                    <li>
+                        <a class="nav-link" href="#">
+                            <i class="fa-solid fa-angle-up fa-1x"></i>top
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </section>
 
+        <!-- s20 navbar 選單 login register -->
+        <section id="s20" class="bg-dark fixed-top">
+            <div class="container">
+                <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+                    <div class="container-fluid">
+                        <a class="navbar-brand" href="#">
+                            <i class="fa-solid fa-carrot text-warning fa-2x"></i>
+                        </a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav mb-2 mb-lg-0">
+                                <li class="nav-item">
+                                    <a class="nav-link active" aria-current="page" href="#">
+                                        Home
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#s31">About</a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                        aria-expanded="false">
+                                        Service
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">Care Guide</a></li>
+                                        <li><a class="dropdown-item" href="#">Product</a></li>
+                                        <li><a class="dropdown-item" href="#">Activity</a></li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                        aria-expanded="false">
+                                        Information Center
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">Photo Gallery</a></li>
+                                        <li><a class="dropdown-item" href="#">Social</a></li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#s40"></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#s40">Contact Us</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#s50">FAQ</a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                        aria-expanded="false">
+                                        More
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#" data-bs-toggle="modal"
+                                                data-bs-target="#ppModal">Privacy Policy
+                                            </a></li>
+                                        <li><a class="dropdown-item" href="#">Terms Of Use
+                                            </a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <form class="d-flex ms-auto" role="search">
+                                <a href="#" class="btn btn-primary me-2" data-bs-toggle="modal"
+                                    data-bs-target="#loginModal" id="s20_login_btn">Sign in</a>
+                                <a href="#" class="btn btn-outline-primary" data-bs-toggle="modal"
+                                    data-bs-target="#registerModal" id="s20_register_btn">Sign up</a>
+                                <a href="Control_Panel.html" target="_blank" class="btn btn-danger ms-2 d-none"
+                                    id="s20_control_btn">後台管理</a>
+                                <a href="member.html" target="_blank" class="btn btn-danger ms-2 d-none"
+                                    id="s20_personal_btn">個人資料</a>
+                                <span>
+                                    <p class="text-primary ms-2 d-none" id="login_meaasge">歡迎XXX回來</p>
+                                </span>
+                                <a href="#" class="btn btn-success ms-2 d-none" id="s20_logout_btn">登出</a>
+                            </form>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </section>
+
+        <!-- loginModal -->
+        <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header text-bg-success">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">會員登入</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label for="login_username" class="form-label">帳號</label>
+                            <input type="text" class="form-control" placeholder="請輸入帳號!" id="login_username"
+                                name="login_username">
+                        </div>
+                        <div class="mb-3">
+                            <label for="login_password" class="form-label">密碼</label>
+                            <input type="password" class="form-control" placeholder="請輸入密碼!" id="login_password"
+                                name="login_password">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <a href="#" class="me-auto" data-bs-toggle="modal" data-bs-target="#registerModal">還沒有帳號,
+                            註冊去!</a>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+                        <button type="button" class="btn btn-success" id="login_btn">確認登入</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- registerModal -->
+        <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header text-bg-warning">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">會員註冊</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row modal_line">
+                            <div class="col-6">
+                                <h3>會員守則</h3>
+                                <p>1.提供真實、準確的個人資料，並保護好自己的帳號和密碼。</p>
+                                <p>2.遵守網站的規章制度，不發表違法、不良言論，不從事任何非法活動。</p>
+                                <p>3.尊重他人的知識產權和隱私權，不侵犯他人的合法權益。</p>
+                                <p>4.維護良好的網絡秩序，不發表不實言論、不散佈謠言、不攻擊他人。</p>
+                                <p>5.不利用網站進行商業活動或其他非法活動。</p>
+                                <p>6.不利用網站傳播病毒、木馬等有害程序，不干擾網站正常運行。</p>
+                                <p>7.遵守網站的交易規則，不進行虛假交易、不詐騙他人。</p>
+                                <p>8.如有違反會員守則或其他規定，網站有權對會員進行處罰，包括但不限於限制會員權利、停止服務等。</p>
+                                <div class="form-check">
+                                    <input type="checkbox" name="" id="" class="form-check-input">
+                                    <label for="" class="form-check-label">遵守</label>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="mb-3">
+                                    <label for="username" class="form-label">帳號</label>
+                                    <input type="text" id="username" name="username" class="form-control"
+                                        placeholder="請輸入帳號5-8!">
+                                    <div class="valid-feedback" id="valid_message">帳號輸入正確</div>
+                                    <div class="invalid-feedback" id="invalid_message">帳號輸入錯誤</div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="password" class="form-label">密碼</label>
+                                    <input type="password" id="password" name="password" class="form-control"
+                                        placeholder="請輸入密碼8-10!">
+                                    <div class="valid-feedback">密碼輸入正確</div>
+                                    <div class="invalid-feedback">密碼輸入錯誤</div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="repassword" class="form-label">確認密碼</label>
+                                    <input type="password" id="repassword" name="repassword" class="form-control"
+                                        placeholder="重新輸入密碼!">
+                                    <div class="valid-feedback">確認密碼輸入正確</div>
+                                    <div class="invalid-feedback">確認密碼輸入錯誤</div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="nickname" class="form-label">暱稱</label>
+                                    <input type="text" id="nickname" name="nickname" class="form-control"
+                                        placeholder="請輸nickname">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">Email</label>
+                                    <input type="email" id="email" name="email" class="form-control"
+                                        placeholder="請輸email!">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <a href="#" class="me-auto" data-bs-toggle="modal" data-bs-target="#loginModal">已經有帳號, 登入去!</a>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+                        <button type="button" class="btn btn-warning" id="reg_btn">確認註冊</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- s30 carousel 幻燈片效果 -->
+        <section id="s30" class="mt-5">
+            <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+                        aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+                        aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+                        aria-label="Slide 3"></button>
+                </div>
+                <div class="carousel-inner">
+                    <div class="carousel-item bg-cover active"
+                        style="height: 1010px; background-image: url(images/bunny02.jpg);">
+                        <div class="carousel-caption d-none d-md-block p-4">
+                            <h5>廣告台詞 - 顯卡加快投資完美認為樣子地上先進保密設計，選項型號經典作為消除後面其它領先青草湖包含，彼此回應，到。</h5>
+                            <p>有點總數特殊文章和平島建築專欄趕緊，信譽提交桃園條款一條規範形勢電視劇，角度是我繼續大師方案旁邊他。</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item bg-cover"
+                        style="height: 1010px; background-image: url(images/bunny10.jpg);">
+                        <div class="carousel-caption d-none d-md-block p-4">
+                            <h5>廣告台詞 - 顯卡加快投資完美認為樣子地上先進保密設計，選項型號經典作為消除後面其它領先青草湖包含，彼此回應，到。</h5>
+                            <p>有點總數特殊文章和平島建築專欄趕緊，信譽提交桃園條款一條規範形勢電視劇，角度是我繼續大師方案旁邊他。</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item bg-cover"
+                        style="height: 1010px; background-image: url(images/bunny08.jpg);">
+                        <div class="carousel-caption d-none d-md-block p-4">
+                            <h5>廣告台詞 - 顯卡加快投資完美認為樣子地上先進保密設計，選項型號經典作為消除後面其它領先青草湖包含，彼此回應，到。</h5>
+                            <p>有點總數特殊文章和平島建築專欄趕緊，信譽提交桃園條款一條規範形勢電視劇，角度是我繼續大師方案旁邊他。</p>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- s31 About 跑動數字特效 -->
+        <section id="s31">
+            <div class="container-fluid">
+                <div class="row align-items-center">
+                    <div class="col-md-5 bg-cover" style="background-image: url(images/bunny11.jpg); height: 1010px;">
+                    </div>
+                    <div class="col-md-7 p-5">
+                        <h1>民國100年成立 <span class="text-success fw-900">全台第一家</span> </h1>
+                        <h1>專業派對籌辦公司</h1>
+                        <p class="mb-1 mt-4">推坑大魔王所以預覽背景下載地址他們的，權威取得是他阿宅人民威取威取威取威取威取。</p>
+                        <p class="mb-1">推坑大魔王所以預覽背景下載權威取得是地址他們的，權威取得是他阿宅人民。</p>
+                        <p class="mb-1">推坑大魔王所以預覽背景下載地址他們的，權威取得是他阿宅人民。</p>
+                        <p class="mb-1">推坑大魔王所以預覽背景下權威取得是載地址他們的，權威取得是他阿宅人民。</p>
+                        <p class="mb-1">推坑大魔王所以預覽背景下載地址他們的，權威取得是他阿宅人民。</p>
+                        <p class="mb-1">推坑大魔王所以預覽背景下權威取得是載地址他們的，權威取得是他阿宅人民。</p>
+                        <p class="mb-1">推坑大魔王所以預覽背景下載地址他們的，權威取得是他阿宅人民。</p>
+                        <p class="mb-1">推坑大魔王所以預覽背景下權威取得是載地址他們的，權威取得是他阿宅人民。</p>
+                        <p class="mb-1">推坑大魔王所以預覽背景下載地址他們的，權威取得是他阿宅人民。</p>
+                        <p class="mb-1">推坑大魔王所以預覽背景下權威取得是載地址他們的，權威取得是他阿宅人民。</p>
+                        <p class="mb-1">推坑大魔王所以預覽背景下載地址他們的，權威取得是他阿宅人民。</p>
+                        <p class="mb-1">推坑大魔王所以預覽背景下權威取得是載地址他們的，權威取得是他阿宅人民。</p>
+                        <p class="mb-1">推坑大魔王所以預覽背景下載地址他們的，權威取得是他阿宅人民。</p>
+
+                        <div class="row mt-5">
+                            <div class="col-md-3">
+                                <h4 class="fw-700">平均派對</h4>
+                                <h2 class="fw-700 counter01">777 <span class="h4">/場</span></h2>
+                            </div>
+                            <div class="col-md-3">
+                                <h4 class="fw-700">獲獎數目</h4>
+                                <h2 class="fw-700 counter02">222 <span class="h4">/項</span></h2>
+                            </div>
+                            <div class="col-md-3">
+                                <h4 class="fw-700">專業認爭</h4>
+                                <h2 class="fw-700 counter03">333 <span class="h4">/項</span></h2>
+                            </div>
+                            <div class="col-md-3">
+                                <h4 class="fw-700">服務據點</h4>
+                                <h2 class="fw-700 counter04">666 <span class="h4">/個</span></h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- s40 主要營業項目 -->
+        <section id="s40" class="py-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 text-center">
+                        <i class="fa-solid fa-champagne-glasses fa-6x text-warning"></i>
+                        <h3 class="fw-900 text-success my-3">Rabbit Care Guide</h3>
+                        <p class="text-white fw-700">
+                            新型效益自我有很多僅供瀏覽器，天氣意義，會不會情況，首先發展邀請分配都說組織令人對外提出基礎眼中仔細會議，處理最後允許親自星座實用衝突有限責任，保險不了畫面不怕魔獸國產，保留是從自然適用於，或許英文。
+                        </p>
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <i class="fa-solid fa-cake-candles fa-6x text-danger"></i>
+                        <h3 class="fw-900 text-success my-3">Rabbit Products</h3>
+                        <p class="text-white fw-700">
+                            新型效益自我有很多僅供瀏覽器，天氣意義，會不會情況，首先發展邀請分配都說組織令人對外提出基礎眼中仔細會議，處理最後允許親自星座實用衝突有限責任，保險不了畫面不怕魔獸國產，保留是從自然適用於，或許英文。
+                        </p>
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <i class="fa-solid fa-handshake-simple fa-6x text-dark"></i>
+                        <h3 class="fw-900 text-success my-3">Rabbit Activity</h3>
+                        <p class="text-white fw-700">
+                            新型效益自我有很多僅供瀏覽器，天氣意義，會不會情況，首先發展邀請分配都說組織令人對外提出基礎眼中仔細會議，處理最後允許親自星座實用衝突有限責任，保險不了畫面不怕魔獸國產，保留是從自然適用於，或許英文。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- s50 營業項目01 -餐會舉辦規劃-細部介紹 -->
+        <section id="s50" style="position: relative;">
+            <div class="row">
+                <div class="col-md-5 bg-cover s50_image" style="position: absolute;
+            background-image: url(images/bunny05.jpg);
+            top: 0;
+            bottom: 0;
+            z-index: -1;"></div>
+            </div>
+            <div class="container">
+                <div class="row justify-content-end">
+                    <div class="col-md-7 py-3 s05_text">
+                        <h2>庫存不但整理一庫存不但整理一。庫存不但。</h2>
+                        <p>充分通常男生隊伍離線性別隨意魔獸為了數碼原因天使，來了居民評估顏色相信有意公斤前後法國標誌這是信用五年，輸出大戰婦女，離開不用檢測一人草魚當年，被人單位你想營養註冊用戶名難得更為自然運用決定收購，本網站歲月出版社一會兒目錄創作，地點大連運作我國防治真是適用於全新住了歡迎光臨快車什麼樣，藍色特點，坐。
+                        </p>
+                        <a href="#" class="btn btn-outline-info">查看更多</a>
+                        <div class="row mt-3">
+                            <div class="col-md-6">
+                                <h3>主演湖北 不用法規，路線。</h3>
+                                你也圖片上了障礙會在懂得特點病人拒絶客服不好意思毫無它的，記住放棄重視新年可能會三個一本屏幕說法課程減少官員，家長熱情動態刷新眼中上次，關係業主醫學兒子前來上一頁本科眾人挑戰因而，萬華定位模組警察需。
+                                適當生態大多數，昨天公主臨床結構大賽常常如下您可以，記憶力道崗位萬華植物陽光，球員精神祝福屏幕這麼多突破具有，作業站長其它還是部分排行職責正常，同樣優點完了從此學院不能消失國際塑膠演唱會紡織，共同電子收購委託美元廣場渠道不住是以把它作為包含家裡，適應規模。
+                                西部什麼理論，流行轉變都在上了開發者大會資訊網音樂售價暴力網頁課程，好像紀念，新浪女孩公主，是從改。
+                                <a href="#" class="btn btn-outline-info">查看更多</a>
+                            </div>
+                            <div class="col-md-6">
+                                <h3>主演湖北 不用法規，路線。</h3>
+                                你也圖片上了障礙會在懂得特點病人拒絶客服不好意思毫無它的，記住放棄重視新年可能會三個一本屏幕說法課程減少官員，家長熱情動態刷新眼中上次，關係業主醫學兒子前來上一頁本科眾人挑戰因而，萬華定位模組警察需。
+                                適當生態大多數，昨天公主臨床結構大賽常常如下您可以，記憶力道崗位萬華植物陽光，球員精神祝福屏幕這麼多突破具有，作業站長其它還是部分排行職責正常，同樣優點完了從此學院不能消失國際塑膠演唱會紡織，共同電子收購委託美元廣場渠道不住是以把它作為包含家裡，適應規模。
+                                西部什麼理論，流行轉變都在上了開發者大會資訊網音樂售價暴力網頁課程，好像紀念，新浪女孩公主，是從改。
+                                <a href="#" class="btn btn-outline-info">查看更多</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- 隱私政策 -->
+        <div class="modal fade" id="ppModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+            aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-scrollable">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="staticBackdropLabel">隱私政策</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>1.我們會收集您提供的個人資料，並僅在必要時使用。</p>
+                        <p>2.我們會保護您的個人資料，並採取措施防止未經授權的訪問或使用。</p>
+                        <p>3.我們不會分享或出售您的個人資料給第三方。</p>
+                        <p>4.我們會遵守所有適用的隱私法規和標準。</p>
+                        <p>5.我們會定期審查和更新我們的隱私政策以確保其有效性和合法性。</p>
+                        <p>6.我們會提供您訪問、更正和刪除您的個人資料的權利。</p>
+                        <p>7.我們會使用安全的技術和程序來保護您的個人資料。</p>
+                        <p>8.我們會明確告知您我們收集和使用您的個人資料的目的。</p>
+                        <p>9.我們會尊重您的選擇，如果您不希望我們收集或使用您的個人資料，我們會尊重您的決定。</p>
+                        <p>10.我們會提供透明度和易於理解的隱私政策，以確保您能夠了解我們如何處理您的個人資料。</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">關閉</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer>
+            <div class="footer">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-2 mt-3">
+                            <i class="fa-solid fa-carrot text-warning fa-4x"></i>
+                        </div>
+                        <div class="col-md-2 mt-5">
+                            <h5 class="mb-4">About</h5>
+                        </div>
+                        <div class="col-md-2 mt-5">
+                            <h5 class="mb-4">Service</h5>
+                        </div>
+                        <div class="col-md-2 mt-5">
+                            <h5 class="mb-4">Information Center</h5>
+                        </div>
+                        <div class="col-md-2 mt-5">
+                            <h5 class="mb-4">Content Us</h5>
+                        </div>
+                        <div class="col-2 mt-5">
+                            <h5 class="mb-4">FAQ</h5>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="copy">(c)Bunny Universe</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
     </div>
-    <footer>
-        <div class="copyright">(c)Bunny Universe</div>
-    </footer>
+
+
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/jquery-3.7.0.min.js"></script>
     <script src="https://unpkg.com/counterup2@2.0.2/dist/index.js"></script>
     <script src="js/wow.min.js"></script>
     <script>
+        const counterUp = window.counterUp.default
+
+        const callback = entries => {
+            entries.forEach(entry => {
+                const el = entry.target
+                if (entry.isIntersecting && !el.classList.contains('is-visible')) {
+                    counterUp(el, {
+                        duration: 2000,
+                        delay: 16,
+                    })
+                    el.classList.add('is-visible')
+                }
+            })
+        }
+
+        const IO = new IntersectionObserver(callback, { threshold: 1 })
+
+        const el01 = document.querySelector('.counter01')
+        IO.observe(el01)
+
+        const el02 = document.querySelector('.counter02')
+        IO.observe(el02)
+
+        const el03 = document.querySelector('.counter03')
+        IO.observe(el03)
+
+        const el04 = document.querySelector('.counter04')
+        IO.observe(el04)
+
+
+        var flag_username = false;
+        var flag_password = false;
+        var flag_repassword = false;
+        $(function () {
+            //確認uid是否存在, 若存在傳遞至後端check_uid_api.php確認是否合法
+            if (getCookie('uid01') != "") {
+                //uid 存在; 傳遞至後端check_uid_api.php確認是否合法
+                $.ajax({
+                    type: "POST",
+                    url: "api/check_uid_api.php",
+                    dataType: "json",
+                    data: { uid: getCookie('uid01') },
+                    success: showdata_check_uid,
+                    error: function () {
+                        alert("check_uid-api/check_uid_api.php");
+                    }
+                });
+            }
+
+            //即時監聽username
+            $("#username").bind("input propertychange", function () {
+                // console.log($(this).val().length);
+                if ($(this).val().length > 4 && $(this).val().length < 9) {
+                    //符合規定
+                    // $(this).removeClass("is-invalid");
+                    // $(this).addClass("is-valid");
+                    // flag_username = true;
+                    console.log("XXXX符合規定" + flag_username);
+
+                    //傳遞帳號至後端api確認是否可以使用
+                    $.ajax({
+                        type: "POST",
+                        url: "api/reg_check_uni_api.php",
+                        data: { username: $("#username").val() },
+                        dataType: "json",
+                        async: false,
+                        success: showdata_check_uni,
+                        error: function () {
+                            alert("確認帳號確認-api/reg_check_uni_api.php");
+                        }
+                    });
+                } else {
+                    //不符合規定
+                    $("#invalid_message").text("此帳號字數不符合規定");
+                    $(this).removeClass("is-valid");
+                    $(this).addClass("is-invalid");
+                    flag_username = false;
+                    console.log("此帳號字數不符合規定" + flag_username);
+                }
+            });
+            //即時監聽password
+            $("#password").bind("input propertychange", function () {
+                // console.log($(this).val().length);
+                if ($(this).val().length > 7 && $(this).val().length < 11) {
+                    //符合規定
+                    $(this).removeClass("is-invalid");
+                    $(this).addClass("is-valid");
+                    flag_password = true;
+                } else {
+                    //不符合規定
+                    $(this).removeClass("is-valid");
+                    $(this).addClass("is-invalid");
+                    flag_password = false;
+                }
+            });
+            //即時監聽repassword
+            $("#repassword").bind("input propertychange", function () {
+                if ($(this).val() == $("#password").val()) {
+                    //符合規定
+                    $(this).removeClass("is-invalid");
+                    $(this).addClass("is-valid");
+                    flag_repassword = true;
+                } else {
+                    //不符合規定
+                    $(this).removeClass("is-valid");
+                    $(this).addClass("is-invalid");
+                    flag_repassword = false;
+                }
+            });
+            //按鈕監聽reg_btn
+            $("#reg_btn").click(function () {
+                console.log(flag_username);
+                console.log(flag_password);
+                console.log(flag_repassword);
+                console.log($("#username").val());
+                console.log($("#password").val());
+                console.log($("#nickname").val());
+                console.log($("#email").val());
+
+                if (flag_username && flag_password && flag_repassword) {
+                    //欄位輸入正確 可以傳至API
+                    $.ajax({
+                        type: "POST",
+                        url: "api/reg_api.php",
+                        data: { username: $("#username").val(), password: $("#password").val(), nickname: $("#nickname").val(), email: $("#email").val() },
+                        dataType: "json",
+                        async: false,
+                        success: showdata_reg,
+                        error: function () {
+                            alert("註冊錯誤-api/reg_api.php");
+                        }
+                    });
+                } else {
+                    //欄位輸入錯誤
+                    alert("欄位輸入錯誤, 請修正!");
+                }
+            });
+            //按鈕監聽login_btn
+            $("#login_btn").click(function () {
+                console.log($("#login_username").val());
+                console.log($("#login_password").val());
+
+                //傳遞至 login_api.php 執行登入行為
+                $.ajax({
+                    type: "POST",
+                    url: "api/login_api.php",
+                    data: { username: $("#login_username").val(), password: $("#login_password").val() },
+                    dataType: "json",
+                    success: showdata_login,
+                    error: function () {
+                        alert("登入相關錯誤-api/login_api.php");
+                    }
+                });
+            });
+            //監聽登出按鈕 #s20_logout_btn
+            $("#s20_logout_btn").click(function () {
+                logout();
+            });
+        });
+
+        function showdata_reg(data) {
+            console.log(data);
+            if (data.state) {
+                alert(data.message);
+                $("#registerModal").modal("hide");
+                $("#loginModal").modal("show");
+            } else {
+                alert(data.message);
+            }
+        }
+
+        function showdata_check_uni(data) {
+            //考慮帳號可否使用和帳號是否符合規則的提示feedback顯示時機??
+            console.log(data);
+            if (data.state) {
+                //此帳號不存在，可以使用
+                $("#valid_message").text("此帳號不存在，可以使用");
+                $("#username").removeClass("is-invalid");
+                $("#username").addClass("is-valid");
+                flag_username = true;
+            } else {
+                //此帳號存在，不可以使用
+                $("#invalid_message").text("此帳號存在，不可以使用");
+                $("#username").removeClass("is-valid");
+                $("#username").addClass("is-invalid");
+                flag_username = false;
+            }
+        }
+
+        function showdata_login(data) {
+            console.log(data);
+            if (data.state) {
+                if (data.data[0].UserState == 'true') {
+                    //帳號被啟用
+                    //登入成功
+                    alert(data.message);
+                    //將uid存入cookie
+                    setCookie('uid01', data.data[0].Uid01, 7);
+                    //loginModal 隱藏
+                    $("#loginModal").modal("hide");
+
+                    //1. 登入 s20_login_btn 按鈕隱藏
+                    //2. 註冊 s20_register_btn 按鈕隱藏
+                    //3. 顯示 後台管理 按鈕(可連結至control panel)
+
+                    $("#s20_login_btn").addClass('d-none');
+                    $("#s20_register_btn").addClass('d-none');
+                    $("#s20_control_btn").removeClass('d-none');
+
+
+                    //顯示歡迎詞
+                    $("#login_meaasge").removeClass('d-none');
+                    $("#login_meaasge").text('歡迎會員: ' + data.data[0].Username);
+
+                    //顯示登出按鈕
+                    $("#s20_logout_btn").removeClass('d-none');
+
+                    // location.href = "20230810-control_panel.html";                    
+                } else {
+                    //帳號被停權
+                    alert("此帳號被停權, 請聯絡管理員!");
+                }
+
+            } else {
+                //登入失敗
+                alert(data.message);
+            }
+        }
+
+        function showdata_check_uid(data) {
+            console.log(data);
+            if (data.state) {
+                //驗證成功 表示已登入
+                //1. 登入 s20_login_btn 按鈕隱藏
+                //2. 註冊 s20_register_btn 按鈕隱藏
+                //3. 顯示 後台管理 按鈕(可連結至control panel)
+
+                $("#s20_login_btn").addClass('d-none');
+                $("#s20_register_btn").addClass('d-none');
+                $("#s20_control_btn").removeClass('d-none');
+
+                //顯示歡迎詞
+                $("#login_meaasge").removeClass('d-none');
+                $("#login_meaasge").text('歡迎會員: ' + data.data[0].Username);
+
+                //顯示登出按鈕
+                $("#s20_logout_btn").removeClass('d-none');
+            } else {
+                //驗證失敗 需要重新登入
+                $("#loginModal").modal("show");
+            }
+        }
+
+        //登出帳號
+        //刪除uid並重整畫面
+        function logout() {
+            setCookie('uid01', '', 7);
+            location.href = "index.html";
+        }
+
+
+
+        // w3c 
+        function setCookie(cname, cvalue, exdays) {
+            const d = new Date();
+            d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+            let expires = "expires=" + d.toUTCString();
+            document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+        }
+
+        function getCookie(cname) {
+            let name = cname + "=";
+            let decodedCookie = decodeURIComponent(document.cookie);
+            let ca = decodedCookie.split(';');
+            for (let i = 0; i < ca.length; i++) {
+                let c = ca[i];
+                while (c.charAt(0) == ' ') {
+                    c = c.substring(1);
+                }
+                if (c.indexOf(name) == 0) {
+                    return c.substring(name.length, c.length);
+                }
+            }
+            return "";
+        }
+    </script>
+    <script>
         new WOW().init();
     </script>
-
 </body>
 
 </html>

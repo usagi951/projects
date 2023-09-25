@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vue 教學</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/my.css">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/animate.css_4.1.1_animate.min.css">
+    <style>
+        .banner {
+            background-image: url(images/Kaohsiung/01.jpg);
+            height: 300px;
+        }
+
+        .card-height {
+            height: 180px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div class="banner bg-cover">
+            <div class="display-2 fw-900 text-white p-5">{{ title }}</div>
+        </div>
+        <div class="container">
+            <div class="row justify-content-center" style="margin-top: -20px;">
+                <div class="col-md-6">
+                    <select name="" id="" class="form-control" v-model="currentLocation">
+                        <option value="">-----全部-----</option>
+                        <option :value="item" v-for="(item, key) in regions">
+                            {{ item }}
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-lg-3 mt-4" v-for="(item, key) in filterData[currentPage]">
+                    <div class="card border-black h-100">
+                        <!-- vue裡面不能有-(減號) background-image 須改為 backgroundImage-->
+                        <div :style="{backgroundImage: 'url('+item.Picture1+')'}" class="bg-cover card-height"></div>
+                        <div class="card-body">
+                            <h5><i class="fa-solid fa-earth-americas text-info me-2"></i>名稱: {{ item.Name }}</h5>
+                            <h5><i class="fa-regular fa-clock text-success me-2"></i>營業時間: {{ item.Opentime
+                                }}</h5>
+                            <h5><i class="fa-solid fa-location-dot me-2 text-danger"></i>地址: {{ item.Add }}</h5>
+                            <h5><i class="fa-solid fa-phone me-2 text-warning"></i>電話: {{ item.Tel }}</h5>
+                            <h5 v-if="item.Ticketinfo"><i class="fa-solid fa-money-bill-wave me-2 text-primary"></i>費用:
+                                {{ item.Ticketinfo }}</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-3 me-5 justify-content-center">
+                <div class="col-5">
+                    <nav aria-label="Page navigation example">
+                        <ul class="pagination">
+                            <li class="page-item">
+                                <a class="page-link" href="#" aria-label="Previous" @click="prevPage">
+                                    <span aria-hidden="true">&laquo;</span>
+                                </a>
+                            </li>
+                            <li class="page-item" v-for="item in filterData.length">
+                                <a class="page-link" href="#" @click="currentPage = item-1">{{ item }}</a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" href="#" aria-label="Next" @click="nextPage">
+                                    <span aria-hidden="true">&raquo;</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery-3.7.0.min.js"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+    <script>
+        const App = {
+            data() {
+                return {
+                    title: '高雄好好行',
+                    data: [],
+                    currentPage: 0,
+                    regions: [], // 紀錄有幾個行政區
+                    currentLocation: '',  // 紀錄目前所選取的區
+                }
+            },
+            created() {
+                // const url = 'https://api.kcg.gov.tw/api/service/get/9c8e1450-e833-499c-8320-29b36b7ace5c';
+                const vm = this;
+                const url = 'js/kaohsiung.json';
+                // js/kaohsiung.json?results=300
+                axios.get(url)
+                    .then(function (response) {
+                        // handle success
+                        console.log(response.data.data.XML_Head.Infos.Info);
+                        vm.data = response.data.data.XML_Head.Infos.Info;
+                        vm.getRegion();
+                    })
+                    .catch(function (error) {
+                        // handle error
+                        console.log(error);
+                    })
+                    .finally(function () {
+                        // always executed
+                    });
+            },
+            computed: {
+                // 過濾 ******important
+                filterData() {
+                    const vm = this;
+                    let items = []; // 收集決定區域後塞選的資料
+
+                    // 判斷有選擇那一區的資料
+                    if (vm.currentLocation != '') {
+                        // 方法一
+                        // vm.data.forEach((item, key) => {
+                        //     if(item.Add.substring(6, item.Add.indexOf('區', 0) + 1) == vm.currentLocation){
+                        //         items.push(item)
+                        //     }
+                        // });
+
+                        // 方法二
+                        items = vm.data.filter((item, key) => {
+                            return item.Add.substring(6, item.Add.indexOf('區', 0) + 1) == vm.currentLocation
+                        });
+                    } else {
+                        // 顯示全部
+                        items = vm.data;
+                    }
+                    const newData = [];
+                    items.forEach((item, key) => {
+                        // key % 30
+                        if (key % 24 == 0) {
+                            newData.push([]);
+                        }
+                        const page = parseInt(key / 24); //無條件捨去 取正整數
+                        newData[page].push(item);
+                    });
+                    return newData;
+                }
+            },
+            methods: {
+                getRegion() {
+                    const vm = this;
+
+                    const regions = new Set(); // Set() 一個抽象的資料結構 只能存放唯一一筆資料，不會重複
+                    vm.data.forEach((item, key) => {
+                        // 方法一: 直接斷定字數
+                        // console.log(item.Add.substring(6, 9));
+                        // 從第幾個位置抓到第幾個位置
+
+                        // 方法二 判斷'區'出現的位置在覺得抓取的字數
+                        // console.log(item.Add.indexOf('區',0));
+                        // console.log(item.Add.substring(6, item.Add.indexOf('區',0)+1));
+                        // set非陣列 add專給set使用
+                        regions.add(item.Add.substring(6, item.Add.indexOf('區', 0) + 1));
+                    });
+                    vm.regions = Array.from(regions);
+                },
+                // 上一頁
+                prevPage() {
+                    if (this.currentPage > 0) {
+                        this.currentPage--;
+                    }
+                },
+                // 下一頁
+                nextPage() {
+                    if (this.currentPage < this.filterData.length - 1) {
+                        this.currentPage++;
+                    }
+                }
+            }
+        }
+        Vue.createApp(App).mount('#app');
+    </script>
+</body>
+
+</html>

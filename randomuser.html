@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>會員管理系統</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/my.css">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/animate.css_4.1.1_animate.min.css">
+    <style>
+        .banner {
+            background-image: url(images/bg008.jpg);
+            height: 280px;
+        }
+
+        .card-height {
+            height: 180px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div class="banner bg-cover">
+            <div class="display-1 fw-900 text-white p-5">{{ title }}</div>
+        </div>
+        <div class="container-xxl">
+            <div class="row justify-content-center" style="margin-top: -20px;">
+                <div class="col-md-6">
+                    <select name="" id="" class="form-control" v-model="currentLocation">
+                        <option value="">-----全部-----</option>
+                        <option :value="item" v-for="(item, key) in regions">
+                            {{ item }}
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-lg-3 mt-4" v-for="(item, key) in filterData[currentPage]">
+                    <div class="card border-danger h-100">
+                        <div :style="{backgroundImage: 'url('+item.picture.large+')'}" class="bg-cover card-height">
+                        </div>
+                        <div class="card-body d-flex flex-column">
+                            <h5><i class="fa-regular fa-clock text-success me-2"></i>姓名: {{ item.name.title }} {{
+                                item.name.first }} {{ item.name.last }}</h5>
+                            <h5><i class="fa-solid fa-location-dot text-danger me-2"></i>城市: {{ item.location.city }}
+                            </h5>
+                            <h5><i class="fa-solid fa-phone text-warning me-2"></i>電話: {{ item.phone }}</h5>
+                            <button class="btn btn-outline-danger w-100 mt-auto">編輯</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-3 me-5 justify-content-center">
+                <div class="col-2">
+                    <nav aria-label="Page navigation example">
+                        <ul class="pagination">
+                            <li class="page-item">
+                                <a class="page-link" href="#" aria-label="Previous" @click="prevPage">
+                                    <span aria-hidden="true">&laquo;</span>
+                                </a>
+                            </li>
+                            <li class="page-item" v-for="item in filterData.length">
+                                <a class="page-link" href="#" @click="currentPage = item-1">{{ item }}</a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" href="#" aria-label="Next" @click="nextPage">
+                                    <span aria-hidden="true">&raquo;</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery-3.7.0.min.js"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+    <script>
+        const App = {
+            data() {
+                return {
+                    title: '會員系統管理',
+                    data: [],
+                    currentPage: 0,
+                    regions: [],    //紀錄有幾個行政區
+                    currentLocation: '',    //紀錄目前所選取的區
+                }
+            },
+            created() {
+                // const url = 'https://api.kcg.gov.tw/api/service/get/9c8e1450-e833-499c-8320-29b36b7ace5c';
+
+                const vm = this;
+                const url = 'https://randomuser.me/api/?seed=foobar&results=60';
+                axios.get(url)
+                    .then(function (response) {
+                        // handle success
+                        console.log(response.data.results);
+                        vm.data = response.data.results;
+                        vm.getRegion();
+                    })
+                    .catch(function (error) {
+                        // handle error
+                        console.log(error);
+                    })
+                    .finally(function () {
+                        // always executed
+                    });
+            },
+            computed: {
+                filterData() {
+                    const vm = this;
+                    let items = []; //收集決定區域後塞選的資料
+
+                    if (vm.currentLocation != '') {
+                        //方法一
+                        // vm.data.forEach((item, key) => {
+                        //     if(item.Add.substring(6, item.Add.indexOf('區',0)+1) == vm.currentLocation){
+                        //         items.push(item)
+                        //     }
+                        // });
+
+                        //方法二
+                        items = vm.data.filter((item, key) => {
+                            return item.gender == vm.currentLocation
+                        });
+                    } else {
+                        //顯示全部
+                        items = vm.data;
+                    }
+
+
+
+                    const newData = [];
+                    items.forEach((item, key) => {
+                        if (key % 12 == 0) {
+                            newData.push([]);
+                        }
+                        const page = parseInt(key / 12); //無條件捨去 取正整數
+                        newData[page].push(item);
+                    });
+                    return newData;
+                }
+            },
+            methods: {
+                getRegion() {
+                    const vm = this;
+
+                    const regions = new Set(); //Set() 一個抽象的資料結構 只能存放唯一一筆資料不會重複
+                    vm.data.forEach((item, key) => {
+                        //方法一: 直接斷定區名稱字數
+                        // console.log(item.Add.substring(6, 9));
+
+                        //方法二: 判斷'區'出現的位置在覺得抓取的字數
+                        // console.log(item.Add.indexOf('區',0));
+                        // console.log(item.Add.substring(6, item.Add.indexOf('區',0)+1));
+                        console.log(item.gender);
+                        regions.add(item.gender);
+                    });
+                    vm.regions = Array.from(regions);
+                },
+                // 上一頁
+                prevPage() {
+                    if (this.currentPage > 0) {
+                        this.currentPage--;
+                    }
+                },
+                // 下一頁
+                nextPage() {
+                    if (this.currentPage < this.filterData.length - 1) {
+                        this.currentPage++;
+                    }
+                }
+            }
+        }
+        Vue.createApp(App).mount('#app');
+    </script>
+</body>
+
+</html>
