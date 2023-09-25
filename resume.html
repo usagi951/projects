@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>個人履歷</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/my.css">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/animate.css_4.1.1_animate.min.css">
+    <style>
+        body {
+            background: #fffafa;
+        }
+
+        .box {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            background-color: indianred;
+            background-image: url(images/personal/photo.jpg);
+        }
+
+        .box-2 {
+            width: 140px;
+            height: 35px;
+            border-radius: 5px;
+            background: var(--mycolor15);
+            border: 2px solid var(--mycolor01);
+            text-align: center;
+            padding: 6px;
+        }
+
+        .timeline-section {
+            position: relative;
+        }
+
+        .timeline-section:before {
+            position: absolute;
+            content: "";
+            top: 8px;
+            bottom: 8px;
+            width: 2px;
+            background-color: gray;
+            /* left: 50%; */
+            left: 18px;
+            transform: translateX(-15%);
+        }
+
+        .timeline-section-pointer {
+            position: relative;
+        }
+
+        .timeline-section-pointer:before {
+            position: absolute;
+            content: "";
+
+            width: 10px;
+            height: 10px;
+            border-radius: 15px;
+            border: 2px solid var(--mycolor01);
+            background-color: var(--mycolor03);
+            left: -20px;
+            transform: translateX(-20%);
+            top: 5px;
+            /* left: 50%;
+            */
+        }
+
+        .timeline-section-pointer:hover:before {
+            width: 15px;
+            height: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div class="container mt-3 border border-2 p-5 rounded-3">
+            <div class="row d-flex">
+                <div class="col-md-4">
+                    <div class="box bg-cover mb-2"></div>
+                </div>
+                <div class="col-md-4 mt-3">
+                    <h3 class="mb-5 fw-900">{{ name }}</h3>
+                    <h5 class="fw-900">應徵職位：{{ dowork }}</h5>
+                </div>
+                <div class="col-md-4 mt-3">
+                    <p><i class="fa-solid fa-user me-2"></i>{{ born }}</p>
+                    <p><i class="fa-solid fa-location-dot me-2"></i>{{ location }}</p>
+                    <p><i class="fa-solid fa-phone me-2"></i>{{ tel }}</p>
+                    <p><i class="fa-solid fa-envelope me-2"></i>{{ email }}</p>
+                    <p><i class="fa-solid fa-link"></i>
+                        <a class="nav-link mt-2" href="https://twitter.com/" target="_blank"><i
+                                class="fa-brands fa-github fa-2x"></i></a>
+                    </p>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-md-12">
+                    <h5 class="text-primary box-2 mb-3 fw-900"><i class="fa-solid fa-chalkboard-user me-2"></i></i>專業培訓
+                    </h5>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p class="ms-4">台中職訓局<span class="ms-3">雲端應用實務課程</span></p>
+                            <p class="ms-5">2023.04 ~ 2023.09</p>
+                        </div>
+                        <div class="col-md-6">
+                            <p>【課程內容】</p>
+                            <p class="timeline-section-pointer ms-4">伺服器(Linux)架設與應用</p>
+                            <p class="timeline-section-pointer ms-4">Android 程式設計</p>
+                            <p class="timeline-section-pointer ms-4">Java 程式設計</p>
+                            <p class="timeline-section-pointer ms-4">PHP&MySQL 程式設計</p>
+                            <p class="timeline-section-pointer ms-4">前端網頁程式設計實習</p>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div class="col-md-12">
+                    <h5 class="text-primary box-2 fw-900"><i class="fa-solid fa-key me-2"></i></i>專長</h5>
+                    <div class="row justify-content-around">
+                        <div class="col-md-4">
+                            <p class="mt-2">前端與框架</p>
+                            <hr>
+                            <p class="timeline-section-pointer ms-4">Html (Vue)</p>
+                            <p class="timeline-section-pointer ms-4">CSS (Bootstrap)</p>
+                            <p class="timeline-section-pointer ms-4">JavaScript / jQuery</p>
+                            <p class="timeline-section-pointer ms-4">REST API</p>
+                        </div>
+                        <div class="col-md-4">
+                            <p class="mt-2">後端與框架</p>
+                            <hr>
+                            <p class="timeline-section-pointer ms-4">Node.js</p>
+                            <p class="timeline-section-pointer ms-4">Java</p>
+                            <p class="timeline-section-pointer ms-4">PHP (Laravel)</p>
+                            <p class="timeline-section-pointer ms-4">MySQL</p>
+                        </div>
+                        <div class="col-md-4">
+                            <p class="mt-2">其他</p>
+                            <hr>
+                            <p class="timeline-section-pointer ms-4">Android Studio</p>
+                            <p class="timeline-section-pointer ms-4">Linux</p>
+                            <p class="timeline-section-pointer ms-4">Ubuntu</p>
+                            <p class="timeline-section-pointer ms-4">Git / Github</p>
+                            <p class="timeline-section-pointer ms-4">SSH</p>
+                        </div>
+
+                    </div>
+
+                </div>
+                <hr>
+                <div class="col-md-12">
+                    <h5 class="text-primary box-2 mb-3 fw-900"><i class="fa-solid fa-graduation-cap me-2"></i>教育程度
+                    </h5>
+                    <div class="row timeline-section ms-3 mb-2">
+                        <div class="col-md-12">
+                            <p class="ms-4 timeline-section-pointer">僑光科技大學<span class="ms-3">企業管理系</span></p>
+                            <p class="ms-5">2016.09 ~ 2020.06<span class="ms-3">畢業</span></p>
+                        </div>
+                        <div class="col-md-12">
+                            <p class="ms-4 timeline-section-pointer">明道中學<span class="ms-3">餐飲科</span></p>
+                            <p class="ms-5">2013.09 ~ 2016.06<span class="ms-3">畢業</span></p>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div class="col-md-12">
+                    <h5 class="text-primary box-2 mb-3 fw-900"><i class="fa-solid fa-briefcase me-2"></i>工作經驗</h5>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p class="ms-4">統一超商7-11<span class="ms-3">門市人員</span></p>
+                            <p class="ms-5">2022.01 ~ 2023.02</p>
+                        </div>
+                        <div class="col-md-6">
+                            <p>【工作內容】</p>
+                            <p class="timeline-section-pointer ms-4">陳列商品、維持營業場所的整潔與美觀</p>
+                            <p class="timeline-section-pointer ms-4">POS系統收銀機操作、結帳</p>
+                            <p class="timeline-section-pointer ms-4">寄物和顧客服務工作</p>
+                            <p class="timeline-section-pointer ms-4">工作場所環境清潔整理</p>
+                            <p class="timeline-section-pointer ms-4">狀況處裡應對、訓練新人</p>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div class="col-md-12">
+                    <h5 class="text-primary box-2 mb-3 fw-900"><i class="fa-solid fa-pen-to-square me-2"></i></i>自傳
+                    </h5>
+                    <p>　　在一年的超商門市工作中，我學到了不少關於生活和工作的重要教訓，特別是關於不斷進步和發展的價值。這段時間內，我體悟到，只有擁有一技之長，我才能夠更好地實現個人目標和追求更高的生活品質。
+                    </p>
+                    <p>　　因此，我做出了一個重大決定，辭去了我的超商工作，並報名了職訓局的課程，專注學習程式語言和技術。這是一個艱難的轉變，但我深信這是通向更具挑戰性和有意義的職業生涯的關鍵一步。在課程中，我不僅學到了前端技術Html、CSS、JavaScript、Vue.js的專題開發、與後端資料REST
+                        API串接，以及Android Studio程式開發撰寫經驗，還培養了解決問題、Debug、團隊合作和持續學習的能力。
+                    </p>
+                    <p>　　這個決定不僅改變了我的職業軌跡，還深刻地影響了我的價值觀。我現在更加珍惜學習和成長的機會，並尊重那些追求自己夢想的人。我深信，不論年齡或背景如何，我們都應該追求自己的抱負和目標。</p>
+                    <p>　　這個過程也讓我意識到，生活中的轉變和挑戰可以成為我們成長的機會。我已經準備好投身於新的職業領域，並不斷提升自己，以實現更多的夢想和目標。</p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+        const App = {
+            data() {
+                return {
+                    name: '吳佳蓉',
+                    dowork: '程式開發助理工程師',
+                    tel: '0981701070',
+                    born: '1997/09/30',
+                    location: '台中市烏日區',
+                    email: 'papaushi951@gmail.com',
+                }
+            },
+        }
+        Vue.createApp(App).mount('#app');
+    </script>
+</body>
+
+</html>
