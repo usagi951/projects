@@ -32,6 +32,7 @@
 
 body {
     font-family: 'Josefin Sans', sans-serif;
+    
 }
 
 .demo {
@@ -58,12 +59,6 @@ body {
 
 .fw-900 {
     font-weight: 900;
-}
-
-.demo {
-    border: 5px solid var(--mycolor04);
-    margin: 15px;
-    padding: 15px;
 }
 
 .box01{
@@ -109,3 +104,69 @@ body {
     width: 1px;
 }
 
+.nav_area {
+    position: fixed;
+    top: 20%;
+    right: 0;
+}
+
+.nav_area ul {
+    margin: 10px;
+    padding: 10px;
+    
+}
+
+.nav_area ul li {
+    list-style-type: none;
+    display: block;
+    margin: 0;
+    font-size: 20px;
+    text-align: center;
+}
+.box07 {
+    width: 50px;
+    height: 140px;
+    background-color: white;
+    border-radius: 50px;
+}
+
+.box08 {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.link_top {
+    position: fixed;
+    bottom: 20px;
+    right: 10px;
+}
+
+.link_top ul {
+    margin: 1px;
+    padding: 1px;
+}
+
+.link_top ul li {
+    list-style-type: none;
+    display: block;
+    font-size: 20px;
+    text-align: center;
+}
+
+.c_text {
+    color: #ffffff;
+    background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5));
+    padding: 15px;
+    margin: 15px;
+    border-radius: 15px;
+}
+
+.copyright {
+    padding: 100px 0px 10px;
+    text-align: center;
+    font-display: swap;
+    font-style: italic;
+    letter-spacing: .15em;
+    margin-left: auto;
+}
